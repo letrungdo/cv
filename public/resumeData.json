@@ -1,0 +1,124 @@
+{
+  "main": {
+    "name": "Le Trung Do",
+    "occupation": "Xamarin, React Developer",
+    "description": "",
+    "image": "profilepic.jpg",
+    "bio": "",
+    "contactmessage": "",
+    "email": "letrdo@gmail.com",
+    "phone": "+84963273900",
+    "address": {
+      "street": "Tan Phu District",
+      "city": "Ho Chi Minh City",
+      "state": "",
+      "zip": "700000"
+    },
+    "website": "https://xn--t-lia.vn",
+    "resumedownload": "https://i.topcv.vn/letrungdo?ref=1893460",
+    "social": [
+      {
+        "name": "facebook",
+        "url": "https://facebook.com/DoMemory",
+        "className": "fa fa-facebook"
+      },
+      {
+        "name": "twitter",
+        "url": "https://twitter.com/letrungdo",
+        "className": "fa fa-twitter"
+      },
+      {
+        "name": "google-plus",
+        "url": "http://googleplus.com/letrdo",
+        "className": "fa fa-google-plus"
+      },
+      {
+        "name": "linkedin",
+        "url": "https://linkedin.com/in/letrungdo",
+        "className": "fa fa-linkedin"
+      },
+      {
+        "name": "instagram",
+        "url": "https://instagram.com/letrungdo",
+        "className": "fa fa-instagram"
+      },
+      {
+        "name": "github",
+        "url": "https://github.com/letrungdo",
+        "className": "fa fa-github"
+      },
+      {
+        "name": "skype",
+        "url": "https://skype.com/ltdhacker",
+        "className": "fa fa-skype"
+      }
+    ]
+  },
+  "resume": {
+    "skillmessage": "Main skills",
+    "education": [
+      {
+        "school": "HO CHI MINH CITY UNIVERSITY OF FOOD INDUSTRY",
+        "degree": "Software Engineer",
+        "graduated": "Oct 2018",
+        "description": "Degree grade: Good, GPA: 3.3/4"
+      }
+    ],
+    "work": [
+      {
+        "company": "GMO-Z.COM RUNSYSTEM",
+        "title": "Xamarin Forms Developer",
+        "years": "Dec 2017 - Present",
+        "description": ""
+      },
+      {
+        "company": "ENTERPRISE ARCHITECTURE PHILIPPINES",
+        "title": "Xamarin Forms Developer",
+        "years": "Dec 2018 - Aug 2019",
+        "description": ""
+      }
+    ],
+    "skills": [
+      {
+        "name": "Git",
+        "level": "80%"
+      },
+      {
+        "name": "Xamarin Forms",
+        "level": "90%"
+      },
+      {
+        "name": "ReactJs",
+        "level": "80%"
+      },
+      {
+        "name": "Typescript",
+        "level": "60%"
+      }
+    ]
+  },
+  "portfolio": {
+    "projects": [
+      {
+        "title": "Sys-FX",
+        "category": "Securities application makes customers Japanese",
+        "image": "sys-fx.png",
+        "url": "https://kabu.com/app/sysfx/default.html"
+      },
+      {
+        "title": "Bmoji",
+        "category": "Bmoji allows you to create your very own custom designed emoji app",
+        "image": "bmoji.png",
+        "url": "https://thebmoji.com"
+      }
+    ]
+  },
+  "testimonials": {
+    "testimonials": [
+      {
+        "text": "",
+        "user": ""
+      }
+    ]
+  }
+}
