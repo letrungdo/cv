@@ -20,5 +20,5 @@ export interface IMainInfo {
     phone: string;
     email: string;
     resumedownload: string;
-
+    contactmessage: string;
   }

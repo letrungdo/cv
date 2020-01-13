@@ -10,7 +10,6 @@ import About from "./components/About";
 import Resume from "./components/Resume";
 import Contact from "./components/Contact";
 import Portfolio from "./components/Portfolio";
-import Testimonials from "./components/Testimonials";
 
 interface Props {}
 interface IResumeData {
@@ -64,7 +63,6 @@ class App extends Component<Props, State> {
         <About data={this.state.resumeData.main} />
         <Resume data={this.state.resumeData.resume} />
         <Portfolio data={this.state.resumeData.portfolio} />
-        <Testimonials data={this.state.resumeData.testimonials} />
         <Contact data={this.state.resumeData.main} />
         <Footer data={this.state.resumeData.main} />
       </div>

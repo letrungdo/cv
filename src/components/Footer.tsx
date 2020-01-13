@@ -20,10 +20,9 @@ class Footer extends Component<Props> {
 
     return (
       <footer>
-        <div className="row">
-          <div className="twelve columns">
-            <ul className="social-links">{networks}</ul>
-
+        <div className="row container-fluid">
+          <div className="col-12">
+            <ul className="social">{networks}</ul>
             <ul className="copyright">
               <li>&copy; Copyright {new Date().getFullYear()} </li>
               <li>
@@ -35,8 +34,8 @@ class Footer extends Component<Props> {
             </ul>
           </div>
           <div id="go-top">
-            <a className="smoothscroll" title="Back to Top" href="#home">
-              <i className="icon-up-open"></i>
+            <a title="Back to Top" href="#home">
+              <i className="fa fa-chevron-circle-up fa-3x"></i>
             </a>
           </div>
         </div>
