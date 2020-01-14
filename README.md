@@ -27,8 +27,25 @@
 yarn install
 ```
 
-## Setup Checklist
-- (VSCode) Install Extension: ESLint & Prettier - Code formatter
+## Setup Checklist (VsCode)
+- Install Extension: ESLint & Prettier - Code formatter
+- Setup auto format when save:
+In VsCode, Select Menu Preferences > Settings > Extensions > ESLint
+Click "Edit in settings.json" and add below code:
+
+```json
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript", 
+    "typescriptreact", 
+  ]
+}
+```
 
 ## Run Checklist (Auto fix follow rule of eslint & prettier)
 
