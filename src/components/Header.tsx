@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { IMainInfo } from "../Models/MainInfo";
+import { SmoothScroll } from "../utils/SmoothScroll";
 
 interface Props {
   data: IMainInfo;
@@ -45,29 +46,44 @@ class Header extends Component<Props> {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item active">
-                <a className="nav-link" href="#home">
+                <div
+                  className="nav-link"
+                  onClick={() => SmoothScroll.scrollTo("home")}
+                >
                   Home <span className="sr-only">(current)</span>
-                </a>
+                </div>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#about">
+                <div
+                  className="nav-link"
+                  onClick={() => SmoothScroll.scrollTo("about")}
+                >
                   About
-                </a>
+                </div>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#resume">
+                <div
+                  className="nav-link"
+                  onClick={() => SmoothScroll.scrollTo("resume")}
+                >
                   Resume
-                </a>
+                </div>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#portfolio">
+                <div
+                  className="nav-link"
+                  onClick={() => SmoothScroll.scrollTo("portfolio")}
+                >
                   Portfolio
-                </a>
+                </div>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#contact">
+                <div
+                  className="nav-link"
+                  onClick={() => SmoothScroll.scrollTo("contact")}
+                >
                   Contact
-                </a>
+                </div>
               </li>
             </ul>
           </div>

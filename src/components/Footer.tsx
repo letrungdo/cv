@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { IMainInfo } from "../Models/MainInfo";
+import { SmoothScroll } from "../utils/SmoothScroll";
 
 interface Props {
   data: IMainInfo;
@@ -33,10 +34,8 @@ class Footer extends Component<Props> {
               </li>
             </ul>
           </div>
-          <div id="go-top">
-            <a title="Back to Top" href="#home">
-              <i className="fa fa-chevron-circle-up fa-3x"></i>
-            </a>
+          <div id="go-top" onClick={() => SmoothScroll.scrollTo("home")}>
+            <i className="fa fa-chevron-circle-up fa-3x"></i>
           </div>
         </div>
       </footer>

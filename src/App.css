@@ -473,9 +473,10 @@ footer .copyright li {
   -o-transition: all 0.2s ease-in-out;
   -ms-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  color: #0f9095;
 }
 #go-top i:hover {
-  color: #0f9095;
+  color: darkorange;
 }
 
 /* ------ Social links ------------------------------------------------------------ */
