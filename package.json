@@ -1,6 +1,17 @@
 {
   "name": "doltcv",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "description": "Le Trung Do CV",
+  "author": "Le Trung Do",
+  "license": "MIT",
+  "homepage": "https://github.com/letrungdo/cv#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/letrungdo/cv.git"
+  },
+  "bugs": {
+    "url": "https://github.com/letrungdo/cv/issues"
+  },
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.8.3",
