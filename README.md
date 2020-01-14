@@ -19,7 +19,7 @@
 
 ### 🏠 [Homepage](https://github.com/letrungdo/cv#readme)
 
-### ✨ [Demo](cv.xn--t-lia.vn)
+### ✨ [Demo](https://cv.xn--t-lia.vn)
 
 ## Install
 
@@ -27,13 +27,10 @@
 yarn install
 ```
 
-## Usage
+## Setup Checklist
+- (VSCode) Install Extension: ESLint & Prettier - Code formatter
 
-```sh
-yarn start
-```
-
-## Run Checklist
+## Run Checklist (Auto fix follow rule of eslint & prettier)
 
 ```sh
 yarn lint
