@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 import "./App.css";
 import $ from "jquery";
 import ReactGA from "react-ga";
@@ -12,16 +12,24 @@ import Contact from "./components/Contact";
 import Portfolio from "./components/Portfolio";
 
 interface Props {}
+
 interface ResumeData {
     main: MainInfo;
     resume: any;
-    portfolio: any;
     testimonials: any;
 }
 interface State {
     foo: string;
     resumeData: ResumeData;
 }
+
+// loading component for suspense fallback
+const Loader = () => (
+    <div className="App">
+        {/* todo */}
+        <div>loading...</div>
+    </div>
+);
 
 class App extends Component<Props, State> {
     static defaultProps = {};
@@ -42,7 +50,6 @@ class App extends Component<Props, State> {
             dataType: "json",
             cache: false,
             success: function(this: App, data: ResumeData) {
-                console.log(data);
                 this.setState({ resumeData: data });
             }.bind(this),
             error: function(xhr, status, err) {
@@ -58,14 +65,16 @@ class App extends Component<Props, State> {
 
     render() {
         return (
-            <div className="App">
-                <Header data={this.state.resumeData.main} />
-                <About data={this.state.resumeData.main} />
-                <Resume data={this.state.resumeData.resume} />
-                <Portfolio data={this.state.resumeData.portfolio} />
-                <Contact data={this.state.resumeData.main} />
-                <Footer data={this.state.resumeData.main} />
-            </div>
+            <Suspense fallback={<Loader />}>
+                <div className="App">
+                    <Header data={this.state.resumeData.main} />
+                    <About data={this.state.resumeData.main} />
+                    <Resume data={this.state.resumeData.resume} />
+                    <Portfolio />
+                    <Contact data={this.state.resumeData.main} />
+                    <Footer data={this.state.resumeData.main} />
+                </div>
+            </Suspense>
         );
     }
 }

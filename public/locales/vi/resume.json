@@ -1,0 +1,43 @@
+{
+    "skillmessage": "",
+    "education": [
+        {
+            "school": "Ho Chi Minh city Univercity of Food Industry",
+            "degree": "Software Engineer",
+            "graduated": "Oct 2018",
+            "description": "Degree grade: Good, GPA: 3.3/4"
+        }
+    ],
+    "work": [
+        {
+            "company": "GMO-Z.com RUNSYSTEM",
+            "title": "Xamarin Forms Developer",
+            "years": "Dec 2017 - Present",
+            "description": ""
+        },
+        {
+            "company": "Enterprise Architecture Philippines",
+            "title": "Xamarin Forms Developer",
+            "years": "Dec 2018 - Aug 2019",
+            "description": ""
+        }
+    ],
+    "skills": [
+        {
+            "name": "Git",
+            "level": "80%"
+        },
+        {
+            "name": "Xamarin Forms",
+            "level": "90%"
+        },
+        {
+            "name": "ReactJs",
+            "level": "80%"
+        },
+        {
+            "name": "Typescript",
+            "level": "60%"
+        }
+    ]
+}

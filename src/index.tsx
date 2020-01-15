@@ -6,6 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import indexReducer from "./reducers/index";
+import "./i18n";
 
 ReactDOM.render(
     <Provider store={createStore(indexReducer)}>

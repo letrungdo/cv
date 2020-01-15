@@ -1,0 +1,16 @@
+{
+    "projects": [
+        {
+            "title": "Sys-FX",
+            "category": "App chứng khoán cho khách hàng Nhật",
+            "image": "sys-fx.png",
+            "url": "https://kabu.com/app/sysfx/default.html"
+        },
+        {
+            "title": "Bmoji",
+            "category": "Tạo biểu tượng cảm xúc gửi tin nhắn",
+            "image": "bmoji.png",
+            "url": "https://thebmoji.com"
+        }
+    ]
+}

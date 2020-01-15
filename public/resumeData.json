@@ -86,21 +86,5 @@
         "level": "60%"
       }
     ]
-  },
-  "portfolio": {
-    "projects": [
-      {
-        "title": "Sys-FX",
-        "category": "Securities application makes customers Japanese",
-        "image": "sys-fx.png",
-        "url": "https://kabu.com/app/sysfx/default.html"
-      },
-      {
-        "title": "Bmoji",
-        "category": "Bmoji allows you to create your very own custom designed emoji app",
-        "image": "bmoji.png",
-        "url": "https://thebmoji.com"
-      }
-    ]
   }
 }

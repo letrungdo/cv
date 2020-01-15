@@ -1,24 +1,26 @@
 import React, { Component } from "react";
 import PortfolioInfo from "../Models/PortfolioInfo";
+import { withTranslation, WithTranslation } from "react-i18next";
 
-interface Props {
-    data: PortfolioInfo;
-}
+interface Props extends WithTranslation {}
 
 class Portfolio extends Component<Props> {
     render() {
-        if (!this.props.data) return "";
-        const projects = this.props.data.projects.map(function(projects) {
-            const projectImage = "images/portfolio/" + projects.image;
+        const { t } = this.props;
+        const data: PortfolioInfo[] = t("portfolio:projects", { returnObjects: true });
+
+        if (!data) return "";
+        const projects = data.map(function(project) {
+            const projectImage = "images/portfolio/" + project.image;
             return (
-                <div key={projects.title} className="p-2 col-xs-12 col-md-4 portfolio-item">
+                <div key={project.title} className="p-2 col-xs-12 col-md-4 portfolio-item">
                     <div className="item-wrap">
-                        <a href={projects.url} title={projects.title} rel="noopener noreferrer" target="_blank">
-                            <img alt={projects.title} src={projectImage} />
+                        <a href={project.url} title={project.title} rel="noopener noreferrer" target="_blank">
+                            <img alt={project.title} src={projectImage} />
                             <div className="overlay">
                                 <div className="portfolio-item-meta">
-                                    <h5>{projects.title}</h5>
-                                    <p>{projects.category}</p>
+                                    <h5>{project.title}</h5>
+                                    <p>{project.category}</p>
                                 </div>
                             </div>
                             <div className="link-icon">
@@ -43,4 +45,4 @@ class Portfolio extends Component<Props> {
     }
 }
 
-export default Portfolio;
+export default withTranslation(["common", "portfolio"])(Portfolio);

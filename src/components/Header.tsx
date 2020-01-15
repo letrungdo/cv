@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import { MainInfo } from "../Models/MainInfo";
 import { SmoothScroll } from "../utils/SmoothScroll";
+import { withTranslation, WithTranslation } from "react-i18next";
 
-interface Props {
+interface Props extends WithTranslation {
     data: MainInfo;
 }
 
 class Header extends Component<Props> {
     render() {
+        const { t, i18n } = this.props;
         if (!this.props.data) return "";
-        const { name, occupation, description } = this.props.data;
+        const { occupation, description } = this.props.data;
         const city = this.props.data.address.city;
         const networks = this.props.data.social.map(function(network) {
             return (
@@ -67,10 +69,29 @@ class Header extends Component<Props> {
                             </li>
                         </ul>
                     </div>
+                    <div className="dropdown">
+                        <button
+                            className="btn btn-secondary dropdown-toggle"
+                            type="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
+                            {i18n.language}
+                        </button>
+                        <div className="dropdown-menu dropdown-menu-lg-right">
+                            <button className="dropdown-item" type="button" onClick={() => i18n.changeLanguage("vi")}>
+                                Vietnamese
+                            </button>
+                            <button className="dropdown-item" type="button" onClick={() => i18n.changeLanguage("en")}>
+                                English
+                            </button>
+                        </div>
+                    </div>
                 </nav>
                 <div className="row banner">
                     <div className="banner-text">
-                        <h1 className="responsive-headline">I'm {name}.</h1>
+                        <h1 className="responsive-headline">I'm {t("main:name")}.</h1>
                         <h3>
                             I'm a {city} based <span>{occupation}</span>. {description}.
                         </h3>
@@ -83,4 +104,4 @@ class Header extends Component<Props> {
     }
 }
 
-export default Header;
+export default withTranslation("main")(Header);

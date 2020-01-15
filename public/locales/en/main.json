@@ -1,0 +1,45 @@
+{
+    "name": "Le Trung Do",
+    "occupation": "Xamarin, React Developer",
+    "description": "",
+    "image": "profilepic.jpg",
+    "bio": "",
+    "contactmessage": "",
+    "email": "letrdo@gmail.com",
+    "phone": "+84963273900",
+    "address": {
+        "street": "Tan Phu District",
+        "city": "Ho Chi Minh City",
+        "state": "",
+        "zip": "700000"
+    },
+    "website": "https://xn--t-lia.vn",
+    "resumedownload": "https://i.topcv.vn/letrungdo?ref=1893460",
+    "social": [
+        {
+            "name": "github",
+            "url": "https://github.com/letrungdo",
+            "className": "fa fa-github"
+        },
+        {
+            "name": "linkedin",
+            "url": "https://linkedin.com/in/letrungdo",
+            "className": "fa fa-linkedin"
+        },
+        {
+            "name": "twitter",
+            "url": "https://twitter.com/letrungdo",
+            "className": "fa fa-twitter"
+        },
+        {
+            "name": "facebook",
+            "url": "https://facebook.com/DoMemory",
+            "className": "fa fa-facebook"
+        },
+        {
+            "name": "instagram",
+            "url": "https://instagram.com/letrungdo",
+            "className": "fa fa-instagram"
+        }
+    ]
+}
