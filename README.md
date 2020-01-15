@@ -1,6 +1,9 @@
 <h1 align="center">Welcome to doltcv 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.1-blue.svg?cacheSeconds=2592000" />
+  <a href="https://doltcv.herokuapp.com/" target="_blank">
+    <img alt="heroku" src="https://heroku-badge.herokuapp.com/?app=doltcv&svg=1" />
+  </a>
   <a href="https://cv.xn--t-lia.vn" target="_blank">
     <img alt="netlify" src="https://api.netlify.com/api/v1/badges/67bed5dc-f202-4adf-a635-861deea77421/deploy-status" />
   </a>
