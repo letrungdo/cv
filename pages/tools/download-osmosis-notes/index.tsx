@@ -1,3 +1,4 @@
+import { Button } from "@material-ui/core";
 import Layout, { PageMeta } from "components/Layout";
 import FileSaver from "file-saver";
 import JSZip from "jszip";
@@ -37,8 +38,8 @@ class OsmosisNotes extends React.Component<{}, State> {
         });
     };
 
-    downloadSVGFronUrl = (src: string): Promise<string> => {
-        return new Promise((resolve) => {
+    downloadSVGFronUrl = (src: string) => {
+        return new Promise((resolve, reject) => {
             const img = new Image();
             img.setAttribute("style", "flex:1;margin:5px;height:400px;object-fit:contain;");
             img.crossOrigin = "anonymous";
@@ -47,6 +48,9 @@ class OsmosisNotes extends React.Component<{}, State> {
                 const imgData = canvas.toDataURL();
                 this.pngListRef.current?.appendChild(img);
                 resolve(imgData);
+            };
+            img.onerror = (err) => {
+                reject(err);
             };
 
             img.src = src;
@@ -87,21 +91,32 @@ class OsmosisNotes extends React.Component<{}, State> {
                 const zipFilename = "HemodynamicsNotes.zip";
                 urls.forEach(async (url, index) => {
                     const filename = `${prefixFilename}_page_${index + 1}.png`;
-                    const dataImg = await this.downloadSVGFronUrl(`https://cors-anywhere.herokuapp.com/${url}`);
-                    zip.file(filename, dataImg.split("base64,")[1], { base64: true });
+                    try {
+                        const dataImg = (await this.downloadSVGFronUrl(
+                            `https://cors-anywhere.herokuapp.com/${url}`,
+                        )) as string;
+                        zip.file(filename, dataImg.split("base64,")[1], { base64: true });
 
-                    if (index === urls.length - 1) {
-                        zip.generateAsync({ type: "blob" }).then((blob) => {
-                            FileSaver.saveAs(blob, zipFilename);
+                        if (index === urls.length - 1) {
+                            zip.generateAsync({ type: "blob" }).then((blob) => {
+                                FileSaver.saveAs(blob, zipFilename);
+                                this.setState({
+                                    downloading: false,
+                                    progress: 100,
+                                });
+                            });
+                        } else {
+                            this.setState((prev) => ({
+                                progress: prev.progress + pageCountPercent,
+                            }));
+                        }
+                    } catch (error) {
+                        if (index === urls.length - 1) {
+                            alert("Please allow CORS!");
                             this.setState({
                                 downloading: false,
-                                progress: 100,
                             });
-                        });
-                    } else {
-                        this.setState((prev) => ({
-                            progress: prev.progress + pageCountPercent,
-                        }));
+                        }
                     }
                 });
             });
@@ -137,16 +152,16 @@ class OsmosisNotes extends React.Component<{}, State> {
                             onChange={this.onChangePrefix}
                         />
                     </div>
-                    <button
+                    <Button
                         className="m-2"
+                        variant="outlined"
                         style={{
                             cursor: downloading ? "progress" : "pointer",
                         }}
-                        type="button"
                         onClick={this.onDownload}
                     >
                         Download
-                    </button>
+                    </Button>
                     <progress value={progress} max={100} />
                     <div ref={this.pngListRef} className="flex flex-row" />
                 </div>

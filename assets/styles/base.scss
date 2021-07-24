@@ -28,3 +28,10 @@ body {
         display: none;
     }
 }
+#slide-menu {
+    .MuiDrawer-paper {
+        width: 90%;
+        max-width: 32rem;
+        background-color: rgb(212, 211, 211);
+    }
+}

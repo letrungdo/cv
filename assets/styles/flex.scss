@@ -34,6 +34,14 @@
 .width-full {
     width: 100% !important;
 }
+.border-radius {
+    border-radius: 0.3rem !important;
+}
+.text-nowrap {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
 @for $i from 1 through 5 {
     .ml-#{$i} {
         margin-left: #{$i/2}rem !important;

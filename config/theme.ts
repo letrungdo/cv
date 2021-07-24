@@ -11,14 +11,14 @@ const theme = createTheme({
             main: "#333333",
         },
         text: {
-            primary: "var(--primary-text)",
-            secondary: "var(--secondary-text)",
+            primary: "#1a1a1a",
+            secondary: "#666666",
         },
         error: {
             main: red.A400,
         },
         background: {
-            default: "var(--primary-bg)",
+            default: "#fff",
         },
     },
     overrides: {
