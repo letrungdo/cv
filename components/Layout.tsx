@@ -1,28 +1,51 @@
-import { AppBar, List, ListItem, SwipeableDrawer } from "@material-ui/core";
+import { AppBar, Link, List, ListItem, SwipeableDrawer } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { createStyles } from "@material-ui/styles";
 import Logo from "assets/images/logos/logo-192x192.png";
-import clsx from "clsx";
 import config from "config/site";
 import Head from "next/head";
 import NextImage from "next/image";
 import React, { ReactNode, useState } from "react";
 import HambugerMenu from "./HambugerMenu";
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme) =>
     createStyles({
         header: {
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
             padding: "1rem",
+            boxShadow: "inset 0 -1px 0 0 #fff, 0 1px 5px rgb(0 0 0 / 10%)",
+            [theme.breakpoints.up("md")]: {
+                padding: "1rem 5rem",
+            },
+            [theme.breakpoints.up("lg")]: {
+                padding: "1rem 15rem",
+            },
+            [theme.breakpoints.up("xl")]: {
+                padding: "1rem 20rem",
+            },
         },
         content: {
-            padding: "0 1rem",
+            padding: "1rem",
+            [theme.breakpoints.up("md")]: {
+                padding: "1rem 5rem",
+            },
+            [theme.breakpoints.up("lg")]: {
+                padding: "1rem 15rem",
+            },
+            [theme.breakpoints.up("xl")]: {
+                padding: "1rem 20rem",
+            },
         },
         menuListItem: {
             marginTop: 55,
+        },
+        menuPc: {
+            marginLeft: "auto",
+            display: "flex",
+            gap: 20,
         },
     }),
 );
@@ -98,34 +121,47 @@ const Layout = ({ children, meta: { title, description = "", image = "", type = 
                 <meta property="og:image" content={image} />
                 <meta property="og:type" content={type} />
             </Head>
-            <AppBar elevation={0} color="default" position="static" className={clsx(classes.header, isPc ? "pc" : "")}>
+            <AppBar elevation={0} color="transparent" position="static" className={classes.header}>
                 <NextImage className="logo border-radius" width={32} height={32} src={Logo} alt="TĐ.VN" />
                 <h1 className="ml-1 text-nowrap">{title}</h1>
-                <HambugerMenu isOpen={isOpenMenu} onClick={onMenuClick(!isOpenMenu)} />
-                <SwipeableDrawer
-                    id="slide-menu"
-                    anchor="right"
-                    open={isOpenMenu}
-                    onClose={toggleDrawer(false)}
-                    onOpen={toggleDrawer(true)}
-                    disableSwipeToOpen
-                >
-                    <List className={classes.menuListItem} onKeyDown={toggleDrawer(false)}>
-                        {tabs.map((item) => (
-                            <ListItem
-                                onClick={toggleDrawer(false)}
-                                button
-                                key={item.path}
-                                component={"a"}
-                                href={item.path}
-                            >
-                                {item.label}
-                            </ListItem>
+                {isPc ? (
+                    <div className={classes.menuPc}>
+                        {tabs.map((tab) => (
+                            <Link key={tab.path} href={tab.path}>
+                                {tab.label}
+                            </Link>
                         ))}
-                    </List>
-                </SwipeableDrawer>
+                    </div>
+                ) : (
+                    <>
+                        <HambugerMenu isOpen={isOpenMenu} onClick={onMenuClick(!isOpenMenu)} />
+                        <SwipeableDrawer
+                            id="slide-menu"
+                            anchor="right"
+                            open={isOpenMenu}
+                            onClose={toggleDrawer(false)}
+                            onOpen={toggleDrawer(true)}
+                            disableSwipeToOpen
+                        >
+                            <List className={classes.menuListItem} onKeyDown={toggleDrawer(false)}>
+                                {tabs.map((item) => (
+                                    <ListItem
+                                        onClick={toggleDrawer(false)}
+                                        button
+                                        key={item.path}
+                                        component={"a"}
+                                        href={item.path}
+                                        target="_blank"
+                                    >
+                                        {item.label}
+                                    </ListItem>
+                                ))}
+                            </List>
+                        </SwipeableDrawer>
+                    </>
+                )}
             </AppBar>
-            <div className="p-2">{children}</div>
+            <div className={classes.content}>{children}</div>
         </>
     );
 };
