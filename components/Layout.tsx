@@ -7,6 +7,7 @@ import config from "config/site";
 import Head from "next/head";
 import NextImage from "next/image";
 import React, { ReactNode, useState } from "react";
+import { onClickLink } from "utils";
 import HambugerMenu from "./HambugerMenu";
 
 const useStyles = makeStyles((theme) =>
@@ -65,27 +66,22 @@ type Props = {
 const tabs = [
     {
         label: "Home",
-        width: `${85 / 10.2}%`,
         path: "/",
     },
     {
         label: "Tools",
-        width: `${218 / 10.2}%`,
         path: "/tools",
     },
     {
         label: "Blog",
-        width: `${264 / 10.2}%`,
         path: "blog",
     },
     {
         label: "CV",
-        width: `${204 / 10.2}%`,
         path: "https://cv.xn--t-lia.vn/",
     },
     {
         label: "TĐ.VN",
-        width: `${248 / 10.2}%`,
         path: "https://xn--t-lia.vn/",
     },
 ];
@@ -109,6 +105,11 @@ const Layout = ({ children, meta: { title, description = "", image = "", type = 
         onMenuClick(open)();
     };
 
+    const onClickLinkMobile = (ev: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        toggleDrawer(false)(ev);
+        onClickLink(ev);
+    };
+
     return (
         <>
             <Head>
@@ -127,7 +128,7 @@ const Layout = ({ children, meta: { title, description = "", image = "", type = 
                 {isPc ? (
                     <div className={classes.menuPc}>
                         {tabs.map((tab) => (
-                            <Link key={tab.path} href={tab.path}>
+                            <Link key={tab.path} href={tab.path} onClick={onClickLink}>
                                 {tab.label}
                             </Link>
                         ))}
@@ -146,7 +147,7 @@ const Layout = ({ children, meta: { title, description = "", image = "", type = 
                             <List className={classes.menuListItem} onKeyDown={toggleDrawer(false)}>
                                 {tabs.map((item) => (
                                     <ListItem
-                                        onClick={toggleDrawer(false)}
+                                        onClick={onClickLinkMobile}
                                         button
                                         key={item.path}
                                         component={"a"}
