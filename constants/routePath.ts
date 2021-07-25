@@ -1,2 +1,2 @@
 export const ROOT_ROUTE = "/";
-export const ABOUT_ROUTE = "/about";
+export const DOWNLOAD_OSMOSIS_NOTES_ROUTE = "/tools/download-osmosis-notes";

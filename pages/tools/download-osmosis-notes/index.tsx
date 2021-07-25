@@ -17,7 +17,7 @@ const pageMeta: PageMeta = {
     description: "Download document from osmosis.org Notes",
 };
 
-class OsmosisNotes extends React.Component<{}, State> {
+class OsmosisNotesPage extends React.Component<{}, State> {
     state = {
         inputUrl: "https://www.osmosis.org/notes/Hemodynamics",
         downloading: false,
@@ -170,4 +170,4 @@ class OsmosisNotes extends React.Component<{}, State> {
     }
 }
 
-export default OsmosisNotes;
+export default OsmosisNotesPage;

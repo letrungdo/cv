@@ -1,16 +1,17 @@
-import { createStyles, IconButton, makeStyles, Theme } from "@material-ui/core";
+import { createStyles, makeStyles, Theme } from "@material-ui/core";
 import clsx from "clsx";
 import React from "react";
 
 interface Props {
-    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+    onClick?: () => void;
     isOpen: boolean;
 }
 const useStyles = makeStyles<Theme, { isOpen: boolean }>(() =>
     createStyles({
         root: {
             zIndex: 1301,
-            padding: 8,
+            padding: 4,
+            display: "flex",
             marginLeft: "auto",
             "& .hambuger-menu-icon": {
                 display: "inline-block",
@@ -49,13 +50,13 @@ const HambugerMenu = ({ onClick, isOpen }: Props) => {
     const classes = useStyles({ isOpen });
 
     return (
-        <IconButton aria-label="hambuger-menu" className={classes.root} onClick={onClick}>
+        <div aria-label="hambuger-menu" className={clsx(classes.root, "cursor-pointer")} onClick={onClick}>
             <div className={clsx("hambuger-menu-icon", isOpen ? "change" : "")}>
                 <div className={`bar1`} />
                 <div className={`bar2`} />
                 <div className={`bar3`} />
             </div>
-        </IconButton>
+        </div>
     );
 };
 
