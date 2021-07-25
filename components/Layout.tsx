@@ -1,6 +1,5 @@
-import { AppBar, Link, List, ListItem, SwipeableDrawer } from "@material-ui/core";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { AppBar, Hidden, Link, List, ListItem, SwipeableDrawer } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import { createStyles } from "@material-ui/styles";
 import Logo from "assets/images/logos/logo-192x192.png";
 import config from "config/site";
@@ -88,8 +87,6 @@ const tabs = [
 
 const Layout = ({ children, meta: { title, description = "", image = "", type = "article" } }: Props) => {
     const classes = useStyles();
-    const theme = useTheme();
-    const isPc = useMediaQuery(theme.breakpoints.up("md"));
     const [isOpenMenu, setOpenMenu] = useState(false);
     const onMenuClick = (open: boolean) => () => {
         setOpenMenu(open);
@@ -125,7 +122,7 @@ const Layout = ({ children, meta: { title, description = "", image = "", type = 
             <AppBar elevation={0} color="transparent" position="static" className={classes.header}>
                 <NextImage className="logo border-radius" width={32} height={32} src={Logo} alt="TĐ.VN" />
                 <h1 className="ml-1 text-nowrap">{title}</h1>
-                {isPc ? (
+                <Hidden only={["xs", "sm"]}>
                     <div className={classes.menuPc}>
                         {tabs.map((tab) => (
                             <Link key={tab.path} href={tab.path} onClick={onClickLink}>
@@ -133,34 +130,33 @@ const Layout = ({ children, meta: { title, description = "", image = "", type = 
                             </Link>
                         ))}
                     </div>
-                ) : (
-                    <>
-                        <HambugerMenu isOpen={isOpenMenu} onClick={onMenuClick(!isOpenMenu)} />
-                        <SwipeableDrawer
-                            id="slide-menu"
-                            anchor="right"
-                            open={isOpenMenu}
-                            onClose={toggleDrawer(false)}
-                            onOpen={toggleDrawer(true)}
-                            disableSwipeToOpen
-                        >
-                            <List className={classes.menuListItem} onKeyDown={toggleDrawer(false)}>
-                                {tabs.map((item) => (
-                                    <ListItem
-                                        onClick={onClickLinkMobile}
-                                        button
-                                        key={item.path}
-                                        component={"a"}
-                                        href={item.path}
-                                        target="_blank"
-                                    >
-                                        {item.label}
-                                    </ListItem>
-                                ))}
-                            </List>
-                        </SwipeableDrawer>
-                    </>
-                )}
+                </Hidden>
+                <Hidden mdUp>
+                    <HambugerMenu isOpen={isOpenMenu} onClick={onMenuClick(!isOpenMenu)} />
+                    <SwipeableDrawer
+                        id="slide-menu"
+                        anchor="right"
+                        open={isOpenMenu}
+                        onClose={toggleDrawer(false)}
+                        onOpen={toggleDrawer(true)}
+                        disableSwipeToOpen
+                    >
+                        <List className={classes.menuListItem} onKeyDown={toggleDrawer(false)}>
+                            {tabs.map((item) => (
+                                <ListItem
+                                    onClick={onClickLinkMobile}
+                                    button
+                                    key={item.path}
+                                    component={"a"}
+                                    href={item.path}
+                                    target="_blank"
+                                >
+                                    {item.label}
+                                </ListItem>
+                            ))}
+                        </List>
+                    </SwipeableDrawer>
+                </Hidden>
             </AppBar>
             <div className={classes.content}>{children}</div>
         </>
