@@ -1,3 +1,4 @@
+@use "sass:math";
 .flex {
     display: flex !important;
 }
@@ -44,21 +45,21 @@
 }
 @for $i from 1 through 5 {
     .ml-#{$i} {
-        margin-left: #{$i/2}rem !important;
+        margin-left: #{math.div($i, 2)}rem !important;
     }
     .mr-#{$i} {
-        margin-right: #{$i/2}rem !important;
+        margin-right: #{math.div($i, 2)}rem !important;
     }
     .mt-#{$i} {
-        margin-top: #{$i/2}rem !important;
+        margin-top: #{math.div($i, 2)}rem !important;
     }
     .mb-#{$i} {
-        margin-bottom: #{$i/2}rem !important;
+        margin-bottom: #{math.div($i, 2)}rem !important;
     }
     .m-#{$i} {
-        margin: #{$i/2}rem !important;
+        margin: #{math.div($i, 2)}rem !important;
     }
     .p-#{$i} {
-        padding: #{$i/2}rem !important;
+        padding: #{math.div($i, 2)}rem !important;
     }
 }
