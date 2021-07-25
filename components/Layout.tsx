@@ -1,4 +1,4 @@
-import { AppBar, Hidden, Link, List, ListItem, SwipeableDrawer } from "@material-ui/core";
+import { Hidden, Link, List, ListItem, SwipeableDrawer } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { createStyles } from "@material-ui/styles";
 import Logo from "assets/images/logos/logo-192x192.png";
@@ -119,7 +119,7 @@ const Layout = ({ children, meta: { title, description = "", image = "", type = 
                 <meta property="og:image" content={image} />
                 <meta property="og:type" content={type} />
             </Head>
-            <AppBar elevation={0} color="transparent" position="static" className={classes.header}>
+            <header className={classes.header}>
                 <NextImage className="logo border-radius" width={32} height={32} src={Logo} alt="TĐ.VN" />
                 <h1 className="ml-1 text-nowrap">{title}</h1>
                 <Hidden only={["xs", "sm"]}>
@@ -157,7 +157,7 @@ const Layout = ({ children, meta: { title, description = "", image = "", type = 
                         </List>
                     </SwipeableDrawer>
                 </Hidden>
-            </AppBar>
+            </header>
             <div className={classes.content}>{children}</div>
         </>
     );
