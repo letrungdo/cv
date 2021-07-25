@@ -1,4 +1,4 @@
-### 🏠 [Homepage](https://github.com/letrungdo/nextjs-typescript)
+### 🏠 [Homepage](https://tools.tđ.vn)
 
 ## Request
 
@@ -27,7 +27,7 @@
 ## Install
 
 ```sh
-npm install
+yarn install
 ```
 
 ## Usage
@@ -35,25 +35,19 @@ npm install
 ### Auto fix rule
 
 ```sh
-npm run lint
+yarn lint
 ```
 
 ### Auto format code
 
 ```sh
-npm run format
+yarn format
 ```
 
 ### Start dev
 
 ```sh
-npm run dev
-```
-
-### Build staging
-
-```sh
-npm run build:staging
+yarn dev
 ```
 
 ### Build prod

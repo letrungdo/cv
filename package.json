@@ -1,12 +1,12 @@
 {
-    "name": "nextjs-typescript",
+    "name": "tools-for-developer",
     "version": "0.1.0",
-    "description": "Nextjs Typescript",
+    "description": "Tools for Developer",
     "author": "Le Trung Do",
     "license": "UNLICENSED",
     "repository": {
         "type": "git",
-        "url": "https://github.com/letrungdo/nextjs-typescript.git"
+        "url": "https://github.com/letrungdo/tools.git"
     },
     "scripts": {
         "dev": "next dev",
