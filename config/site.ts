@@ -100,7 +100,7 @@ const config = {
         { label: "Privacy Policy", url: "/privacy" },
         { label: "Sitemap", url: "https://xn--t-lia.vn/sitemap.xml" },
     ],
-    copyright: "Copyright © 2020 Le Trung Do. Unless otherwise noted, all code MIT license.",
+    copyright: "Copyright © 2021 Le Trung Do. Unless otherwise noted, all code MIT license.",
 };
 
 // Validate

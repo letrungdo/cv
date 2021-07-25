@@ -1,14 +1,17 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, Theme } from "@material-ui/core/styles";
 import { createStyles } from "@material-ui/styles";
+import "components/Icons/FontAwesome";
 import config from "config/site";
 import Head from "next/head";
 import React, { ReactNode } from "react";
-import Header, { mainPaddingStyle } from "./Header";
+import Footer from "./Footer";
+import Header from "./Header";
 
 const useStyles = makeStyles((theme) =>
     createStyles({
         content: {
             ...mainPaddingStyle(theme),
+            flex: "1 0 auto",
         },
     }),
 );
@@ -42,8 +45,22 @@ const Layout = ({ children, meta: { title, description = "", image = "", type = 
             </Head>
             <Header title={title} />
             <div className={classes.content}>{children}</div>
+            <Footer socials={config.socialLinks} links={config.footerLinks} copyright={config.copyright} />
         </>
     );
 };
+
+export const mainPaddingStyle = (theme: Theme) => ({
+    padding: "1rem",
+    [theme.breakpoints.up("md")]: {
+        padding: "1rem 5rem",
+    },
+    [theme.breakpoints.up("lg")]: {
+        padding: "1rem 15rem",
+    },
+    [theme.breakpoints.up("xl")]: {
+        padding: "1rem 20rem",
+    },
+});
 
 export default Layout;

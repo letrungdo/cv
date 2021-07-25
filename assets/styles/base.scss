@@ -2,6 +2,7 @@ html,
 body {
     overscroll-behavior-x: none;
     -webkit-tap-highlight-color: transparent; /* for removing the highlight on Android */
+    height: 100%;
 }
 html {
     font-size: 62.5%;
@@ -11,9 +12,13 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
+    display: flex;
 }
 #__next {
     margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 *:not(input):not(textarea) {
     // Prevent text selection

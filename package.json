@@ -6,7 +6,7 @@
     "license": "UNLICENSED",
     "repository": {
         "type": "git",
-        "url": "https://github.com/letrungdo/tools.git"
+        "url": "https://github.com/letrungdo/app.git"
     },
     "scripts": {
         "dev": "next dev",
@@ -16,6 +16,11 @@
         "format": "prettier --write '**/*.{scss,json}'"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.35",
+        "@fortawesome/free-brands-svg-icons": "^5.15.3",
+        "@fortawesome/free-regular-svg-icons": "^5.15.3",
+        "@fortawesome/free-solid-svg-icons": "^5.15.3",
+        "@fortawesome/react-fontawesome": "^0.1.14",
         "@material-ui/core": "^4.12.2",
         "@types/file-saver": "^2.0.3",
         "axios": "^0.21.1",

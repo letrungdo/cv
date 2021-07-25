@@ -1,24 +1,12 @@
-import { createStyles, Hidden, Link, List, ListItem, makeStyles, SwipeableDrawer, Theme } from "@material-ui/core";
+import { createStyles, Hidden, List, ListItem, makeStyles, SwipeableDrawer } from "@material-ui/core";
 import Logo from "assets/images/logos/logo-192x192.png";
+import AutoLink from "components/AutoLink";
 import HambugerMenu from "components/HambugerMenu";
+import { mainPaddingStyle } from "components/Layout";
 import { ROOT_ROUTE } from "constants/routePath";
 import NextImage from "next/image";
 import SingletonRouter from "next/router";
 import React, { useState } from "react";
-import { onClickLink } from "utils";
-
-export const mainPaddingStyle = (theme: Theme) => ({
-    padding: "1rem",
-    [theme.breakpoints.up("md")]: {
-        padding: "1rem 5rem",
-    },
-    [theme.breakpoints.up("lg")]: {
-        padding: "1rem 15rem",
-    },
-    [theme.breakpoints.up("xl")]: {
-        padding: "1rem 20rem",
-    },
-});
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -29,8 +17,14 @@ const useStyles = makeStyles((theme) =>
             boxShadow: "inset 0 -1px 0 0 #fff, 0 1px 5px rgb(0 0 0 / 10%)",
             ...mainPaddingStyle(theme),
         },
-        menuListItem: {
+        menuMobile: {
             marginTop: 45,
+            "& .MuiListItem-root": {
+                padding: 0,
+            },
+            "& .link": {
+                padding: "1rem 1.6rem",
+            },
         },
         menuPc: {
             marginLeft: "auto",
@@ -75,9 +69,8 @@ const Header = ({ title }: Props) => {
         }
         onMenuClick(open)();
     };
-    const onClickLinkMobile = (ev: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    const onClickLinkMobile = (ev: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         toggleDrawer(false)(ev);
-        onClickLink(ev);
     };
 
     return (
@@ -94,9 +87,9 @@ const Header = ({ title }: Props) => {
             <Hidden only={["xs", "sm"]}>
                 <div className={classes.menuPc}>
                     {tabs.map((tab) => (
-                        <Link key={tab.path} href={tab.path} onClick={onClickLink}>
+                        <AutoLink key={tab.path} href={tab.path}>
                             {tab.label}
-                        </Link>
+                        </AutoLink>
                     ))}
                 </div>
             </Hidden>
@@ -110,17 +103,12 @@ const Header = ({ title }: Props) => {
                     onOpen={toggleDrawer(true)}
                     disableSwipeToOpen
                 >
-                    <List className={classes.menuListItem} onKeyDown={toggleDrawer(false)}>
+                    <List className={classes.menuMobile} onKeyDown={toggleDrawer(false)}>
                         {tabs.map((item) => (
-                            <ListItem
-                                onClick={onClickLinkMobile}
-                                button
-                                key={item.path}
-                                component={"a"}
-                                href={item.path}
-                                target="_blank"
-                            >
-                                {item.label}
+                            <ListItem onClick={onClickLinkMobile} button key={item.path}>
+                                <AutoLink className="link width-full" href={item.path}>
+                                    {item.label}
+                                </AutoLink>
                             </ListItem>
                         ))}
                     </List>

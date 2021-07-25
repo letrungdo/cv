@@ -1,4 +1,5 @@
 import { Button } from "@material-ui/core";
+import AutoLink from "components/AutoLink";
 import Layout, { PageMeta } from "components/Layout";
 import FileSaver from "file-saver";
 import JSZip from "jszip";
@@ -129,14 +130,9 @@ class OsmosisNotesPage extends React.Component<{}, State> {
         return (
             <Layout meta={pageMeta}>
                 <div className="flex flex-col align-items-center">
-                    <a
-                        href="https://cors-anywhere.herokuapp.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="m-2"
-                    >
+                    <AutoLink href="https://cors-anywhere.herokuapp.com/" className="m-2">
                         Please click here to allow CORS
-                    </a>
+                    </AutoLink>
                     <input
                         className="p-2 width-full"
                         placeholder="Enter url"
