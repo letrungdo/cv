@@ -10,6 +10,7 @@ import {
     SectionTestimonials,
     SectionWorks,
 } from "components/CV/Section";
+import ReturnToTop from "components/ReturnToTop";
 
 const CV = () => {
     return (
@@ -26,9 +27,7 @@ const CV = () => {
                 <SectionBlog />
                 <SectioContact />
             </main>
-            <a id="return-to-top">
-                <i className="fas fa-arrow-up"></i>
-            </a>
+            <ReturnToTop />
         </>
     );
 };
