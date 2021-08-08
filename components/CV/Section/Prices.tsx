@@ -8,7 +8,7 @@ export const SectionPrices = () => {
                 <Typography variant="h2" className="section-title wow fadeIn">
                     Pricing Plans
                 </Typography>
-                <div className="row mt-5">
+                <div className="row">
                     <div className="col-md-4 pr-md-0 mt-md-4 mt-0">
                         <div className="price-item bg-white rounded shadow-dark text-center">
                             <img src="images\cv\price-1.svg" alt="Regular" />

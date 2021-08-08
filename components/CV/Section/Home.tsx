@@ -12,7 +12,8 @@ export const SectionHome = () => {
                         Le Trung Do
                     </Typography>
                     <span>
-                        I'm a <span className="text-rotating">Full Stack developer</span>
+                        {"I'm a "}
+                        <span className="text-rotating">Full Stack developer</span>
                     </span>
                     <ul className="social-icons light list-inline mb-0 mt-4">
                         <li className="list-inline-item">

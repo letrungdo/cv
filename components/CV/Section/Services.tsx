@@ -32,7 +32,7 @@ export const SectionServices = () => {
                 <Typography variant="h2" className="section-title wow fadeInUp">
                     Services
                 </Typography>
-                <div className="row mt-5">
+                <div className="row">
                     <ServiceBox
                         className="shadow-blue text-light"
                         imgSrc="images\cv\service-1.svg"

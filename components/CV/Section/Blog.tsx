@@ -8,7 +8,7 @@ export const SectionBlog = () => {
                 <Typography variant="h2" className="section-title wow fadeInUp">
                     Latest Posts
                 </Typography>
-                <div className="row blog-wrapper mt-5">
+                <div className="row blog-wrapper">
                     <div className="col-md-4">
                         <div className="blog-item rounded bg-white shadow-dark wow fadeIn">
                             <div className="thumb">

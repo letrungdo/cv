@@ -28,7 +28,7 @@
         opacity: 0.7;
     }
 }
-@for $i from 1 through 5 {
+@for $i from 1 through 10 {
     .ml-#{$i} {
         margin-left: #{math.div($i, 2)}rem !important;
     }

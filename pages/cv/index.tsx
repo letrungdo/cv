@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import Header from "components/CV/Header";
 import {
     SectioContact,
@@ -15,7 +14,6 @@ import {
 const CV = () => {
     return (
         <>
-            {/* <Preloader /> */}
             <Header />
             <main className="content pb-5">
                 <SectionHome />

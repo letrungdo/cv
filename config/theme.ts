@@ -3,8 +3,8 @@ import { createTheme } from "@material-ui/core/styles";
 
 const hxStyle = {
     fontFamily: "Rubik, sans-serif",
+    margin: "2rem 0 4rem 0",
     fontWeight: 700,
-    margin: "2rem 0",
 };
 // Create a theme instance.
 const theme = createTheme({
@@ -83,6 +83,7 @@ const theme = createTheme({
         h4: {
             ...hxStyle,
             fontSize: "1.8rem",
+            fontWeight: 500,
         },
     },
 });

@@ -21,9 +21,9 @@ const SkillItem = ({ name, value, bgColor }: SkillProps) => {
     };
 
     return (
-        <div className="skill-item mb-2">
+        <div className="skill-item mb-4">
             <div className="skill-info clearfix">
-                <Typography variant="h4" className="float-left mb-3 mt-0">
+                <Typography variant="h4" className="float-left mb-4 mt-0">
                     {name}
                 </Typography>
                 <span className="float-right">{value}%</span>
@@ -89,7 +89,7 @@ export const SectionAbout = () => {
                 <Typography variant="h2" className="section-title wow fadeInUp">
                     About Me
                 </Typography>
-                <div className="row mt-5">
+                <div className="row">
                     <div className="col-md-3">
                         <div className="text-center text-md-left mb-5">
                             <img src="images\cv\avatar-2.svg" alt="TĐ" />
@@ -119,7 +119,7 @@ export const SectionAbout = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row mt-5">
+                <div className="row mt-10">
                     {cvConfig.facts.map((item) => (
                         <FactItem key={item.name} {...item} />
                     ))}

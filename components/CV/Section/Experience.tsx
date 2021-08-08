@@ -7,7 +7,7 @@ export const SectionExperience = () => {
                 <Typography variant="h2" className="section-title wow fadeInUp">
                     Experience
                 </Typography>
-                <div className="row mt-5">
+                <div className="row">
                     <div className="col-md-6">
                         <div className="timeline edu bg-white rounded shadow-dark padding-30 overflow-hidden">
                             <div className="timeline-container wow fadeInUp">

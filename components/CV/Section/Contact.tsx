@@ -7,14 +7,15 @@ export const SectioContact = () => {
                 <Typography variant="h2" className="section-title wow fadeInUp">
                     Get In Touch
                 </Typography>
-                <div className="row mt-5">
+                <div className="row">
                     <div className="col-md-4">
                         <div className="contact-info">
                             <Typography variant="h3" className="wow fadeInUp">
-                                Let's talk about everything!
+                                {"Let's talk about everything!"}
                             </Typography>
                             <p className="wow fadeInUp">
-                                Don't like forms? Send me an <a href="mailto:name@example.com">email</a>. 👋
+                                {"Don't like forms? Send me an "}
+                                <a href="mailto:name@example.com">email</a>. 👋
                             </p>
                         </div>
                     </div>

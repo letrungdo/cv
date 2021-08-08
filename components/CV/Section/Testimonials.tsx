@@ -8,7 +8,7 @@ export const SectionTestimonials = () => {
                 <Typography variant="h2" className="section-title wow fadeInUp">
                     Clients & Reviews
                 </Typography>
-                <div className="testimonials-wrapper mt-5">
+                <div className="testimonials-wrapper">
                     <div className="testimonial-item text-center mx-auto">
                         <div className="thumb mb-3 mx-auto">
                             <img src="images\cv\avatar-3.svg" alt="customer-name" />

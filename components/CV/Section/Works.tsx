@@ -8,7 +8,7 @@ export const SectionWorks = () => {
                 <Typography variant="h2" className="section-title wow fadeInUp">
                     Recent works
                 </Typography>
-                <ul className="portfolio-filter list-inline wow fadeInUp mt-5">
+                <ul className="portfolio-filter list-inline wow fadeInUp">
                     <li className="current list-inline-item" data-filter="*">
                         Everything
                     </li>
