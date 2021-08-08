@@ -1,9 +1,9 @@
-import { createStyles, Hidden, List, ListItem, makeStyles, SwipeableDrawer } from "@material-ui/core";
+import { createStyles, Hidden, List, ListItem, makeStyles, SwipeableDrawer, Typography } from "@material-ui/core";
 import Logo from "assets/images/logos/logo-192x192.png";
 import AutoLink from "components/AutoLink";
 import HambugerMenu from "components/HambugerMenu";
 import { mainPaddingStyle } from "components/Layout";
-import { ROOT_ROUTE } from "constants/routePath";
+import { CV_ROUTE, ROOT_ROUTE } from "constants/routePath";
 import NextImage from "next/image";
 import SingletonRouter from "next/router";
 import React, { useState } from "react";
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) =>
 const tabs = [
     {
         label: "CV",
-        path: "https://cv.xn--t-lia.vn/",
+        path: CV_ROUTE,
     },
     {
         label: "TĐ.VN",
@@ -83,7 +83,9 @@ const Header = ({ title }: Props) => {
                 alt="TĐ.VN"
                 onClick={onClickLogo}
             />
-            <h1 className="ml-1 text-nowrap">{title}</h1>
+            <Typography variant="h4" className="ml-1 text-nowrap m-0">
+                {title}
+            </Typography>
             <Hidden only={["xs", "sm"]}>
                 <div className={classes.menuPc}>
                     {tabs.map((tab) => (

@@ -41,6 +41,7 @@ module.exports = {
                 patterns: ["../*", "./../*"],
             },
         ],
+        "no-console": "error",
     },
     settings: {
         react: {

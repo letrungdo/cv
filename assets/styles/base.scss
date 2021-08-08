@@ -2,7 +2,6 @@ html,
 body {
     overscroll-behavior-x: none;
     -webkit-tap-highlight-color: transparent; /* for removing the highlight on Android */
-    height: 100%;
 }
 html {
     font-size: 62.5%;
@@ -13,6 +12,7 @@ body {
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
     display: flex;
+    min-height: 100vh;
 }
 #__next {
     margin: 0 auto;
@@ -37,5 +37,11 @@ body {
         width: 90%;
         max-width: 32rem;
         background-color: rgb(212, 211, 211);
+    }
+}
+.button {
+    cursor: pointer;
+    &:active {
+        opacity: 0.8;
     }
 }

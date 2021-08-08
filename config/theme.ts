@@ -1,6 +1,11 @@
 import { red } from "@material-ui/core/colors";
 import { createTheme } from "@material-ui/core/styles";
 
+const hxStyle = {
+    fontFamily: "Rubik, sans-serif",
+    fontWeight: 700,
+    margin: "2rem 0",
+};
 // Create a theme instance.
 const theme = createTheme({
     palette: {
@@ -49,6 +54,7 @@ const theme = createTheme({
         htmlFontSize: 10,
         fontSize: 16,
         fontFamily: [
+            "Rubik",
             "Inter",
             "-apple-system",
             "BlinkMacSystemFont",
@@ -63,7 +69,20 @@ const theme = createTheme({
             "sans-serif",
         ].join(","),
         h1: {
-            fontFamily: "Roboto",
+            ...hxStyle,
+            fontSize: "3.6rem",
+        },
+        h2: {
+            ...hxStyle,
+            fontSize: "2.8rem",
+        },
+        h3: {
+            ...hxStyle,
+            fontSize: "2.4rem",
+        },
+        h4: {
+            ...hxStyle,
+            fontSize: "1.8rem",
         },
     },
 });
