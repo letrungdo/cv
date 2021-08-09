@@ -1,5 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Typography } from "@material-ui/core";
+import config from "config/site";
 import Parallax from "parallax-js";
 import { useEffect, useRef } from "react";
 
@@ -29,31 +32,13 @@ export const SectionHome = () => {
                         <span className="text-rotating">Full Stack developer</span>
                     </span>
                     <ul className="social-icons light list-inline mb-0 mt-4">
-                        <li className="list-inline-item">
-                            <a href="#">
-                                <i className="fab fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li className="list-inline-item">
-                            <a href="#">
-                                <i className="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li className="list-inline-item">
-                            <a href="#">
-                                <i className="fab fa-behance"></i>
-                            </a>
-                        </li>
-                        <li className="list-inline-item">
-                            <a href="#">
-                                <i className="fab fa-dribbble"></i>
-                            </a>
-                        </li>
-                        <li className="list-inline-item">
-                            <a href="#">
-                                <i className="fab fa-pinterest-p"></i>
-                            </a>
-                        </li>
+                        {config.socialLinks.map((i) => (
+                            <li key={i.label} className="list-inline-item">
+                                <a href={i.url} target="_blank" rel="noreferrer">
+                                    <FontAwesomeIcon icon={i.iconClassName.split(" ") as IconProp} transform="grow-2" />
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                     <div className="mt-4">
                         <a href="#contact" className="btn btn-default">

@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
 import { useEffect, useState } from "react";
 
@@ -15,7 +16,7 @@ const useStyles = makeStyles<Theme, { display: string }>(() =>
             borderRadius: "100%",
             zIndex: 4,
             transition: "all 0.3s ease-in-out",
-            "& i": {
+            "& svg": {
                 color: "#fff",
                 margin: 0,
                 position: "relative",
@@ -57,7 +58,7 @@ const ReturnToTop = () => {
 
     return (
         <a className={classes.root} href="#home">
-            <i className="fas fa-arrow-up" />
+            <FontAwesomeIcon icon={["fas", "arrow-up"]} />
         </a>
     );
 };

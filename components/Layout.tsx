@@ -1,6 +1,5 @@
 import { makeStyles, Theme } from "@material-ui/core/styles";
 import { createStyles } from "@material-ui/styles";
-import "components/Icons/FontAwesome";
 import config from "config/site";
 import Head from "next/head";
 import React, { ReactNode } from "react";

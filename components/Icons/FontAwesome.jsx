@@ -17,6 +17,7 @@ import {
     faRss,
     faSearch,
     faTags,
+    faArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -35,5 +36,6 @@ library.add(
     faFolderOpen,
     faTags,
     faSearch,
+    faArrowUp,
 );
 config.autoAddCss = false;

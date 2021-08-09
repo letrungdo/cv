@@ -3,6 +3,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core/styles";
 import "assets/cv/css/index.css";
 import "assets/styles/index.scss";
+import "components/Icons/FontAwesome";
 import theme from "config/theme";
 import type { AppProps } from "next/app";
 import { useEffect } from "react";

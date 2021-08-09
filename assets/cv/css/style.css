@@ -538,7 +538,7 @@ main.content-2.open {
 }
 
 section {
-  padding-top: 5rem;
+  padding-top: 4rem;
   position: relative;
 }
 
@@ -585,7 +585,6 @@ section.home.light .social-icons li a:hover {
 .section-title {
   font-size: 36px;
   margin-left: 1.4rem !important;
-  margin-top: 4rem !important;
   position: relative;
 }
 .section-title:before {
@@ -1872,7 +1871,7 @@ body.dark .blog-page-section .blog-single {
 
 /* === Social Icons === */
 .social-icons li:not(:last-child) {
-  margin-right: 1.5rem;
+  margin-right: 2rem;
 }
 .social-icons li a {
   font-size: 21px;
