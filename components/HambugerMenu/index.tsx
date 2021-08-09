@@ -5,6 +5,7 @@ import React from "react";
 interface Props {
     onClick?: () => void;
     isOpen: boolean;
+    className?: string;
 }
 const useStyles = makeStyles<Theme, { isOpen: boolean }>(() =>
     createStyles({
@@ -46,11 +47,11 @@ const useStyles = makeStyles<Theme, { isOpen: boolean }>(() =>
         },
     }),
 );
-const HambugerMenu = ({ onClick, isOpen }: Props) => {
+const HambugerMenu = ({ onClick, isOpen, className }: Props) => {
     const classes = useStyles({ isOpen });
 
     return (
-        <div aria-label="hambuger-menu" className={clsx(classes.root, "cursor-pointer")} onClick={onClick}>
+        <div aria-label="hambuger-menu" className={clsx(classes.root, "cursor-pointer", className)} onClick={onClick}>
             <div className={clsx("hambuger-menu-icon", isOpen ? "change" : "")}>
                 <div className={`bar1`} />
                 <div className={`bar2`} />

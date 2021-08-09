@@ -38,4 +38,41 @@ export const cvConfig = {
             count: 35,
         },
     ],
+    menu: [
+        {
+            label: "Home",
+            href: "#",
+            className: "icon-home",
+        },
+        {
+            label: "About",
+            href: "#about",
+            className: "icon-user-following",
+        },
+        {
+            label: "Services",
+            href: "#services",
+            className: "icon-briefcase",
+        },
+        {
+            label: "Experience",
+            href: "#experience",
+            className: "icon-graduation",
+        },
+        {
+            label: "Works",
+            href: "#works",
+            className: "icon-layers",
+        },
+        {
+            label: "Blog",
+            href: "#blog",
+            className: "icon-note",
+        },
+        {
+            label: "Contact",
+            href: "#contact",
+            className: "icon-bubbles",
+        },
+    ],
 };
