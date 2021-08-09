@@ -585,6 +585,7 @@ section.home.light .social-icons li a:hover {
 .section-title {
   font-size: 36px;
   margin-left: 1.4rem !important;
+  margin-top: 4rem !important;
   position: relative;
 }
 .section-title:before {

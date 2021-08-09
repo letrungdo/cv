@@ -1,0 +1,38 @@
+diff --git a/node_modules/parallax-js/dist/parallax.js b/node_modules/parallax-js/dist/parallax.js
+index c14d431..64dbfe0 100644
+--- a/node_modules/parallax-js/dist/parallax.js
++++ b/node_modules/parallax-js/dist/parallax.js
+@@ -701,10 +701,10 @@ var Parallax = function () {
+           helpers.accelerate(layer);
+         }
+ 
+-        layer.style.position = index ? 'absolute' : 'relative';
+-        layer.style.display = 'block';
+-        layer.style.left = 0;
+-        layer.style.top = 0;
++        // layer.style.position = index ? 'absolute' : 'relative';
++        // layer.style.display = 'block';
++        // layer.style.left = 0;
++        // layer.style.top = 0;
+ 
+         var depth = helpers.data(layer, 'depth') || 0;
+         this.depthsX.push(helpers.data(layer, 'depth-x') || depth);
+diff --git a/node_modules/parallax-js/src/parallax.js b/node_modules/parallax-js/src/parallax.js
+index 3c345b3..2f90cbd 100644
+--- a/node_modules/parallax-js/src/parallax.js
++++ b/node_modules/parallax-js/src/parallax.js
+@@ -302,10 +302,10 @@ class Parallax {
+         helpers.accelerate(layer)
+       }
+ 
+-      layer.style.position = index ? 'absolute' : 'relative'
+-      layer.style.display = 'block'
+-      layer.style.left = 0
+-      layer.style.top = 0
++      // layer.style.position = index ? 'absolute' : 'relative'
++      // layer.style.display = 'block'
++      // layer.style.left = 0
++      // layer.style.top = 0
+ 
+       let depth = helpers.data(layer, 'depth') || 0
+       this.depthsX.push(helpers.data(layer, 'depth-x') || depth)

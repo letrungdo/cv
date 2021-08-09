@@ -1,8 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
-
 import { Typography } from "@material-ui/core";
+import Parallax from "parallax-js";
+import { useEffect, useRef } from "react";
 
 export const SectionHome = () => {
+    const parallaxRef = useRef(null);
+    useEffect(() => {
+        const parallax = new Parallax(parallaxRef.current, {
+            relativeInput: true,
+        });
+        parallax.enable();
+
+        return () => {
+            parallax.disable();
+        };
+    }, []);
+
     return (
         <section id="home" className="home d-flex align-items-center">
             <div className="container">
@@ -56,7 +69,7 @@ export const SectionHome = () => {
                         </span>
                     </a>
                 </div>
-                <div className="parallax" data-relative-input="true">
+                <div ref={parallaxRef} className="parallax" data-relative-input="true">
                     <svg
                         width="27"
                         height="29"
