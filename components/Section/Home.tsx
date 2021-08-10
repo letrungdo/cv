@@ -5,17 +5,18 @@ import { Typography } from "@material-ui/core";
 import config from "config/site";
 import Parallax from "parallax-js";
 import { useEffect, useRef } from "react";
+import ReactTypingEffect from "react-typing-effect";
 
 export const SectionHome = () => {
     const parallaxRef = useRef(null);
     useEffect(() => {
         const parallax = new Parallax(parallaxRef.current, {
             relativeInput: true,
+            hoverOnly: true,
         });
-        parallax.enable();
 
         return () => {
-            parallax.disable();
+            parallax.destroy();
         };
     }, []);
 
@@ -29,7 +30,13 @@ export const SectionHome = () => {
                     </Typography>
                     <span>
                         {"I'm a "}
-                        <span className="text-rotating">Full Stack developer</span>
+                        <ReactTypingEffect
+                            text={["ReactJs developer", "Xamarin Forms developer"]}
+                            speed={100}
+                            eraseSpeed={50}
+                            typingDelay={200}
+                            eraseDelay={1500}
+                        />
                     </span>
                     <ul className="social-icons light list-inline mb-0 mt-4">
                         {config.socialLinks.map((i) => (
@@ -54,7 +61,7 @@ export const SectionHome = () => {
                         </span>
                     </a>
                 </div>
-                <div ref={parallaxRef} className="parallax" data-relative-input="true">
+                <div ref={parallaxRef} className="parallax">
                     <svg
                         width="27"
                         height="29"

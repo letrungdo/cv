@@ -16,10 +16,10 @@ body {
     min-height: 100vh;
 }
 #__next {
-    margin: 0 auto;
-    width: 100%;
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
 }
 *:not(input):not(textarea) {
     // Prevent text selection
@@ -35,8 +35,8 @@ body {
 }
 #slide-menu {
     .MuiDrawer-paper {
-        width: 90%;
-        max-width: 32rem;
+        // width: 90%;
+        // max-width: 32rem;
         background-color: #353353;
     }
 }

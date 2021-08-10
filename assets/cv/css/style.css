@@ -4,7 +4,6 @@
 
 01. Base
 02. Typography
-04. Header
 05. Sections
 06. Parallax Shapes
 07. Skills
@@ -77,152 +76,12 @@ blockquote p {
   line-height: 1.6;
 }
 /*=================================================================*/
-/*                      HEADER                              
-/*=================================================================*/
-header.desktop-header-1 {
-  color: #FFF;
-  border-right: solid 1px rgba(255, 255, 255, 0.1);
-  background: #353353;
-  padding: 50px 40px 40px;
-  position: fixed;
-  left: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
-  height: 100vh;
-  min-height: 100vh;
-  top: 0;
-  width: 290px;
-  z-index: 1;
-  -webkit-transform: translateX(0);
-  -ms-transform: translateX(0);
-  transform: translateX(0);
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  /* === Vertical Menu === */
-  /* === Submenu === */
-}
-header.desktop-header-1.open {
-  -webkit-transform: translateX(0);
-  -ms-transform: translateX(0);
-  transform: translateX(0);
-}
-header.desktop-header-1 .vertical-menu {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 130px;
-  margin-top: 130px;
-}
-header.desktop-header-1 .vertical-menu li.openmenu > a {
-  color: #000;
-}
-header.desktop-header-1 .vertical-menu li.openmenu .switch {
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-header.desktop-header-1 .vertical-menu li {
-  padding: 8px 0;
-  position: relative;
-  list-style: none;
-  -webkit-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-header.desktop-header-1 .vertical-menu li a:hover {
-  color: #FFD15C;
-}
-header.desktop-header-1 .vertical-menu li i {
-  color: #FFD15C;
-  margin-right: 20px;
-}
-header.desktop-header-1 .vertical-menu li .switch {
-  font-size: 30px;
-  display: inline-block;
-  padding: 0 14px;
-  line-height: 1;
-  cursor: pointer;
-  color: #000;
-  position: absolute;
-  top: 24px;
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  -webkit-backface-visibility: hidden;
-}
-header.desktop-header-1 .vertical-menu li a {
-  color: #FFF;
-  font-family: "Rubik", sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  width: 100%;
-  text-decoration: none;
-  position: relative;
-}
-header.desktop-header-1 .vertical-menu li a.active {
-  color: #FFD15C;
-}
-header.desktop-header-1 .submenu {
-  display: none;
-  padding: 0;
-}
-header.desktop-header-1 .submenu li a {
-  color: #000;
-  font-size: 18px;
-  font-weight: 700;
-}
-header.desktop-header-1 .submenu li a:after {
-  height: 3px;
-}
-header.desktop-header-1 .submenu li a:hover:after {
-  width: 100%;
-  height: 3px;
-}
-header.desktop-header-1 .submenu li a:hover {
-  color: #000;
-}
-header.desktop-header-1 .footer {
-  margin-top: auto;
-}
-header.desktop-header-1 .copyright {
-  color: #9C9AB3;
-  font-size: 14px;
-}
-/*=================================================================*/
 /*                      SECTIONS                             
 /*=================================================================*/
-main.content {
-  margin-left: 290px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-main.content.open {
-  opacity: 0.8;
-  -webkit-transform: translateX(290px);
-  -ms-transform: translateX(290px);
-  transform: translateX(290px);
-}
-
-main.content-2 {
-  margin-left: 110px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-main.content-2.open {
-  opacity: 0.8;
-  -webkit-transform: translateX(110px);
-  -ms-transform: translateX(110px);
-  transform: translateX(110px);
-}
-
 section {
   padding-top: 4rem;
   position: relative;
+  background: #fff;
 }
 
 section.home {
@@ -1926,39 +1785,7 @@ body {
     padding: 40px 30px;
   }
 }
-@media only screen and (max-width: 991px) {
-  header.desktop-header-1 {
-    -webkit-transform: translateX(-290px);
-    -ms-transform: translateX(-290px);
-    transform: translateX(-290px);
-  }
 
-  header.mobile-header-1 {
-    display: block;
-  }
-
-  main.content {
-    margin-left: 0;
-  }
-
-  header.desktop-header-2 {
-    -webkit-transform: translateX(-110px);
-    -ms-transform: translateX(-110px);
-    transform: translateX(-110px);
-  }
-
-  header.mobile-header-2 {
-    display: block;
-  }
-
-  main.content-2 {
-    margin-left: 0;
-  }
-
-  .desktop-header-3 .nav-link {
-    padding: 7px 0;
-  }
-}
 @media only screen and (max-width: 768px) {
   section.home {
     padding: 300px 0;
@@ -2105,10 +1932,5 @@ body {
 @media only screen and (max-height: 500px) {
   .scroll-down {
     display: none;
-  }
-}
-@media only screen and (max-height: 667px) {
-  header.desktop-header-2 .footer {
-    margin-top: 100px;
   }
 }

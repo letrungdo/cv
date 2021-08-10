@@ -15,11 +15,11 @@ export const SectioContact = () => {
                             </Typography>
                             <p className="wow fadeInUp">
                                 {"Don't like forms? Send me an "}
-                                <a href="mailto:name@example.com">email</a>. 👋
+                                <a href="mailto:letrdo@gmail.com">email</a>. 👋
                             </p>
                         </div>
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-md-8 mb-10">
                         <form id="contact-form" className="contact-form mt-6" method="post" action="form/contact.php">
                             <div className="messages"></div>
                             <div className="row">
