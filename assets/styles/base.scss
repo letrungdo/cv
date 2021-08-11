@@ -46,6 +46,23 @@ body {
         opacity: 0.8;
     }
 }
-.MuiButton-root.btn-radius {
-    border-radius: 30px !important;
+a {
+    outline: 0;
+    transition: all 0.3s ease-in-out;
+}
+a:hover {
+    text-decoration: none;
+    color: var(--main-color);
+}
+.MuiButton-root {
+    &.btn-radius {
+        border-radius: 30px !important;
+    }
+    &.btn-radius:hover {
+        color: white;
+    }
+}
+img {
+    max-width: 100%;
+    height: auto;
 }

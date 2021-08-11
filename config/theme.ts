@@ -3,7 +3,7 @@ import { createTheme } from "@material-ui/core/styles";
 
 const hxStyle = {
     fontFamily: "Rubik, sans-serif",
-    margin: "2rem 0 4rem 0",
+    margin: "2rem 0",
     fontWeight: 700,
 };
 // Create a theme instance.

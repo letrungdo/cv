@@ -7,7 +7,7 @@ import Parallax from "parallax-js";
 import { useEffect, useRef } from "react";
 import ReactTypingEffect from "react-typing-effect";
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles(() =>
     createStyles({
         root: {
             background: "#353353",
@@ -40,6 +40,114 @@ const useStyles = makeStyles((theme) =>
             },
             "& li:not(:last-child)": {
                 marginRight: "2rem",
+            },
+        },
+        parallax: {
+            position: "absolute",
+            left: 0,
+            top: 0,
+            height: "100%",
+            width: "100%",
+            "& .layer": {
+                position: "absolute",
+            },
+            "& .p1": {
+                left: "10%",
+                top: "10%",
+            },
+            "& .p2": {
+                left: "25%",
+                top: "30%",
+            },
+            "& .p3": {
+                left: "15%",
+                bottom: "30%",
+            },
+            "& .p4": {
+                left: "10%",
+                bottom: "10%",
+            },
+            "& .p5": {
+                left: "45%",
+                top: "10%",
+            },
+            "& .p6": {
+                left: "40%",
+                bottom: "10%",
+            },
+            "& .p7": {
+                top: "20%",
+                right: "30%",
+            },
+            "& .p8": {
+                right: "30%",
+                bottom: "20%",
+            },
+            "& .p9": {
+                right: "10%",
+                top: "10%",
+            },
+            "& .p10": {
+                top: "45%",
+                right: "20%",
+            },
+            "& .p11": {
+                bottom: "10%",
+                right: "10%",
+            },
+        },
+        scrollDown: {
+            position: "absolute",
+            bottom: 40,
+            left: 0,
+            width: "100%",
+            zIndex: 1,
+        },
+        "@keyframes aniMouse": {
+            "0%": {
+                top: "29%",
+            },
+            "15%": {
+                top: "50%",
+            },
+            "50%": {
+                top: "50%",
+            },
+            "100%": {
+                top: "29%",
+            },
+        },
+        mouseWrapper: {
+            color: "#FFF",
+            fontSize: 14,
+            display: "block",
+            maxWidth: 100,
+            margin: "auto",
+            textAlign: "center",
+            "&:hover": {
+                color: "#FFF",
+            },
+            "& .mouse": {
+                border: "solid 2px #FFF",
+                borderRadius: 16,
+                display: "block",
+                margin: "auto",
+                marginTop: 10,
+                height: 26,
+                position: "relative",
+                width: 20,
+                "& .wheel": {
+                    background: "#FFF",
+                    borderRadius: "100%",
+                    display: "block",
+                    position: "absolute",
+                    top: 8,
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    height: 4,
+                    width: 4,
+                    animation: "$aniMouse 2s linear infinite",
+                },
             },
         },
     }),
@@ -91,15 +199,15 @@ export const SectionHome = () => {
                         Hire me
                     </Button>
                 </div>
-                <div className="scroll-down">
-                    <a href="#about" className="mouse-wrapper">
+                <div className={classes.scrollDown}>
+                    <a href="#about" className={classes.mouseWrapper}>
                         <span>Scroll Down</span>
                         <span className="mouse">
                             <span className="wheel"></span>
                         </span>
                     </a>
                 </div>
-                <div ref={parallaxRef} className="parallax">
+                <div ref={parallaxRef} className={classes.parallax}>
                     <svg
                         width="27"
                         height="29"

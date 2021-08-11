@@ -8,7 +8,7 @@ export const SectionExperience = () => {
                     Experience
                 </Typography>
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-6 mb-4">
                         <div className="timeline edu bg-white rounded shadow-dark p-6 overflow-hidden">
                             <div className="timeline-container wow fadeInUp">
                                 <div className="content">

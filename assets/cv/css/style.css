@@ -1,32 +1,4 @@
 ﻿@charset "UTF-8";
-img {
-  max-width: 100%;
-  height: auto;
-}
-a {
-  color: #FF4C60;
-  outline: 0;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-a:hover {
-  color: #353353;
-  text-decoration: none;
-}
-a:focus {
-  outline: 0;
-}
-blockquote {
-  padding: 20px 20px;
-  margin: 0 0 20px;
-  font-size: 16px;
-  background: #F7F7F7;
-  border-radius: 10px;
-}
-blockquote p {
-  line-height: 1.6;
-}
 /*=================================================================*/
 /*                      SECTIONS                             
 /*=================================================================*/
@@ -50,64 +22,6 @@ section {
   position: absolute;
   width: 37px;
 }
-/*=================================================================*/
-/*                      PARALLAX SHAPES                              
-/*=================================================================*/
-.parallax {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-}
-.parallax .layer {
-  position: absolute;
-}
-.parallax .p1 {
-  left: 10%;
-  top: 10%;
-}
-.parallax .p2 {
-  left: 25%;
-  top: 30%;
-}
-.parallax .p3 {
-  left: 15%;
-  bottom: 30%;
-}
-.parallax .p4 {
-  left: 10%;
-  bottom: 10%;
-}
-.parallax .p5 {
-  left: 45%;
-  top: 10%;
-}
-.parallax .p6 {
-  left: 40%;
-  bottom: 10%;
-}
-.parallax .p7 {
-  top: 20%;
-  right: 30%;
-}
-.parallax .p8 {
-  right: 30%;
-  bottom: 20%;
-}
-.parallax .p9 {
-  right: 10%;
-  top: 10%;
-}
-.parallax .p10 {
-  top: 45%;
-  right: 20%;
-}
-.parallax .p11 {
-  bottom: 10%;
-  right: 10%;
-}
-
 /*=================================================================*/
 /*                      SKILLS                              
 /*=================================================================*/
@@ -323,7 +237,6 @@ select.portfolio-filter-mobile {
 .price-item .price {
   font-size: 36px;
   font-weight: 700;
-  margin: 0;
 }
 .price-item .price em {
   font-style: normal;
@@ -808,106 +721,8 @@ select.portfolio-filter-mobile {
   margin-right: 10px;
   display: none;
 }
-
-.scroll-down {
-  position: absolute;
-  bottom: 40px;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-}
-.scroll-down.light span {
-  color: #454360;
-}
-.scroll-down.light .mouse {
-  border-color: #353353;
-}
-.scroll-down.light .mouse .wheel {
-  background: #353353;
-}
-
-@-webkit-keyframes ani-mouse {
-  0% {
-    top: 29%;
-  }
-  15% {
-    top: 50%;
-  }
-  50% {
-    top: 50%;
-  }
-  100% {
-    top: 29%;
-  }
-}
-@keyframes ani-mouse {
-  0% {
-    top: 29%;
-  }
-  15% {
-    top: 50%;
-  }
-  50% {
-    top: 50%;
-  }
-  100% {
-    top: 29%;
-  }
-}
-.mouse-wrapper {
-  color: #FFF;
-  font-size: 14px;
-  display: block;
-  max-width: 100px;
-  margin: auto;
-  text-align: center;
-}
-.mouse-wrapper:hover {
-  color: #FFF;
-}
-
-.mouse {
-  border: solid 2px #FFF;
-  border-radius: 16px;
-  display: block;
-  margin: auto;
-  margin-top: 10px;
-  height: 26px;
-  position: relative;
-  width: 20px;
-}
-.mouse .wheel {
-  background: #FFF;
-  border-radius: 100%;
-  display: block;
-  position: absolute;
-  top: 8px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
-  height: 4px;
-  width: 4px;
-  -webkit-animation: ani-mouse 2s linear infinite;
-  animation: ani-mouse 2s linear infinite;
-}
-
 .circle {
   border-radius: 100%;
-}
-
-footer.footer {
-  background: #353353;
-  padding: 40px 0;
-  text-align: center;
-}
-footer.footer .copyright {
-  color: #9C9AB3;
-  font-size: 14px;
-}
-footer.footer.light {
-  background: #F9F9FF;
-  border-top: solid 1px rgba(0, 0, 0, 0.05);
 }
 /*=================================================================*/
 /*                     BOOTSTRAP ELEMENTS
