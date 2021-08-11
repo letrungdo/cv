@@ -49,6 +49,8 @@ body {
 a {
     outline: 0;
     transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    color: var(--main-color);
 }
 a:hover {
     text-decoration: none;

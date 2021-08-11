@@ -1,4 +1,5 @@
 import { Typography } from "@material-ui/core";
+import { cvConfig } from "config/cv";
 
 /* eslint-disable @next/next/no-img-element */
 type ServiceBoxProps = {
@@ -15,7 +16,7 @@ const ServiceBox = ({ className = "", name, description, imgSrc, bgColor }: Serv
                 className={`service-box rounded data-background p-6 text-center mb-5 ${className}`}
                 style={{ backgroundColor: bgColor }}
             >
-                <img src={imgSrc} alt="UI/UX design" />
+                <img src={imgSrc} alt={description} />
                 <Typography variant="h3" className="mb-3 mt-0">
                     {name}
                 </Typography>
@@ -33,27 +34,9 @@ export const SectionServices = () => {
                     Services
                 </Typography>
                 <div className="row">
-                    <ServiceBox
-                        className="shadow-blue text-light"
-                        imgSrc="images\cv\service-1.svg"
-                        bgColor="#6C6CE5"
-                        name="UI/UX design"
-                        description="Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget."
-                    />
-                    <ServiceBox
-                        className="shadow-yellow"
-                        imgSrc="images\cv\service-2.svg"
-                        bgColor="#F9D74C"
-                        name="Web Development"
-                        description="Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget."
-                    />
-                    <ServiceBox
-                        className="shadow-pink text-light"
-                        imgSrc="images\cv\service-3.svg"
-                        bgColor="#F97B8B"
-                        name="Photography"
-                        description="Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget."
-                    />
+                    {cvConfig.services.map((s) => (
+                        <ServiceBox key={s.name} {...s} />
+                    ))}
                 </div>
                 <div className="mt-5 text-center">
                     <p className="mb-0">

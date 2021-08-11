@@ -2,6 +2,7 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, createStyles, makeStyles, Typography } from "@material-ui/core";
+import { cvConfig } from "config/cv";
 import config from "config/site";
 import Parallax from "parallax-js";
 import { useEffect, useRef } from "react";
@@ -172,14 +173,14 @@ export const SectionHome = () => {
         <section id="home" className={`${classes.root} home flex align-items-center`}>
             <div className="container">
                 <div className={classes.intro}>
-                    <img src="images\cv\avatar-1.svg" alt="DoLT" className="mb-4" />
+                    <img src="images/cv/avatar-1.svg" alt="DoLT" className="mb-4" />
                     <Typography variant="h1" className="mb-2 mt-0">
-                        Le Trung Do
+                        {cvConfig.name}
                     </Typography>
                     <span>
                         {"I'm a "}
                         <ReactTypingEffect
-                            text={["ReactJs developer", "Xamarin Forms developer"]}
+                            text={cvConfig.mainJob}
                             speed={100}
                             eraseSpeed={50}
                             typingDelay={200}

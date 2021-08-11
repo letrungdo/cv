@@ -9,12 +9,12 @@ import {
     SectionBlog,
     SectionExperience,
     SectionHome,
-    SectionPrices,
     SectionServices,
-    SectionTestimonials,
     SectionWorks,
 } from "components/Section";
 import { cvConfig } from "config/cv";
+import config from "config/site";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
@@ -118,6 +118,16 @@ const CV = () => {
 
     return (
         <>
+            <Head>
+                <title>{`${cvConfig.title} - ${config.siteTitle}`}</title>
+                <meta charSet="utf-8" />
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta property="og:title" content={`${cvConfig.title} - ${config.siteTitle}`} />
+                <meta property="og:description" content={cvConfig.description} />
+                <meta property="og:type" content="article" />
+                <meta name="image" content="images/cv/cv-thumbnail.png" />
+                <meta property="og:image" content="images/cv/cv-thumbnail.png" />
+            </Head>
             <Hidden mdUp>
                 <HambugerMenu className={classes.menuIc} isOpen={isOpenMenu} onClick={onMenuClick(!isOpenMenu)} />
             </Hidden>
@@ -148,7 +158,12 @@ const CV = () => {
                     ))}
                 </List>
                 <div className={classes.footer}>
-                    <span className="copyright">© 2021 TĐ.VN</span>
+                    <span className="copyright">
+                        © 2021{" "}
+                        <a href="https://xn--t-lia.vn/" target="_blank" rel="noreferrer">
+                            TĐ.VN
+                        </a>
+                    </span>
                 </div>
             </SwipeableDrawer>
             <main
@@ -161,8 +176,8 @@ const CV = () => {
                 <SectionServices />
                 <SectionExperience />
                 <SectionWorks />
-                <SectionPrices />
-                <SectionTestimonials />
+                {/* <SectionPrices /> */}
+                {/* <SectionTestimonials /> */}
                 <SectionBlog />
                 <SectioContact />
             </main>
