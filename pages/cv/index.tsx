@@ -1,4 +1,4 @@
-import { createStyles, List, ListItem, makeStyles, SwipeableDrawer, Theme } from "@material-ui/core";
+import { createStyles, Hidden, List, ListItem, makeStyles, SwipeableDrawer, Theme } from "@material-ui/core";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import clsx from "clsx";
 import HambugerMenu from "components/HambugerMenu";
@@ -18,8 +18,7 @@ import { cvConfig } from "config/cv";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
-const drawerWidth = 240;
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles<Theme, { drawerWidth: number }>((theme) =>
     createStyles({
         menuMobile: {
             marginTop: 45,
@@ -51,11 +50,11 @@ const useStyles = makeStyles((theme) =>
             },
         },
         drawer: {
-            width: drawerWidth,
+            width: ({ drawerWidth }) => drawerWidth,
             flexShrink: 0,
         },
         drawerPaper: {
-            width: drawerWidth,
+            width: ({ drawerWidth }) => drawerWidth,
         },
         content: {
             flexGrow: 1,
@@ -69,14 +68,14 @@ const useStyles = makeStyles((theme) =>
                 easing: theme.transitions.easing.easeOut,
                 duration: theme.transitions.duration.enteringScreen,
             }),
-            marginRight: drawerWidth,
+            marginLeft: ({ drawerWidth }) => drawerWidth,
         },
     }),
 );
 
 const CV = () => {
-    const classes = useStyles();
     const isPc = useMediaQuery<Theme>((theme) => theme.breakpoints.up("md"));
+    const classes = useStyles({ drawerWidth: isPc ? 300 : 240 });
     const router = useRouter();
     const [currentPath, setCurrentPath] = useState("");
     const [isOpenMenu, setOpenMenu] = useState(false);
@@ -102,6 +101,10 @@ const CV = () => {
     };
 
     useEffect(() => {
+        setOpenMenu(isPc);
+    }, [isPc]);
+
+    useEffect(() => {
         setCurrentPath(`#${router.asPath.split("#")[1]}`);
     }, [router.asPath]);
 
@@ -115,15 +118,16 @@ const CV = () => {
 
     return (
         <>
-            <HambugerMenu className={classes.menuIc} isOpen={isOpenMenu} onClick={onMenuClick(!isOpenMenu)} />
+            <Hidden mdUp>
+                <HambugerMenu className={classes.menuIc} isOpen={isOpenMenu} onClick={onMenuClick(!isOpenMenu)} />
+            </Hidden>
             <SwipeableDrawer
                 id="slide-menu"
                 variant={isPc ? "persistent" : undefined}
-                anchor="right"
+                anchor={isPc ? "left" : "right"}
                 open={isOpenMenu}
                 onClose={toggleDrawer(false)}
                 onOpen={toggleDrawer(true)}
-                disableSwipeToOpen
                 className={classes.drawer}
                 classes={{
                     paper: classes.drawerPaper,
