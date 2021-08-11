@@ -1,4 +1,4 @@
-import { Typography } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import { cvConfig } from "config/cv";
 import { useRef, useState } from "react";
 import { useCountUp } from "react-countup";
@@ -96,7 +96,7 @@ export const SectionAbout = () => {
                         </div>
                     </div>
                     <div className="col-md-9 triangle-left-md triangle-top-sm">
-                        <div className="rounded bg-white shadow-dark padding-30">
+                        <div className="rounded bg-white shadow-dark p-6">
                             <div className="row">
                                 <div className="col-md-6">
                                     <p>
@@ -104,11 +104,15 @@ export const SectionAbout = () => {
                                         experience in web site design and building and customization, also I am good at
                                         ReactJs, Nextjs.
                                     </p>
-                                    <div className="mt-3 mb-5">
-                                        <a href="#" className="btn btn-default">
-                                            Download CV
-                                        </a>
-                                    </div>
+                                    <Button
+                                        href="https://i.topcv.vn/letrungdo?ref=1893460"
+                                        target="_blank"
+                                        variant="contained"
+                                        color="primary"
+                                        className="mt-3 mb-5 btn-radius"
+                                    >
+                                        Download CV
+                                    </Button>
                                 </div>
                                 <div className="col-md-6">
                                     {cvConfig.skills.map((item) => (

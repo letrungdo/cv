@@ -1,54 +1,8 @@
 ﻿@charset "UTF-8";
-/*
-[TABLE OF CONTENTS]
-
-01. Base
-02. Typography
-05. Sections
-06. Parallax Shapes
-07. Skills
-08. Service
-09. Portfolio
-10. Facts
-11. Prices
-12. Testimonials
-13. Blog
-14. Clients
-15. Contact
-16. Helper
-17. Dark Mode
-18. Buttons
-19. Bootstrap Components
-20. Theme elements
-21. Slick
-22. Responsive
-
-/*                      BASE                              
-/*=================================================================*/
 img {
   max-width: 100%;
   height: auto;
 }
-
-.text-center {
-  text-align: center;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.relative {
-  position: relative;
-}
-
-/*=================================================================*/
-/*                      TYPOGRAPHY                              
-/*=================================================================*/
 a {
   color: #FF4C60;
   outline: 0;
@@ -63,7 +17,6 @@ a:hover {
 a:focus {
   outline: 0;
 }
-
 blockquote {
   padding: 20px 20px;
   margin: 0 0 20px;
@@ -71,7 +24,6 @@ blockquote {
   background: #F7F7F7;
   border-radius: 10px;
 }
-
 blockquote p {
   line-height: 1.6;
 }
@@ -79,51 +31,10 @@ blockquote p {
 /*                      SECTIONS                             
 /*=================================================================*/
 section {
-  padding-top: 4rem;
+  padding: 2rem 0;
   position: relative;
   background: #fff;
 }
-
-section.home {
-  background: #353353;
-  padding: 0;
-  height: 100vh;
-  min-height: 100vh;
-}
-section.home .intro {
-  margin: auto;
-  max-width: 540px;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-section.home .intro h1 {
-  color: #FFF;
-  font-size: 36px;
-}
-section.home .intro span {
-  color: #FFF;
-  font-size: 16px;
-}
-section.home .social-icons li a {
-  color: #FFF;
-}
-section.home.light {
-  background: #F9F9FF;
-}
-section.home.light .intro h1 {
-  color: #353353;
-}
-section.home.light .intro span {
-  color: #454360;
-}
-section.home.light .social-icons li a {
-  color: #353353;
-}
-section.home.light .social-icons li a:hover {
-  color: #FFD15C;
-}
-
 .section-title {
   font-size: 36px;
   margin-left: 1.4rem !important;
@@ -139,7 +50,6 @@ section.home.light .social-icons li a:hover {
   position: absolute;
   width: 37px;
 }
-
 /*=================================================================*/
 /*                      PARALLAX SHAPES                              
 /*=================================================================*/
@@ -999,177 +909,6 @@ footer.footer.light {
   background: #F9F9FF;
   border-top: solid 1px rgba(0, 0, 0, 0.05);
 }
-
-/*=================================================================*/
-/*                      DARK MODE                              
-/*=================================================================*/
-body.dark {
-  color: #FFF;
-  background-color: #353353;
-}
-body.dark .section-title {
-  color: #FFF;
-}
-body.dark .section-title:before {
-  background: url("../images/dots-bg-light.svg");
-}
-body.dark .bg-dark {
-  background: #302f4e !important;
-}
-body.dark h1, body.dark h2, body.dark h3, body.dark h4, body.dark h5, body.dark h6 {
-  color: #FFF;
-}
-body.dark .triangle-top:before {
-  border-bottom-color: #302f4e;
-}
-body.dark .timeline.exp .timeline-container::after, body.dark .timeline.edu .timeline-container::after {
-  background: #302f4e;
-}
-body.dark .portfolio-filter li {
-  color: #FFF;
-}
-body.dark a:hover {
-  color: #FFF;
-}
-body.dark .portfolio-filter li.current {
-  color: #FF4C60;
-}
-body.dark .blog-item .details h4.title a {
-  color: #FFF;
-}
-body.dark .blog-item .details h4.title a:hover {
-  color: #FF4C60;
-}
-body.dark .contact-info {
-  background-image: url("../images/map-light.png");
-}
-body.dark .white-popup {
-  background: #302f4e;
-}
-body.dark footer.footer {
-  border-top: solid 1px rgba(255, 255, 255, 0.1);
-}
-body.dark .content-blog,
-body.dark .blog-page-section {
-  background: #353353;
-}
-body.dark .bg-white {
-  background-color: #302f4e !important;
-}
-body.dark .blog-standard .meta li a, body.dark .blog-standard .title a, body.dark .comment-author .fn {
-  color: #fff;
-}
-body.dark .blog-page-section .blog-pagination ul li {
-  background-color: #302f4e !important;
-}
-body.dark .blog-page-section .blog-single {
-  background-color: #302f4e !important;
-}
-
-/*=================================================================*/
-/*                     BUTTONS
-/*=================================================================*/
-.btn {
-  border-radius: 30px;
-  font-family: "Rubik", sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  overflow: hidden;
-  line-height: 1;
-  padding: 12px 32px;
-  position: relative;
-}
-.btn:focus {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.btn:focus {
-  outline: 0;
-}
-
-@-webkit-keyframes button-push {
-  50% {
-    -webkit-transform: scale(0.8);
-    transform: scale(0.8);
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-@-webkit-keyframes hvr-push {
-  50% {
-    -webkit-transform: scale(0.8);
-    transform: scale(0.8);
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-@keyframes hvr-push {
-  50% {
-    -webkit-transform: scale(0.8);
-    transform: scale(0.8);
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-.btn-default {
-  color: #FFF;
-  background: #FF4C60;
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-          box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-}
-.btn-default:hover {
-  color: #FFF;
-  -webkit-animation-name: button-push;
-  animation-name: button-push;
-  -webkit-animation-duration: 0.3s;
-  animation-duration: 0.3s;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-}
-
-.btn-full {
-  text-align: center;
-  width: 100%;
-}
-
-.btn-group-lg > .btn, .btn-lg {
-  padding: 28px 30px;
-  font-size: 18px;
-  font-weight: 100;
-  line-height: 0;
-}
-
-.btn-sm {
-  padding: 17px 16px;
-  font-size: 12px;
-  line-height: 0;
-}
-
-.btn-xs {
-  padding: 12px 10px;
-  font-size: 12px;
-  line-height: 0;
-}
-
-.btn.disabled, .btn:disabled {
-  opacity: 1;
-  cursor: not-allowed;
-}
-
 /*=================================================================*/
 /*                     BOOTSTRAP ELEMENTS
 /*=================================================================*/
@@ -1411,17 +1150,6 @@ body.dark .blog-page-section .blog-single {
   left: 34px;
 }
 
-/* === Social Icons === */
-.social-icons li:not(:last-child) {
-  margin-right: 2rem;
-}
-.social-icons li a {
-  font-size: 21px;
-}
-.social-icons.light li a:hover {
-  color: #FFD15C;
-}
-
 /* === Helper === */
 .rounded {
   border-radius: 20px !important;
@@ -1454,10 +1182,6 @@ body.dark .blog-page-section .blog-single {
 .shadow-yellow {
   -webkit-box-shadow: 0px 5px 20px 0px rgba(249, 215, 76, 0.5);
   box-shadow: 0px 5px 20px 0px rgba(249, 215, 76, 0.5);
-}
-
-.padding-30 {
-  padding: 30px;
 }
 
 .triangle-left:before {

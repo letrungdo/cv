@@ -12,7 +12,7 @@ const ServiceBox = ({ className = "", name, description, imgSrc, bgColor }: Serv
     return (
         <div className="col-md-4">
             <div
-                className={`service-box rounded data-background padding-30 text-center mb-5 ${className}`}
+                className={`service-box rounded data-background p-6 text-center mb-5 ${className}`}
                 style={{ backgroundColor: bgColor }}
             >
                 <img src={imgSrc} alt="UI/UX design" />

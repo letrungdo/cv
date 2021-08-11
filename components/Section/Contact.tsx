@@ -1,4 +1,4 @@
-import { Typography } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 
 export const SectioContact = () => {
     return (
@@ -81,9 +81,17 @@ export const SectioContact = () => {
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" name="submit" id="submit" value="Submit" className="btn btn-default">
+                            <Button
+                                id="submit"
+                                variant="contained"
+                                color="primary"
+                                className="btn-radius"
+                                value="Submit"
+                                type="submit"
+                                name="submit"
+                            >
                                 Send Message
-                            </button>
+                            </Button>
                         </form>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import { Typography } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 
 /* eslint-disable @next/next/no-img-element */
 export const SectionWorks = () => {
@@ -83,9 +83,9 @@ export const SectionWorks = () => {
                                 Donec consectetur, libero at pretium euismod, nisl felis lobortis urna, id tristique
                                 nisl lectus eget ligula.
                             </p>
-                            <a href="#" className="btn btn-default">
+                            <Button href="#" variant="contained" color="primary" className="btn-radius">
                                 View on Dribbble
-                            </a>
+                            </Button>
                         </div>
                     </div>
                     <div className="col-md-4 col-sm-6 grid-item branding">
@@ -173,9 +173,9 @@ export const SectionWorks = () => {
                     </div>
                 </div>
                 <div className="load-more text-center mt-4">
-                    <a className="btn btn-default">
+                    <Button variant="contained" color="primary" className="btn-radius">
                         <i className="fas fa-spinner"></i> Load more
-                    </a>
+                    </Button>
                     <ul className="portfolio-pagination list-inline d-none">
                         <li className="list-inline-item">1</li>
                         <li className="list-inline-item">

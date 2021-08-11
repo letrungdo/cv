@@ -17,7 +17,7 @@ export const SectionTestimonials = () => {
                             John Doe
                         </Typography>
                         <span className="subtitle">Product designer at Dribbble</span>
-                        <div className="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
+                        <div className="bg-white p-6 shadow-dark rounded triangle-top position-relative mt-4">
                             <p className="mb-0">
                                 I enjoy working with the theme and learn so much. You guys make the process fun and
                                 interesting. Good luck! 👍
@@ -33,7 +33,7 @@ export const SectionTestimonials = () => {
                             John Doe
                         </Typography>
                         <span className="subtitle">Product designer at Dribbble</span>
-                        <div className="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
+                        <div className="bg-white p-6 shadow-dark rounded triangle-top position-relative mt-4">
                             <p className="mb-0">
                                 I enjoy working with the theme and learn so much. You guys make the process fun and
                                 interesting. Good luck! 🔥

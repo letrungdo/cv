@@ -10,7 +10,7 @@ const hxStyle = {
 const theme = createTheme({
     palette: {
         primary: {
-            main: "#eb5505",
+            main: "#FF4C60",
         },
         secondary: {
             main: "#333333",
@@ -68,6 +68,9 @@ const theme = createTheme({
             "Helvetica Neue",
             "sans-serif",
         ].join(","),
+        button: {
+            textTransform: "none",
+        },
         h1: {
             ...hxStyle,
             fontSize: "3.6rem",

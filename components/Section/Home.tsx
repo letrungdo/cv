@@ -1,14 +1,54 @@
 /* eslint-disable @next/next/no-img-element */
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Typography } from "@material-ui/core";
+import { Button, createStyles, makeStyles, Typography } from "@material-ui/core";
 import config from "config/site";
 import Parallax from "parallax-js";
 import { useEffect, useRef } from "react";
 import ReactTypingEffect from "react-typing-effect";
 
+const useStyles = makeStyles((theme) =>
+    createStyles({
+        root: {
+            background: "#353353",
+            padding: 0,
+            height: "100vh",
+            minHeight: "100vh",
+        },
+        intro: {
+            margin: "auto",
+            maxWidth: 540,
+            textAlign: "center",
+            position: "relative",
+            zIndex: 1,
+            "& h1": {
+                color: "#FFF",
+                fontSize: 36,
+            },
+            "& span": {
+                color: "#FFF",
+                fontSize: 16,
+            },
+        },
+        socialIcons: {
+            "& a": {
+                color: "#FFF",
+                fontSize: 21,
+                "&:hover": {
+                    color: "#FFD15C",
+                },
+            },
+            "& li:not(:last-child)": {
+                marginRight: "2rem",
+            },
+        },
+    }),
+);
+
 export const SectionHome = () => {
     const parallaxRef = useRef(null);
+    const classes = useStyles();
+
     useEffect(() => {
         const parallax = new Parallax(parallaxRef.current, {
             relativeInput: true,
@@ -21,9 +61,9 @@ export const SectionHome = () => {
     }, []);
 
     return (
-        <section id="home" className="home d-flex align-items-center">
+        <section id="home" className={`${classes.root} home flex align-items-center`}>
             <div className="container">
-                <div className="intro">
+                <div className={classes.intro}>
                     <img src="images\cv\avatar-1.svg" alt="DoLT" className="mb-4" />
                     <Typography variant="h1" className="mb-2 mt-0">
                         Le Trung Do
@@ -38,7 +78,7 @@ export const SectionHome = () => {
                             eraseDelay={1500}
                         />
                     </span>
-                    <ul className="social-icons light list-inline mb-0 mt-4">
+                    <ul className={`${classes.socialIcons} list-inline mb-0 mt-4`}>
                         {config.socialLinks.map((i) => (
                             <li key={i.label} className="list-inline-item">
                                 <a href={i.url} target="_blank" rel="noreferrer">
@@ -47,11 +87,9 @@ export const SectionHome = () => {
                             </li>
                         ))}
                     </ul>
-                    <div className="mt-4">
-                        <a href="#contact" className="btn btn-default">
-                            Hire me
-                        </a>
-                    </div>
+                    <Button href="#contact" variant="contained" color="primary" className="mt-4 btn-radius">
+                        Hire me
+                    </Button>
                 </div>
                 <div className="scroll-down">
                     <a href="#about" className="mouse-wrapper">

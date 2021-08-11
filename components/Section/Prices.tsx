@@ -1,4 +1,4 @@
-import { Typography } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 
 /* eslint-disable @next/next/no-img-element */
 export const SectionPrices = () => {
@@ -9,7 +9,7 @@ export const SectionPrices = () => {
                     Pricing Plans
                 </Typography>
                 <div className="row">
-                    <div className="col-md-4 pr-md-0 mt-md-4 mt-0">
+                    <div className="col-md-4 mt-md-4 mt-0">
                         <div className="price-item bg-white rounded shadow-dark text-center">
                             <img src="images\cv\price-1.svg" alt="Regular" />
                             <Typography variant="h2" className="plan">
@@ -20,12 +20,11 @@ export const SectionPrices = () => {
                             <Typography variant="h3" className="price">
                                 <em>$</em>9<span>Month</span>
                             </Typography>
-                            <a href="#" className="btn btn-default">
+                            <Button variant="contained" color="primary" className="btn-radius">
                                 Get Started
-                            </a>
+                            </Button>
                         </div>
                     </div>
-
                     <div className="col-md-4 px-md-0 my-4 my-md-0">
                         <div className="price-item bg-white rounded shadow-dark text-center best">
                             <span className="badge">Recommended</span>
@@ -38,13 +37,12 @@ export const SectionPrices = () => {
                             <Typography variant="h3" className="price">
                                 <em>$</em>49<span>Month</span>
                             </Typography>
-                            <a href="#" className="btn btn-default">
+                            <Button variant="contained" color="primary" className="btn-radius">
                                 Get Started
-                            </a>
+                            </Button>
                         </div>
                     </div>
-
-                    <div className="col-md-4 pl-md-0 mt-md-4 mt-0">
+                    <div className="col-md-4 mt-md-4 mt-0">
                         <div className="price-item bg-white rounded shadow-dark text-center">
                             <img src="images\cv\price-3.svg" alt="Ultimate" />
                             <Typography variant="h2" className="plan">
@@ -55,9 +53,9 @@ export const SectionPrices = () => {
                             <Typography variant="h3" className="price">
                                 <em>$</em>99<span>Month</span>
                             </Typography>
-                            <a href="#" className="btn btn-default">
+                            <Button variant="contained" color="primary" className="btn-radius">
                                 Get Started
-                            </a>
+                            </Button>
                         </div>
                     </div>
                 </div>
