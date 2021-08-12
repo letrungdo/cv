@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Typography } from "@material-ui/core";
+import { DOMAIN_URL } from "constants/app";
 import { useEffect, useState } from "react";
 import Parser from "rss-parser";
 import { logDev } from "utils/logs";
@@ -10,7 +11,6 @@ type RSS = {
 } & Parser.Output<{
     [key: string]: any;
 }>;
-const CORS_PROXY = process.env.NODE_ENV === "development" ? "https://cors-anywhere.herokuapp.com/" : "";
 
 export const SectionBlog = () => {
     const [rssItems, setRssItems] = useState<RSS>({} as RSS);
@@ -18,8 +18,12 @@ export const SectionBlog = () => {
         (async () => {
             // dynamic import
             const Parser = (await import("rss-parser")).default;
-            const parser = new Parser();
-            const feed = await parser.parseURL(`${CORS_PROXY}https://xn--t-lia.vn/rss.xml`);
+            const parser = new Parser({
+                customFields: {
+                    item: ["cover"],
+                },
+            });
+            const feed = await parser.parseURL(`${DOMAIN_URL}/rss.xml`);
             setRssItems(feed);
             logDev(feed);
         })();
@@ -32,17 +36,22 @@ export const SectionBlog = () => {
                     Latest Posts
                 </Typography>
                 <div className="row blog-wrapper">
-                    {rssItems?.items?.slice(0, 3)?.map((i) => (
-                        <BlogItem
-                            key={i.guid}
-                            category={i.categories?.[0]}
-                            title={i.title}
-                            link={i.link}
-                            thumbnail={rssItems?.image?.url}
-                            pubDate={i.pubDate}
-                            creator={i.creator}
-                        />
-                    ))}
+                    {rssItems?.items?.slice(0, 3)?.map((i) => {
+                        const cover = i.cover.split("/") as string[];
+                        cover.splice(3, 0, "4e34f");
+
+                        return (
+                            <BlogItem
+                                key={i.guid}
+                                category={i.categories?.[0]}
+                                title={i.title}
+                                link={i.link}
+                                thumbnail={`${DOMAIN_URL}${cover.join("/")}`}
+                                pubDate={i.pubDate}
+                                creator={i.creator}
+                            />
+                        );
+                    })}
                 </div>
             </div>
         </section>

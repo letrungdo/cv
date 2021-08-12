@@ -26,7 +26,7 @@ const BlogItem = ({ thumbnail, category, title, pubDate, creator, link }: Props)
                         </a>
                     </Typography>
                     <ul className="list-inline meta mb-0 mt-2">
-                        <li className="list-inline-item">{pubDate}</li>
+                        <li className="list-inline-item">{new Date(pubDate || "").toLocaleDateString()}</li>
                         <li className="list-inline-item">{creator}</li>
                     </ul>
                 </div>
