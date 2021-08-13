@@ -1,3 +1,5 @@
+import { MoreType } from "components/Section/Works/WorkItem";
+
 export const cvConfig = {
     title: "Le Trung Do CV",
     description: "Le Trung Do CV",
@@ -122,8 +124,7 @@ export const cvConfig = {
             {
                 time: "1/2020 - Present",
                 title: "ReactJs Developer",
-                description: `From a mobile developer, I switched to making web apps with limited front end knowledge. AuPay Mini: Securities Single-Page App => This is my first project in this field.
-                    \nAfter many years of striving, I have also initially achieved certain achievements. FundSquare is the first project I've worked as a team leader for almost a year and got the maximum css score from a client.
+                description: `From a mobile developer, I switched to making web apps with limited front end knowledge. FundSquare is the first project I've worked as a team leader for almost a year and got the maximum css score from client.
                     \n7/2021: I have officially been promoted to team leader.`,
             },
             {
@@ -135,4 +136,54 @@ export const cvConfig = {
             },
         ],
     },
+    works: [
+        {
+            className: "art",
+            title: "Project Managment Illustration",
+            term: "Art",
+            moreIcon: MoreType.MagnifierAdd,
+            thumbnail: "images/cv/works/1.svg",
+            href: "images/cv/works/1.svg",
+        },
+        {
+            className: "creative design",
+            title: "Guest App Walkthrough Screens",
+            term: "Creative",
+            moreIcon: MoreType.Options,
+            thumbnail: "images/cv/works/2.svg",
+            href: "images/cv/works/2.svg",
+        },
+        {
+            className: "branding",
+            title: "Delivery App Wireframe",
+            term: "Branding",
+            moreIcon: MoreType.Camrecorder,
+            thumbnail: "images/cv/works/3.svg",
+            href: "https://www.youtube.com/watch?v=qf9z4ulfmYw",
+        },
+        {
+            className: "creative",
+            title: "Onboarding Motivation",
+            term: "Creative",
+            moreIcon: MoreType.Music,
+            thumbnail: "images/cv/works/4.svg",
+            href: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/240233494&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+        },
+        {
+            className: "art branding",
+            title: "iMac Mockup Design",
+            term: "Art, Branding",
+            moreIcon: MoreType.Gallery,
+            thumbnail: "images/cv/works/5.svg",
+            href: "#gallery-1",
+        },
+        {
+            className: "creative design",
+            title: "Game Store App Concept",
+            term: "Creative, Design",
+            moreIcon: MoreType.Link,
+            thumbnail: "images/cv/works/6.svg",
+            href: "#link",
+        },
+    ],
 };

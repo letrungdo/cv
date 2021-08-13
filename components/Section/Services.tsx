@@ -1,7 +1,21 @@
-import { Typography } from "@material-ui/core";
+/* eslint-disable @next/next/no-img-element */
+import { createStyles, makeStyles, Typography } from "@material-ui/core";
 import { cvConfig } from "config/cv";
 
-/* eslint-disable @next/next/no-img-element */
+const useStyles = makeStyles(() =>
+    createStyles({
+        serviceBox: {
+            transform: "translateY(0)",
+            transition: "all 0.3s ease-in-out",
+            "& h3": {
+                fontSize: "2rem",
+            },
+            "&:hover": {
+                transform: "translateY(-10px)",
+            },
+        },
+    }),
+);
 type ServiceBoxProps = {
     className: string;
     imgSrc: string;
@@ -10,13 +24,15 @@ type ServiceBoxProps = {
     bgColor: string;
 };
 const ServiceBox = ({ className = "", name, description, imgSrc, bgColor }: ServiceBoxProps) => {
+    const classes = useStyles();
+
     return (
         <div className="col-md-4">
             <div
-                className={`service-box rounded data-background p-6 text-center mb-5 ${className}`}
+                className={`${classes.serviceBox} rounded data-background p-6 text-center mb-5 ${className}`}
                 style={{ backgroundColor: bgColor }}
             >
-                <img src={imgSrc} alt={description} />
+                <img className="mb-4" src={imgSrc} alt={description} />
                 <Typography variant="h3" className="mb-3 mt-0">
                     {name}
                 </Typography>

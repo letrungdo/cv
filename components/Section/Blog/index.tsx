@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Typography } from "@material-ui/core";
+import { createStyles, makeStyles, Typography } from "@material-ui/core";
 import { DOMAIN_URL } from "constants/app";
 import { useEffect, useState } from "react";
 import Parser from "rss-parser";
@@ -12,7 +12,17 @@ type RSS = {
     [key: string]: any;
 }>;
 
+const useStyles = makeStyles(() =>
+    createStyles({
+        root: {
+            margin: "-2rem 0",
+        },
+    }),
+);
+
 export const SectionBlog = () => {
+    const classes = useStyles();
+
     const [rssItems, setRssItems] = useState<RSS>({} as RSS);
     useEffect(() => {
         (async () => {
@@ -35,7 +45,7 @@ export const SectionBlog = () => {
                 <Typography variant="h2" className="section-title wow fadeInUp">
                     Latest Posts
                 </Typography>
-                <div className="row blog-wrapper">
+                <div className={`${classes.root} row`}>
                     {rssItems?.items?.slice(0, 3)?.map((i) => {
                         const cover = i.cover.split("/") as string[];
                         cover.splice(3, 0, "4e34f");

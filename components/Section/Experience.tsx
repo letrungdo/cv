@@ -17,6 +17,49 @@ const useStyles = makeStyles(() =>
                 whiteSpace: "pre-wrap",
             },
         },
+        timeline: {
+            position: "relative",
+            "& span.line": {
+                position: "absolute",
+                width: 1,
+                backgroundColor: "#FF4C60",
+                top: 30,
+                bottom: 30,
+                left: 34,
+            },
+        },
+        timelineItem: {
+            paddingLeft: "5rem",
+            marginBottom: "5rem",
+            position: "relative",
+            backgroundColor: "inherit",
+            width: "100%",
+            "&:last-of-type": {
+                marginBottom: 0,
+            },
+            "&.edu:after": {
+                content: `""`,
+                background: " #FFF",
+                fontFamily: "simple-line-icons",
+                fontSize: 24,
+                color: "#FF4C60",
+                position: "absolute",
+                left: -7,
+                top: 0,
+                zIndex: 1,
+            },
+            "&.exp:after": {
+                content: `""`,
+                background: " #FFF",
+                fontFamily: "simple-line-icons",
+                fontSize: 24,
+                color: "#FF4C60",
+                position: "absolute",
+                left: -7,
+                top: 0,
+                zIndex: 1,
+            },
+        },
     }),
 );
 type TimelineProps = {
@@ -24,8 +67,9 @@ type TimelineProps = {
     title: string;
     description: string;
     animDelay?: number;
+    className: string;
 };
-const Timeline = ({ time, title, description, animDelay }: TimelineProps) => {
+const Timeline = ({ time, title, description, animDelay, className }: TimelineProps) => {
     const classes = useStyles();
 
     const prop = animDelay
@@ -35,7 +79,7 @@ const Timeline = ({ time, title, description, animDelay }: TimelineProps) => {
         : {};
 
     return (
-        <div className="timeline-container wow fadeInUp" {...prop}>
+        <div className={`${classes.timelineItem} ${className} wow fadeInUp`} {...prop}>
             <div className={classes.content}>
                 <span className="time">{time}</span>
                 <Typography variant="h3" className="title">
@@ -48,6 +92,8 @@ const Timeline = ({ time, title, description, animDelay }: TimelineProps) => {
 };
 
 export const SectionExperience = () => {
+    const classes = useStyles();
+
     return (
         <section id="experience">
             <div className="container">
@@ -56,17 +102,17 @@ export const SectionExperience = () => {
                 </Typography>
                 <div className="row">
                     <div className="col-md-6 mb-4">
-                        <div className="timeline edu bg-white rounded shadow-dark p-6 overflow-hidden">
+                        <div className={`${classes.timeline} bg-white rounded shadow-dark p-6 overflow-hidden`}>
                             {cvConfig.experience.education.map((t) => (
-                                <Timeline key={t.time} {...t} />
+                                <Timeline className="edu" key={t.time} {...t} />
                             ))}
                             <span className="line" />
                         </div>
                     </div>
                     <div className="col-md-6">
-                        <div className="timeline exp bg-white rounded shadow-dark p-6 overflow-hidden">
+                        <div className={`${classes.timeline} bg-white rounded shadow-dark p-6 overflow-hidden`}>
                             {cvConfig.experience.work.map((t) => (
-                                <Timeline key={t.time} {...t} />
+                                <Timeline className="exp" key={t.time} {...t} />
                             ))}
                             <span className="line" />
                         </div>
