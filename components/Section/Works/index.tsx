@@ -1,59 +1,74 @@
-import { Container, createStyles, Grid, Hidden, makeStyles, Select, Typography } from "@material-ui/core";
+import { Grid, Hidden, makeStyles, Select, Typography } from "@material-ui/core";
 import clsx from "clsx";
 import { cvConfig, WorkType } from "config/cv";
-import { useCallback, useState } from "react";
+import React, { useCallback, useState } from "react";
 import WorkItem from "./WorkItem";
 
-const useStyles = makeStyles(() =>
-    createStyles({
-        menuPc: {
-            "& li": {
-                color: "#5E5C7F",
-                cursor: "pointer",
-                fontSize: "1.6rem",
-                fontWeight: 700,
-                position: "relative",
-                transition: "all 0.3s ease-in-out",
-                "&:hover": {
-                    color: "#FF4C60",
-                },
-                "&:not(:last-child)": {
-                    marginRight: "1.8rem",
-                },
+const useStyles = makeStyles({
+    menuPc: {
+        "& li": {
+            color: "#5E5C7F",
+            cursor: "pointer",
+            fontSize: "1.6rem",
+            fontWeight: 700,
+            position: "relative",
+            transition: "all 0.3s ease-in-out",
+            "&:hover": {
+                color: "var(--main-color)",
             },
-            "& .current": {
-                color: "#FF4C60",
+            "&:not(:last-child)": {
+                marginRight: "1.8rem",
             },
         },
-        dropdown: {
-            width: "100%",
+        "& .current": {
+            color: "var(--main-color)",
         },
-    }),
-);
+    },
+    dropdown: {
+        width: "100%",
+    },
+});
 
-export const SectionWorks = () => {
+const SectionWorks = () => {
     const classes = useStyles();
-
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const isotope = React.useRef<any>();
     const [type, setType] = useState(WorkType.Everything);
+
     const onChangeType = useCallback(
-        (type: string) => () => {
+        (type: string) => async () => {
             setType(type);
+            if (isotope.current === undefined) {
+                const Isotope = (await import("isotope-layout")).default;
+                isotope.current = new Isotope("#work-container", {
+                    itemSelector: ".work-item",
+                    percentPosition: true,
+                });
+            }
+            if (type === WorkType.Everything) {
+                isotope.current.arrange({ filter: WorkType.Everything });
+            } else {
+                isotope.current.arrange({ filter: `.${type}` });
+            }
         },
         [],
     );
 
-    const handleChange = (event: React.ChangeEvent<{ name?: string; value: unknown }>) => {
-        setType(event.target.value as string);
-    };
+    const handleChange = useCallback(
+        (event: React.ChangeEvent<{ name?: string; value: unknown }>) => {
+            onChangeType(event.target.value as string)();
+        },
+        [onChangeType],
+    );
 
     return (
         <section id="works">
-            <Container>
-                <Typography variant="h2" className="section-title wow fadeInUp">
+            <div className="container">
+                <Typography variant="h2" className="section-title sanim">
                     Recent works
                 </Typography>
                 <Hidden only={["xs"]}>
-                    <ul className={`${classes.menuPc} mb-4 list-inline wow fadeInUp`}>
+                    <ul className={`${classes.menuPc} mb-4 list-inline sanim`}>
                         {Object.keys(WorkType).map((t) => (
                             <li
                                 key={t}
@@ -74,14 +89,14 @@ export const SectionWorks = () => {
                         ))}
                     </Select>
                 </Hidden>
-                <Grid container spacing={3}>
-                    {cvConfig.works
-                        .filter((w) => (type === WorkType.Everything ? true : w.type.includes(type)))
-                        .map((w) => (
-                            <WorkItem key={w.href} {...w} />
-                        ))}
+                <Grid container spacing={0} id="work-container">
+                    {cvConfig.works.map((w) => (
+                        <WorkItem key={w.href} {...w} />
+                    ))}
                 </Grid>
-            </Container>
+            </div>
         </section>
     );
 };
+
+export default React.memo(SectionWorks);

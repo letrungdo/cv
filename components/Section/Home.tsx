@@ -1,179 +1,195 @@
-/* eslint-disable @next/next/no-img-element */
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, createStyles, makeStyles, Typography } from "@material-ui/core";
+import { Button, makeStyles, Typography } from "@material-ui/core";
+import ImgSkeleton from "components/ImgSkeleton";
 import { cvConfig } from "config/cv";
 import config from "config/site";
-import Parallax from "parallax-js";
-import { useEffect, useRef } from "react";
-import ReactTypingEffect from "react-typing-effect";
+import dynamic from "next/dynamic";
+import { FbContext } from "pages";
+import React, { useEffect, useRef } from "react";
 
-const useStyles = makeStyles(() =>
-    createStyles({
-        root: {
-            background: "#353353",
-            padding: 0,
-            height: "100vh",
-            minHeight: "100vh",
+const ReactTypingEffect = dynamic(import("react-typing-effect"));
+
+const useStyles = makeStyles({
+    root: {
+        background: "var(--main-bg)",
+        padding: 0,
+        height: "100vh",
+        minHeight: "100vh",
+    },
+    intro: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        textAlign: "center",
+        position: "relative",
+        zIndex: 1,
+        width: "100%",
+        "& h1": {
+            color: "var(--secondary-text)",
+            fontSize: 36,
         },
-        intro: {
-            margin: "auto",
-            maxWidth: 540,
-            textAlign: "center",
-            position: "relative",
-            zIndex: 1,
-            "& h1": {
-                color: "#FFF",
-                fontSize: 36,
-            },
-            "& span": {
-                color: "#FFF",
-                fontSize: 16,
-            },
+        "& span": {
+            color: "var(--secondary-text)",
+            fontSize: 16,
         },
-        socialIcons: {
-            "& a": {
-                color: "#FFF",
-                fontSize: 21,
-                "&:hover": {
-                    color: "#FFD15C",
-                },
-            },
-            "& li:not(:last-child)": {
-                marginRight: "2rem",
-            },
-        },
-        parallax: {
-            position: "absolute",
-            left: 0,
-            top: 0,
-            height: "100%",
-            width: "100%",
-            "& .layer": {
-                position: "absolute",
-            },
-            "& .p1": {
-                left: "10%",
-                top: "10%",
-            },
-            "& .p2": {
-                left: "25%",
-                top: "30%",
-            },
-            "& .p3": {
-                left: "15%",
-                bottom: "30%",
-            },
-            "& .p4": {
-                left: "10%",
-                bottom: "10%",
-            },
-            "& .p5": {
-                left: "45%",
-                top: "10%",
-            },
-            "& .p6": {
-                left: "40%",
-                bottom: "10%",
-            },
-            "& .p7": {
-                top: "20%",
-                right: "30%",
-            },
-            "& .p8": {
-                right: "30%",
-                bottom: "20%",
-            },
-            "& .p9": {
-                right: "10%",
-                top: "10%",
-            },
-            "& .p10": {
-                top: "45%",
-                right: "20%",
-            },
-            "& .p11": {
-                bottom: "10%",
-                right: "10%",
-            },
-        },
-        scrollDown: {
-            position: "absolute",
-            bottom: 40,
-            left: 0,
-            width: "100%",
-            zIndex: 1,
-        },
-        "@keyframes aniMouse": {
-            "0%": {
-                top: "29%",
-            },
-            "15%": {
-                top: "50%",
-            },
-            "50%": {
-                top: "50%",
-            },
-            "100%": {
-                top: "29%",
-            },
-        },
-        mouseWrapper: {
-            color: "#FFF",
-            fontSize: 14,
-            display: "block",
-            maxWidth: 100,
-            margin: "auto",
-            textAlign: "center",
+    },
+    socialIcons: {
+        "& a": {
+            color: "var(--secondary-text)",
+            fontSize: 21,
             "&:hover": {
-                color: "#FFF",
-            },
-            "& .mouse": {
-                border: "solid 2px #FFF",
-                borderRadius: 16,
-                display: "block",
-                margin: "auto",
-                marginTop: 10,
-                height: 26,
-                position: "relative",
-                width: 20,
-                "& .wheel": {
-                    background: "#FFF",
-                    borderRadius: "100%",
-                    display: "block",
-                    position: "absolute",
-                    top: 8,
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    height: 4,
-                    width: 4,
-                    animation: "$aniMouse 2s linear infinite",
-                },
+                color: "var(--active-text)",
             },
         },
-    }),
-);
+        "& li:not(:last-child)": {
+            marginRight: "2rem",
+        },
+    },
+    parallax: {
+        position: "absolute",
+        left: 0,
+        top: 0,
+        height: "100%",
+        width: "100%",
+        "& .layer": {
+            position: "absolute",
+        },
+        "& .p1": {
+            left: "10%",
+            top: "10%",
+        },
+        "& .p2": {
+            left: "25%",
+            top: "30%",
+        },
+        "& .p3": {
+            left: "15%",
+            bottom: "30%",
+        },
+        "& .p4": {
+            left: "10%",
+            bottom: "10%",
+        },
+        "& .p5": {
+            left: "45%",
+            top: "10%",
+        },
+        "& .p6": {
+            left: "40%",
+            bottom: "10%",
+        },
+        "& .p7": {
+            top: "20%",
+            right: "30%",
+        },
+        "& .p8": {
+            right: "30%",
+            bottom: "20%",
+        },
+        "& .p9": {
+            right: "10%",
+            top: "10%",
+        },
+        "& .p10": {
+            top: "45%",
+            right: "20%",
+        },
+        "& .p11": {
+            bottom: "10%",
+            right: "10%",
+        },
+    },
+    scrollDown: {
+        position: "absolute",
+        bottom: 40,
+        left: 0,
+        width: "100%",
+        zIndex: 1,
+    },
+    "@keyframes aniMouse": {
+        "0%": {
+            top: "29%",
+        },
+        "15%": {
+            top: "50%",
+        },
+        "50%": {
+            top: "50%",
+        },
+        "100%": {
+            top: "29%",
+        },
+    },
+    mouseWrapper: {
+        color: "var(--secondary-text)",
+        fontSize: 14,
+        display: "block",
+        maxWidth: 100,
+        margin: "auto",
+        textAlign: "center",
+        "&:hover": {
+            color: "var(--secondary-text)",
+        },
+        "& .mouse": {
+            border: "solid 2px var(--primary-bg)",
+            borderRadius: 16,
+            boxSizing: "border-box",
+            display: "block",
+            margin: "auto",
+            marginTop: 10,
+            height: 26,
+            position: "relative",
+            width: 20,
+            "& .wheel": {
+                background: "var(--primary-bg)",
+                borderRadius: "100%",
+                display: "block",
+                position: "absolute",
+                top: 8,
+                left: "50%",
+                transform: "translateX(-50%)",
+                height: 4,
+                width: 4,
+                animation: "$aniMouse 2s linear infinite",
+            },
+        },
+    },
+});
 
-export const SectionHome = () => {
+const scrollToBottom = () => {
+    window.scroll({ top: document.body.scrollHeight, left: 0, behavior: "smooth" });
+};
+
+const SectionHome = () => {
     const parallaxRef = useRef(null);
     const classes = useStyles();
 
     useEffect(() => {
-        const parallax = new Parallax(parallaxRef.current, {
-            relativeInput: true,
-            hoverOnly: true,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        let parallax: any | undefined;
+        import("parallax-js").then((m) => {
+            const Parallax = m.default;
+            parallax = new Parallax(parallaxRef.current, {
+                relativeInput: true,
+                hoverOnly: true,
+            });
         });
 
         return () => {
-            parallax.destroy();
+            parallax?.destroy();
         };
     }, []);
 
     return (
         <section id="home" className={`${classes.root} home flex align-items-center`}>
             <div className={classes.intro}>
-                <img src="images/cv/avatar-1.svg" alt="DoLT" className="mb-4" />
-                <Typography variant="h1" className="mb-2 mt-0">
+                <FbContext.Consumer>
+                    {({ profileUrl }) => (
+                        <ImgSkeleton alt="avatar" src={profileUrl} className="circle" width={108} height={108} />
+                    )}
+                </FbContext.Consumer>
+                <Typography variant="h1" className="mb-2">
                     {cvConfig.name}
                 </Typography>
                 <span>
@@ -195,7 +211,7 @@ export const SectionHome = () => {
                         </li>
                     ))}
                 </ul>
-                <Button href="#contact" variant="contained" color="primary" className="mt-4 btn-radius">
+                <Button variant="contained" color="primary" className="mt-4 btn-radius" onClick={scrollToBottom}>
                     Hire me
                 </Button>
             </div>
@@ -310,3 +326,5 @@ export const SectionHome = () => {
         </section>
     );
 };
+
+export default React.memo(SectionHome);

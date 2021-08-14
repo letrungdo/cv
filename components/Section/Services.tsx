@@ -1,22 +1,22 @@
-/* eslint-disable @next/next/no-img-element */
-import { Container, createStyles, Grid, makeStyles, Typography } from "@material-ui/core";
+import { Grid, makeStyles, Theme, Typography } from "@material-ui/core";
 import { cvConfig } from "config/cv";
+import Image from "next/image";
+import React from "react";
 
-const useStyles = makeStyles(() =>
-    createStyles({
-        serviceBox: {
-            transform: "translateY(0)",
-            transition: "all 0.3s ease-in-out",
-            borderRadius: 20,
-            "& h3": {
-                fontSize: "2rem",
-            },
-            "&:hover": {
-                transform: "translateY(-10px)",
-            },
+const useStyles = makeStyles<Theme, { bgColor: string }>({
+    serviceBox: {
+        transform: "translateY(0)",
+        transition: "all 0.3s ease-in-out",
+        borderRadius: 20,
+        "& h3": {
+            fontSize: "2rem",
         },
-    }),
-);
+        "&:hover": {
+            transform: "translateY(-10px)",
+        },
+        backgroundColor: ({ bgColor }) => bgColor,
+    },
+});
 type ServiceBoxProps = {
     className: string;
     imgSrc: string;
@@ -25,13 +25,13 @@ type ServiceBoxProps = {
     bgColor: string;
 };
 const ServiceBox = ({ className = "", name, description, imgSrc, bgColor }: ServiceBoxProps) => {
-    const classes = useStyles();
+    const classes = useStyles({ bgColor });
 
     return (
-        <Grid item xs={12} sm={6} md={4}>
-            <div className={`${classes.serviceBox} p-6 text-center ${className}`} style={{ backgroundColor: bgColor }}>
-                <img className="mb-4" src={imgSrc} alt={description} />
-                <Typography variant="h3" className="mb-3 mt-0">
+        <Grid item xs={12} sm={6} md={4} className="sanim">
+            <div className={`${classes.serviceBox} p-6 text-center ${className}`}>
+                <Image src={imgSrc} alt={description} width={80} height={80} />
+                <Typography variant="h3" className="mb-3">
                     {name}
                 </Typography>
                 <p className="mb-0">{description}</p>
@@ -40,11 +40,11 @@ const ServiceBox = ({ className = "", name, description, imgSrc, bgColor }: Serv
     );
 };
 
-export const SectionServices = () => {
+const SectionServices = () => {
     return (
         <section id="services">
-            <Container>
-                <Typography variant="h2" className="section-title wow fadeInUp">
+            <div className="container">
+                <Typography variant="h2" className="section-title sanim">
                     Services
                 </Typography>
                 <Grid container spacing={3}>
@@ -57,7 +57,9 @@ export const SectionServices = () => {
                         Looking for a custom job? <a href="#contact">Click here</a> to contact me! 👋
                     </p>
                 </div>
-            </Container>
+            </div>
         </section>
     );
 };
+
+export default React.memo(SectionServices);

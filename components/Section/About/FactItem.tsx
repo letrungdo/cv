@@ -1,26 +1,24 @@
-import { createStyles, Grid, makeStyles, Typography } from "@material-ui/core";
+import { Grid, makeStyles, Typography } from "@material-ui/core";
 import { useRef, useState } from "react";
 import { useCountUp } from "react-countup";
 import { Waypoint } from "react-waypoint";
 
-const useStyles = makeStyles(() =>
-    createStyles({
-        root: {
-            marginBottom: "3rem",
-            "& .icon": {
-                fontSize: "3.6rem",
-                color: "#DEDEEA",
-                float: "left",
-            },
+const useStyles = makeStyles({
+    root: {
+        marginBottom: "3rem",
+        "& .icon": {
+            fontSize: "3.6rem",
+            color: "var(--light-gray-text)",
+            float: "left",
         },
-        details: {
-            marginLeft: "6rem",
-            "& .number": {
-                fontSize: "3rem",
-            },
+    },
+    details: {
+        marginLeft: "6rem",
+        "& .number": {
+            fontSize: "3rem",
         },
-    }),
-);
+    },
+});
 type Props = {
     icon: string;
     name: string;
@@ -49,7 +47,7 @@ const FactItem = ({ icon, name, count }: Props) => {
                 <span className={`icon ${icon}`}></span>
                 <div className={classes.details}>
                     <Typography variant="h3" className="mb-0 mt-0 number">
-                        <Waypoint onEnter={onEnter}>
+                        <Waypoint onEnter={onEnter} bottomOffset={50}>
                             <em ref={countUpRef} className="count" />
                         </Waypoint>
                     </Typography>

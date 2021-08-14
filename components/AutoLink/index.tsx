@@ -1,5 +1,5 @@
-import { Link } from "@material-ui/core";
-import { isInteralLink, onClickLink } from "utils";
+import NextLink from "next/link";
+import { isInteralLink } from "utils";
 
 type Props = {
     className?: string;
@@ -10,13 +10,13 @@ type Props = {
 const AutoLink = ({ className = "", href, children }: Props) => (
     <>
         {isInteralLink(href) ? (
-            <Link className={className} href={href} onClick={onClickLink}>
-                {children}
-            </Link>
+            <NextLink href={href}>
+                <a className={className}>{children}</a>
+            </NextLink>
         ) : (
-            <Link className={className} href={href} target="_blank" rel="noopener noreferrer">
+            <a href={href} className={className} target="_blank" rel="noopener noreferrer">
                 {children}
-            </Link>
+            </a>
         )}
     </>
 );

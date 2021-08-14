@@ -1,5 +1,3 @@
-export * from "./auth";
-
 export interface ServerError {
     apiPath: string;
     errorCode: number | string;

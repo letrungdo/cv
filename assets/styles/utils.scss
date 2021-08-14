@@ -11,9 +11,6 @@
 .align-items-center {
     align-items: center !important;
 }
-.width-full {
-    width: 100% !important;
-}
 .border-radius {
     border-radius: 0.3rem !important;
 }
@@ -40,6 +37,9 @@
         opacity: 0.7;
     }
 }
+.circle {
+    border-radius: 50%;
+}
 @for $i from 0 through 10 {
     .ml-#{$i} {
         margin-left: #{math.div($i, 2)}rem !important;
@@ -60,16 +60,12 @@
         padding: #{math.div($i, 2)}rem !important;
     }
 }
-//
 .list-inline {
     padding-left: 0;
     list-style: none;
 }
 .list-inline-item {
     display: inline-block;
-}
-.list-inline-item:not(:last-child) {
-    margin-right: 0.5rem;
 }
 .clearfix::after {
     display: block;

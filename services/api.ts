@@ -5,10 +5,11 @@ import baseAxios from "services/baseAxios";
 import { logDev, logError } from "utils/logs";
 
 const errorHandle = async (url: string, error: AxiosError) => {
-    logError(error);
+    logError(error.message);
     const errorRes = {
         apiPath: url,
         errorCode: error.response?.status || error.message,
+        message: error.message,
     } as BaseResponse;
     if (error?.response) {
         // TODO:

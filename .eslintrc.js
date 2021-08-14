@@ -42,6 +42,7 @@ module.exports = {
             },
         ],
         "no-console": "error",
+        "@typescript-eslint/no-non-null-assertion": "off",
     },
     settings: {
         react: {

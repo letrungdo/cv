@@ -1,67 +1,71 @@
-import { Container, createStyles, Grid, makeStyles, Typography } from "@material-ui/core";
+import { Grid, makeStyles, Typography } from "@material-ui/core";
 import { cvConfig } from "config/cv";
+import React from "react";
 
-const useStyles = makeStyles(() =>
-    createStyles({
-        content: {
-            position: "relative",
-            "& .time": {
-                color: "#8B88B1",
-                fontSize: "1.4rem",
-            },
-            "& h3": {
-                fontSize: "2rem",
-                margin: "10px 0",
-            },
-            "& p": {
-                whiteSpace: "pre-wrap",
+const useStyles = makeStyles({
+    content: {
+        position: "relative",
+        "& .time": {
+            color: "var(--light-gray-text)",
+            fontSize: "1.4rem",
+        },
+        "& h3": {
+            fontSize: "2rem",
+            margin: "10px 0",
+        },
+        "& p": {
+            whiteSpace: "pre-wrap",
+        },
+    },
+    timeline: {
+        position: "relative",
+    },
+    timelineItem: {
+        paddingLeft: "5rem",
+        marginBottom: "5rem",
+        position: "relative",
+        backgroundColor: "inherit",
+        width: "100%",
+        boxSizing: "border-box",
+        "&:last-of-type": {
+            marginBottom: 0,
+            "& .line": {
+                bottom: 0,
             },
         },
-        timeline: {
-            position: "relative",
-            "& span.line": {
-                position: "absolute",
-                width: 1,
-                backgroundColor: "#FF4C60",
-                top: 30,
-                bottom: 30,
-                left: 34,
-            },
+        "&.edu:after": {
+            content: `""`,
+            background: "var(--primary-bg)",
+            fontFamily: "simple-line-icons",
+            fontSize: 24,
+            color: "var(--main-color)",
+            position: "absolute",
+            left: -7,
+            top: 0,
+            zIndex: 1,
         },
-        timelineItem: {
-            paddingLeft: "5rem",
-            marginBottom: "5rem",
-            position: "relative",
-            backgroundColor: "inherit",
-            width: "100%",
-            "&:last-of-type": {
-                marginBottom: 0,
-            },
-            "&.edu:after": {
-                content: `""`,
-                background: " #FFF",
-                fontFamily: "simple-line-icons",
-                fontSize: 24,
-                color: "#FF4C60",
-                position: "absolute",
-                left: -7,
-                top: 0,
-                zIndex: 1,
-            },
-            "&.exp:after": {
-                content: `""`,
-                background: " #FFF",
-                fontFamily: "simple-line-icons",
-                fontSize: 24,
-                color: "#FF4C60",
-                position: "absolute",
-                left: -7,
-                top: 0,
-                zIndex: 1,
-            },
+        "&.exp:after": {
+            content: `""`,
+            background: "var(--primary-bg)",
+            fontFamily: "simple-line-icons",
+            fontSize: 24,
+            color: "var(--main-color)",
+            position: "absolute",
+            left: -7,
+            top: 0,
+            zIndex: 1,
         },
-    }),
-);
+        "& .line": {
+            position: "absolute",
+            width: 1,
+            backgroundColor: "var(--main-color)",
+            top: "3.5rem",
+            bottom: "-5rem",
+            left: "0.4rem",
+        },
+    },
+});
+
 type TimelineProps = {
     time: string;
     title: string;
@@ -69,17 +73,11 @@ type TimelineProps = {
     animDelay?: number;
     className: string;
 };
-const Timeline = ({ time, title, description, animDelay, className }: TimelineProps) => {
+const Timeline = ({ time, title, description, className }: TimelineProps) => {
     const classes = useStyles();
 
-    const prop = animDelay
-        ? {
-              "data-wow-delay": `${animDelay}s`,
-          }
-        : {};
-
     return (
-        <div className={`${classes.timelineItem} ${className} wow fadeInUp`} {...prop}>
+        <div className={`${classes.timelineItem} sanim ${className}`}>
             <div className={classes.content}>
                 <span className="time">{time}</span>
                 <Typography variant="h3" className="title">
@@ -87,17 +85,18 @@ const Timeline = ({ time, title, description, animDelay, className }: TimelinePr
                 </Typography>
                 <p>{description}</p>
             </div>
+            <span className="line" />
         </div>
     );
 };
 
-export const SectionExperience = () => {
+const SectionExperience = () => {
     const classes = useStyles();
 
     return (
         <section id="experience">
-            <Container>
-                <Typography variant="h2" className="section-title wow fadeInUp">
+            <div className="container">
+                <Typography variant="h2" className="section-title sanim">
                     Experience
                 </Typography>
                 <Grid container spacing={3}>
@@ -106,7 +105,6 @@ export const SectionExperience = () => {
                             {cvConfig.experience.education.map((t) => (
                                 <Timeline className="edu" key={t.time} {...t} />
                             ))}
-                            <span className="line" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6}>
@@ -114,11 +112,12 @@ export const SectionExperience = () => {
                             {cvConfig.experience.work.map((t) => (
                                 <Timeline className="exp" key={t.time} {...t} />
                             ))}
-                            <span className="line" />
                         </div>
                     </Grid>
                 </Grid>
-            </Container>
+            </div>
         </section>
     );
 };
+
+export default React.memo(SectionExperience);

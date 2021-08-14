@@ -10,20 +10,20 @@ const hxStyle = {
 const theme = createTheme({
     palette: {
         primary: {
-            main: "#FF4C60",
+            main: "#489b71",
         },
         secondary: {
             main: "#333333",
         },
         text: {
-            primary: "#1a1a1a",
+            primary: "#454360",
             secondary: "#666666",
         },
         error: {
             main: red.A400,
         },
         background: {
-            default: "#fff",
+            default: "#fafafa",
         },
     },
     overrides: {
@@ -55,7 +55,6 @@ const theme = createTheme({
         fontSize: 16,
         fontFamily: [
             "Rubik",
-            "Inter",
             "-apple-system",
             "BlinkMacSystemFont",
             "Segoe UI",

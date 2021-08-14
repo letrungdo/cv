@@ -1,44 +1,65 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Container, Grid, Typography } from "@material-ui/core";
+import { CircularProgress, Grid, Typography } from "@material-ui/core";
 import { DOMAIN_URL } from "constants/app";
-import { useEffect, useState } from "react";
-import Parser from "rss-parser";
+import React, { useCallback, useState } from "react";
+import { Waypoint } from "react-waypoint";
 import { logDev } from "utils/logs";
 import BlogItem from "./BlogItem";
 
-type RSS = {
-    [key: string]: any;
-} & Parser.Output<{
-    [key: string]: any;
-}>;
+interface Enclosure {
+    url: string;
+    length?: number;
+    type?: string;
+}
 
-export const SectionBlog = () => {
-    const [rssItems, setRssItems] = useState<RSS>({} as RSS);
-    useEffect(() => {
-        (async () => {
-            // dynamic import
-            const Parser = (await import("rss-parser")).default;
-            const parser = new Parser({
-                customFields: {
-                    item: ["cover"],
-                },
-            });
-            const feed = await parser.parseURL(`${DOMAIN_URL}/rss.xml`);
-            setRssItems(feed);
-            logDev(feed);
-        })();
+interface Item {
+    link?: string;
+    guid?: string;
+    title?: string;
+    pubDate?: string;
+    creator?: string;
+    summary?: string;
+    content?: string;
+    isoDate?: string;
+    categories?: string[];
+    contentSnippet?: string;
+    enclosure?: Enclosure;
+    cover?: string;
+}
+
+const SectionBlog = () => {
+    const [rssItems, setRssItems] = useState<Item[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    const getPost = useCallback(async () => {
+        logDev("getPost ...");
+        const Parser = (await import("rss-parser")).default;
+        const parser = new Parser({
+            customFields: {
+                item: ["cover"],
+            },
+        });
+        const feed = await parser.parseURL(`${DOMAIN_URL}/rss.xml`);
+        if (feed?.items) {
+            setRssItems(feed.items.slice(0, 6));
+        }
+        setLoading(false);
     }, []);
 
     return (
         <section id="blog">
-            <Container>
-                <Typography variant="h2" className="section-title wow fadeInUp">
+            <div className="container">
+                <Typography variant="h2" className="section-title sanim">
                     Latest Posts
                 </Typography>
+                {loading && (
+                    <Waypoint onEnter={getPost}>
+                        <CircularProgress color="secondary" />
+                    </Waypoint>
+                )}
                 <Grid container spacing={3}>
-                    {rssItems?.items?.slice(0, 3)?.map((i) => {
-                        const cover = i.cover.split("/") as string[];
-                        cover.splice(3, 0, "4e34f");
+                    {rssItems.map((i) => {
+                        const cover = i.cover?.split("/") ?? [];
+                        cover.splice(3, 0, "2194e");
 
                         return (
                             <BlogItem
@@ -53,7 +74,9 @@ export const SectionBlog = () => {
                         );
                     })}
                 </Grid>
-            </Container>
+            </div>
         </section>
     );
 };
+
+export default React.memo(SectionBlog);

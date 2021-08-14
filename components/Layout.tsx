@@ -4,7 +4,6 @@ import config from "config/site";
 import Head from "next/head";
 import React, { ReactNode } from "react";
 import Footer from "./Footer";
-import Header from "./Header";
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -42,7 +41,6 @@ const Layout = ({ children, meta: { title, description = "", image = "", type = 
                 <meta property="og:image" content={image} />
                 <meta property="og:type" content={type} />
             </Head>
-            <Header title={title} />
             <div className={classes.content}>{children}</div>
             <Footer socials={config.socialLinks} links={config.footerLinks} copyright={config.copyright} />
         </>

@@ -1,7 +1,7 @@
 import { MoreType } from "components/Section/Works/WorkItem";
 
 export const WorkType: { [key: string]: string } = {
-    Everything: "everything",
+    Everything: "*",
     Web: "web",
     Mobile: "mobile",
     Own: "own",
@@ -9,9 +9,12 @@ export const WorkType: { [key: string]: string } = {
 
 export const cvConfig = {
     title: "Le Trung Do CV",
-    description: "Le Trung Do CV",
+    description:
+        "DOLT CV is a NextJs and Mterial-UI based personal portfolio/CV/Resume website template. This has been built with NextJs, ES6+ etc. This is created especially for those who want to build up his portfolio site.",
     name: "Le Trung Do",
+    about: `I am Le Trung Do, Fullstack developer from Ho Chi Minh, Viet Nam. I have rich experience in Web app & mobile app, also I am good at ReactJs, NextJs, Xamarin Forms.`,
     mainJob: ["ReactJs developer", "Xamarin Forms developer"],
+    cvDownloadLink: "https://i.topcv.vn/letrungdo?ref=1893460",
     skills: [
         {
             name: "ReactJs",
@@ -33,65 +36,65 @@ export const cvConfig = {
         {
             icon: "icon-fire",
             name: "Projects completed",
-            count: 22,
+            count: 24,
         },
         {
             icon: "icon-cup",
             name: "Cup of coffee",
-            count: 1240,
+            count: 15,
         },
         {
             icon: "icon-people",
             name: "Satisfied clients",
-            count: 324,
+            count: 11,
         },
         {
             icon: "icon-badge",
             name: "Nominees winner",
-            count: 35,
+            count: 6,
         },
     ],
     menu: [
         {
             label: "Home",
-            href: "#",
+            href: "home",
             className: "icon-home",
         },
         {
             label: "About",
-            href: "#about",
+            href: "about",
             className: "icon-user-following",
         },
         {
             label: "Services",
-            href: "#services",
+            href: "services",
             className: "icon-briefcase",
         },
         {
             label: "Experience",
-            href: "#experience",
+            href: "experience",
             className: "icon-graduation",
         },
         {
             label: "Works",
-            href: "#works",
+            href: "works",
             className: "icon-layers",
         },
         {
             label: "Blog",
-            href: "#blog",
+            href: "blog",
             className: "icon-note",
         },
         {
             label: "Contact",
-            href: "#contact",
+            href: "contact",
             className: "icon-bubbles",
         },
     ],
     services: [
         {
             className: "shadow-blue text-light",
-            imgSrc: "images/cv/service-1.svg",
+            imgSrc: "/images/service-1.svg",
             bgColor: "#6C6CE5",
             name: "Mobile Development",
             description:
@@ -99,7 +102,7 @@ export const cvConfig = {
         },
         {
             className: "shadow-yellow",
-            imgSrc: "images/cv/service-2.svg",
+            imgSrc: "/images/service-2.svg",
             bgColor: "#F9D74C",
             name: "Web Development",
             description:
@@ -107,7 +110,7 @@ export const cvConfig = {
         },
         {
             className: "shadow-pink text-light",
-            imgSrc: "images/cv/service-3.svg",
+            imgSrc: "/images/service-3.svg",
             bgColor: "#F97B8B",
             name: "Blogger & SEOer",
             description: "In my free time, I write blog posts to share my experiences.",
@@ -139,7 +142,6 @@ export const cvConfig = {
                 title: "Xamarin Forms Developer",
                 description: `Sys-FX: Securities application makes customers Japanese is the first project when I was a trainee.
                     \n12/2018 - 8/2019: This time I have a part-time job at home for a philippine company with australian clients.`,
-                animDelay: 0.2,
             },
         ],
     },
@@ -149,7 +151,7 @@ export const cvConfig = {
             title: "Fund Square | kabu.com Securities",
             term: "NextJs",
             moreIcon: MoreType.Link,
-            thumbnail: "images/cv/works/fund-square.png",
+            thumbnail: "/images/works/fund-square.webp",
             href: "https://fund.square.kabu.co.jp",
         },
         {
@@ -157,7 +159,7 @@ export const cvConfig = {
             title: "FX｜Securities smartphone app",
             term: "Xamarin Forms",
             moreIcon: MoreType.Link,
-            thumbnail: "images/cv/works/sys-fx.png",
+            thumbnail: "/images/works/sys-fx.webp",
             href: "https://kabu.com/app/sysfx/default.html",
         },
         {
@@ -165,7 +167,7 @@ export const cvConfig = {
             title: "Bmoji - Custom Emojis by Designers",
             term: "Xamarin Forms",
             moreIcon: MoreType.Link,
-            thumbnail: "images/cv/works/bmoji.png",
+            thumbnail: "/images/works/bmoji.webp",
             href: "http://www.thebmoji.com",
         },
         {
@@ -173,23 +175,15 @@ export const cvConfig = {
             title: "TĐ.VN - My blog",
             term: "Gatsby",
             moreIcon: MoreType.Link,
-            thumbnail: "images/cv/works/my-blog.png",
+            thumbnail: "/images/works/my-blog.webp",
             href: "https://xn--t-lia.vn",
-        },
-        {
-            type: [WorkType.Own, WorkType.Web],
-            title: "Landing Page website - About company",
-            term: "Gatsby",
-            moreIcon: MoreType.Link,
-            thumbnail: "images/cv/works/hoanggiasaigonbmc.png",
-            href: "https://hoanggiasaigonbmc.com",
         },
         {
             type: [WorkType.Own, WorkType.Web],
             title: "React UI component lib Template",
             term: "npm",
             moreIcon: MoreType.Link,
-            thumbnail: "images/cv/works/react-ui-component-lib.png",
+            thumbnail: "/images/works/react-ui-component-lib.webp",
             href: "https://github.com/letrungdo/react-ui-component-lib",
         },
     ],

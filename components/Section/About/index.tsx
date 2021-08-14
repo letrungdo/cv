@@ -1,37 +1,45 @@
-/* eslint-disable @next/next/no-img-element */
-import { Button, Container, Grid, Typography } from "@material-ui/core";
+import { Button, Grid, Typography } from "@material-ui/core";
+import ImgSkeleton from "components/ImgSkeleton";
 import { cvConfig } from "config/cv";
+import { FbContext } from "pages";
+import React from "react";
 import FactItem from "./FactItem";
 import SkillItem from "./SkillItem";
 
-export const SectionAbout = () => {
+const onDownloadCV = () => {
+    window.open(cvConfig.cvDownloadLink);
+};
+
+const SectionAbout = () => {
     return (
         <section id="about">
-            <Container>
-                <Typography variant="h2" className="section-title wow fadeInUp">
+            <div className="container">
+                <Typography variant="h2" className="section-title sanim">
                     About Me
                 </Typography>
                 <Grid container spacing={3}>
-                    <Grid item xs={12} md={3}>
-                        <div className="text-center mb-5">
-                            <img src="images\cv\avatar-2.svg" alt="TĐ" />
-                        </div>
+                    <Grid item xs={12} md={3} className="text-center">
+                        <FbContext.Consumer>
+                            {({ profileUrl }) => (
+                                <ImgSkeleton
+                                    src={profileUrl}
+                                    className="circle"
+                                    alt="avatar"
+                                    width={150}
+                                    height={150}
+                                />
+                            )}
+                        </FbContext.Consumer>
                     </Grid>
                     <Grid container item xs={12} md={9}>
                         <Grid container item spacing={4} className="rounded bg-white shadow-dark p-4 m-0">
                             <Grid item xs={12} sm={6}>
-                                <p>
-                                    I am Le Trung Do, Fullstack developer from Ho Chi Minh, Viet Nam. I have rich
-                                    experience in Web app & mobile app, also I am good at ReactJs, NextJs, Xamarin
-                                    Forms.
-                                </p>
+                                <p>{cvConfig.about}</p>
                                 <Button
-                                    href="https://i.topcv.vn/letrungdo?ref=1893460"
-                                    target="_blank"
-                                    rel="noreferrer"
                                     variant="contained"
                                     color="primary"
                                     className="mt-3 mb-5 btn-radius"
+                                    onClick={onDownloadCV}
                                 >
                                     Download CV
                                 </Button>
@@ -49,7 +57,9 @@ export const SectionAbout = () => {
                         <FactItem key={item.name} {...item} />
                     ))}
                 </Grid>
-            </Container>
+            </div>
         </section>
     );
 };
+
+export default React.memo(SectionAbout);

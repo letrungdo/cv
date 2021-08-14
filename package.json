@@ -1,12 +1,12 @@
 {
-    "name": "tools-for-developer",
+    "name": "dolt-cv",
     "version": "0.1.0",
-    "description": "Tools for Developer",
+    "description": "Le Trung Do CV",
     "author": "Le Trung Do",
     "license": "UNLICENSED",
     "repository": {
         "type": "git",
-        "url": "https://github.com/letrungdo/app.git"
+        "url": "https://github.com/letrungdo/cv.git"
     },
     "scripts": {
         "dev": "next dev -p 8080",
@@ -23,10 +23,11 @@
         "@fortawesome/free-solid-svg-icons": "^5.15.3",
         "@fortawesome/react-fontawesome": "^0.1.14",
         "@material-ui/core": "^4.12.2",
+        "@material-ui/lab": "^4.0.0-alpha.60",
+        "@sendgrid/mail": "^7.4.6",
         "axios": "^0.21.1",
         "dayjs": "^1.10.6",
-        "file-saver": "^2.0.5",
-        "jszip": "^3.7.0",
+        "isotope-layout": "^3.0.6",
         "next": "latest",
         "parallax-js": "^3.1.0",
         "react": "^17.0.2",
@@ -34,13 +35,15 @@
         "react-dom": "^17.0.2",
         "react-typing-effect": "^2.0.5",
         "react-waypoint": "^10.1.0",
+        "recaptcha-v3": "^1.10.0",
         "rss-parser": "^3.12.0",
-        "sass": "^1.35.2"
+        "sass": "^1.35.2",
+        "scrollreveal": "^4.0.9"
     },
     "devDependencies": {
-        "@types/file-saver": "^2.0.3",
         "@types/react": "^17.0.14",
         "@types/react-typing-effect": "^2.0.2",
+        "@types/scrollreveal": "^0.0.7",
         "@typescript-eslint/eslint-plugin": "^4.28.4",
         "@typescript-eslint/parser": "^4.28.4",
         "eslint": "^7.31.0",
@@ -52,5 +55,17 @@
         "postinstall-postinstall": "^2.1.0",
         "prettier": "^2.3.2",
         "typescript": "4.3.5"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
     }
 }

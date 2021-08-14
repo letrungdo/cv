@@ -9,18 +9,18 @@ const useStyles = makeStyles((theme) =>
     createStyles({
         root: {
             ...mainPaddingStyle(theme),
-            backgroundColor: "#1e1e1e",
-            color: "#fff",
+            backgroundColor: "var(--main-bg)",
+            color: "var(--secondary-text)",
             textAlign: "center",
             flexShrink: 0,
         },
         link: {
             display: "inline-block",
             margin: "0 1rem",
-            color: "#fff",
+            color: "var(--secondary-text)",
         },
         copyright: {
-            color: "#9e9e9e",
+            color: "var(--gray-text)",
             fontSize: "80%",
         },
     }),
@@ -51,7 +51,7 @@ const Footer = ({ socials, links, copyright }: Props) => {
                             <FontAwesomeIcon
                                 icon={social.iconClassName.split(" ") as IconProp}
                                 transform="grow-2"
-                                style={{ color: "#FFF" }}
+                                style={{ color: "var(--secondary-text)" }}
                             />
                         </AutoLink>
                     );
