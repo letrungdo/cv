@@ -58,7 +58,7 @@ const SkillItem = ({ name, value, bgColor }: Props) => {
     return (
         <div className={`${classes.root}`}>
             <div className={`${classes.skillInfo} clearfix`}>
-                <Typography variant="h4" className="float-left mb-4 mt-0">
+                <Typography variant="h4" className="float-left mt-0">
                     {name}
                 </Typography>
                 <span className="float-right">{value}%</span>

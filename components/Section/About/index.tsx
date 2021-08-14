@@ -13,12 +13,12 @@ export const SectionAbout = () => {
                 </Typography>
                 <Grid container spacing={3}>
                     <Grid item xs={12} md={3}>
-                        <div className="text-center text-md-left mb-5">
+                        <div className="text-center mb-5">
                             <img src="images\cv\avatar-2.svg" alt="TĐ" />
                         </div>
                     </Grid>
                     <Grid container item xs={12} md={9}>
-                        <Grid container item spacing={3} className="rounded bg-white shadow-dark p-6">
+                        <Grid container item spacing={4} className="rounded bg-white shadow-dark p-4 m-0">
                             <Grid item xs={12} sm={6}>
                                 <p>
                                     I am Le Trung Do, Fullstack developer from Ho Chi Minh, Viet Nam. I have rich
@@ -28,6 +28,7 @@ export const SectionAbout = () => {
                                 <Button
                                     href="https://i.topcv.vn/letrungdo?ref=1893460"
                                     target="_blank"
+                                    rel="noreferrer"
                                     variant="contained"
                                     color="primary"
                                     className="mt-3 mb-5 btn-radius"
