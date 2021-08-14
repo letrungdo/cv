@@ -1,4 +1,4 @@
-import { ServerStyleSheets } from "@material-ui/core/styles";
+import { ServerStyleSheets } from "@material-ui/core";
 import theme from "config/theme";
 import Document, { DocumentContext, Head, Html, Main, NextScript } from "next/document";
 import React from "react";
@@ -15,6 +15,8 @@ class MyDocument extends Document {
                 <Head>
                     {/* PWA primary color */}
                     <meta name="theme-color" content={theme.palette.primary.main} />
+                    <link rel="preconnect" href="https://fonts.googleapis.com" />
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
                     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
                     <link
                         href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap"
