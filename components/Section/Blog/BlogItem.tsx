@@ -1,10 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import { createStyles, makeStyles, Typography } from "@material-ui/core";
+import { createStyles, Grid, makeStyles, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles(() =>
     createStyles({
         root: {
-            margin: "1.5rem 0",
             overflow: "hidden",
             transform: "translateY(0)",
             transition: "all 0.3s ease-in-out",
@@ -83,7 +82,7 @@ const BlogItem = ({ thumbnail, category, title, pubDate, creator, link }: Props)
     const classes = useStyles();
 
     return (
-        <div className="col-md-4">
+        <Grid item xs={12} sm={6} md={4}>
             <div className={`${classes.root} rounded bg-white shadow-dark wow fadeIn`}>
                 <div className={classes.thumb}>
                     <span className="category">{category}</span>
@@ -103,7 +102,7 @@ const BlogItem = ({ thumbnail, category, title, pubDate, creator, link }: Props)
                     </ul>
                 </div>
             </div>
-        </div>
+        </Grid>
     );
 };
 

@@ -1,14 +1,14 @@
-import { Button, Typography } from "@material-ui/core";
+import { Button, Container, Grid, Typography } from "@material-ui/core";
 
 export const SectioContact = () => {
     return (
         <section id="contact">
-            <div className="container">
+            <Container className="mb-10">
                 <Typography variant="h2" className="section-title wow fadeInUp">
                     Get In Touch
                 </Typography>
-                <div className="row">
-                    <div className="col-md-4">
+                <Grid container spacing={3}>
+                    <Grid item xs={12} md={4}>
                         <div className="contact-info">
                             <Typography variant="h3" className="wow fadeInUp">
                                 {"Let's talk about everything!"}
@@ -18,9 +18,9 @@ export const SectioContact = () => {
                                 <a href="mailto:letrdo@gmail.com">email</a>. 👋
                             </p>
                         </div>
-                    </div>
-                    <div className="col-md-8 mb-10">
-                        <form id="contact-form" className="contact-form mt-6" method="post" action="form/contact.php">
+                    </Grid>
+                    <Grid item xs={12} md={8}>
+                        <form id="contact-form" className="contact-form" method="post" action="form/contact.php">
                             <div className="messages"></div>
                             <div className="row">
                                 <div className="column col-md-6">
@@ -93,9 +93,9 @@ export const SectioContact = () => {
                                 Send Message
                             </Button>
                         </form>
-                    </div>
-                </div>
-            </div>
+                    </Grid>
+                </Grid>
+            </Container>
         </section>
     );
 };

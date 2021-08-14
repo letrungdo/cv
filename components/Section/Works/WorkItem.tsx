@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { createStyles, makeStyles, Typography } from "@material-ui/core";
+import { createStyles, Grid, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 
 const useStyles = makeStyles(() =>
@@ -7,6 +7,8 @@ const useStyles = makeStyles(() =>
         portfolioItem: {
             position: "relative",
             overflow: "hidden",
+            boxShadow: "0px 5px 20px 0px rgba(69, 67, 96, 0.1)",
+            borderRadius: 20,
             "& .more-button": {
                 color: "#FFF",
                 fontSize: 20,
@@ -94,7 +96,6 @@ export enum MoreType {
     Link = "icon-link",
 }
 type Props = {
-    className: string;
     title: string;
     term: string;
     moreIcon: MoreType;
@@ -102,13 +103,13 @@ type Props = {
     href: string;
 };
 
-const WorkItem = ({ className, title, term, moreIcon, thumbnail, href }: Props) => {
+const WorkItem = ({ title, term, moreIcon, thumbnail, href }: Props) => {
     const classes = useStyles();
 
     return (
-        <div className={`col-md-4 col-sm-6 grid-item ${className}`}>
+        <Grid item xs={12} sm={6} md={4}>
             <a href={href} target="_blank" rel="noreferrer">
-                <div className={`${classes.portfolioItem} rounded shadow-dark`}>
+                <div className={`${classes.portfolioItem}`}>
                     <div className={classes.details}>
                         <span className="term">{term}</span>
                         <Typography variant="h4" className="title">
@@ -124,7 +125,7 @@ const WorkItem = ({ className, title, term, moreIcon, thumbnail, href }: Props) 
                     </div>
                 </div>
             </a>
-        </div>
+        </Grid>
     );
 };
 

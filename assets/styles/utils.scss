@@ -23,16 +23,16 @@
     white-space: nowrap;
 }
 .text-center {
-    text-align: center;
+    text-align: center !important;
 }
 .text-left {
-    text-align: left;
+    text-align: left !important;
 }
 .text-right {
-    text-align: right;
+    text-align: right !important;
 }
 .relative {
-    position: relative;
+    position: relative !important;
 }
 .cursor-pointer {
     cursor: pointer;
@@ -40,7 +40,7 @@
         opacity: 0.7;
     }
 }
-@for $i from 1 through 10 {
+@for $i from 0 through 10 {
     .ml-#{$i} {
         margin-left: #{math.div($i, 2)}rem !important;
     }
@@ -59,4 +59,15 @@
     .p-#{$i} {
         padding: #{math.div($i, 2)}rem !important;
     }
+}
+//
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+}
+.list-inline-item {
+    display: inline-block;
+}
+.list-inline-item:not(:last-child) {
+    margin-right: 0.5rem;
 }

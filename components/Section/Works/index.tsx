@@ -1,57 +1,87 @@
-import { Button, Typography } from "@material-ui/core";
-import { cvConfig } from "config/cv";
+import { Container, createStyles, Grid, Hidden, makeStyles, Select, Typography } from "@material-ui/core";
+import clsx from "clsx";
+import { cvConfig, WorkType } from "config/cv";
+import { useCallback, useState } from "react";
 import WorkItem from "./WorkItem";
 
+const useStyles = makeStyles(() =>
+    createStyles({
+        menuPc: {
+            "& li": {
+                color: "#5E5C7F",
+                cursor: "pointer",
+                fontSize: "1.6rem",
+                fontWeight: 700,
+                position: "relative",
+                transition: "all 0.3s ease-in-out",
+                "&:hover": {
+                    color: "#FF4C60",
+                },
+                "&:not(:last-child)": {
+                    marginRight: "1.8rem",
+                },
+            },
+            "& .current": {
+                color: "#FF4C60",
+            },
+        },
+        dropdown: {
+            width: "100%",
+        },
+    }),
+);
+
 export const SectionWorks = () => {
+    const classes = useStyles();
+
+    const [type, setType] = useState(WorkType.Everything);
+    const onChangeType = useCallback(
+        (type: string) => () => {
+            setType(type);
+        },
+        [],
+    );
+
+    const handleChange = (event: React.ChangeEvent<{ name?: string; value: unknown }>) => {
+        setType(event.target.value as string);
+    };
+
     return (
         <section id="works">
-            <div className="container">
+            <Container>
                 <Typography variant="h2" className="section-title wow fadeInUp">
                     Recent works
                 </Typography>
-                <ul className="portfolio-filter list-inline wow fadeInUp">
-                    <li className="current list-inline-item" data-filter="*">
-                        Everything
-                    </li>
-                    <li className="list-inline-item" data-filter=".creative">
-                        Creative
-                    </li>
-                    <li className="list-inline-item" data-filter=".art">
-                        Art
-                    </li>
-                    <li className="list-inline-item" data-filter=".design">
-                        Design
-                    </li>
-                    <li className="list-inline-item" data-filter=".branding">
-                        Branding
-                    </li>
-                </ul>
-                <div className="pf-filter-wrapper">
-                    <select className="portfolio-filter-mobile">
-                        <option value="*">Everything</option>
-                        <option value=".creative">Creative</option>
-                        <option value=".art">Art</option>
-                        <option value=".design">Design</option>
-                        <option value=".branding">Branding</option>
-                    </select>
-                </div>
-                <div className="row portfolio-wrapper">
-                    {cvConfig.works.map((w) => (
-                        <WorkItem key={w.href} {...w} />
-                    ))}
-                </div>
-                <div className="load-more text-center mt-4">
-                    <Button variant="contained" color="primary" className="btn-radius">
-                        <i className="fas fa-spinner"></i> Load more
-                    </Button>
-                    <ul className="portfolio-pagination list-inline d-none">
-                        <li className="list-inline-item">1</li>
-                        <li className="list-inline-item">
-                            <a href="works-2.html">2</a>
-                        </li>
+                <Hidden only={["xs"]}>
+                    <ul className={`${classes.menuPc} mb-4 list-inline wow fadeInUp`}>
+                        {Object.keys(WorkType).map((t) => (
+                            <li
+                                key={t}
+                                className={clsx("list-inline-item", type === WorkType[t] ? "current" : "")}
+                                onClick={onChangeType(WorkType[t])}
+                            >
+                                {t}
+                            </li>
+                        ))}
                     </ul>
-                </div>
-            </div>
+                </Hidden>
+                <Hidden smUp>
+                    <Select className={`${classes.dropdown} mb-2`} native value={type} onChange={handleChange}>
+                        {Object.keys(WorkType).map((t) => (
+                            <option key={t} value={WorkType[t]}>
+                                {t}
+                            </option>
+                        ))}
+                    </Select>
+                </Hidden>
+                <Grid container spacing={3}>
+                    {cvConfig.works
+                        .filter((w) => (type === WorkType.Everything ? true : w.type.includes(type)))
+                        .map((w) => (
+                            <WorkItem key={w.href} {...w} />
+                        ))}
+                </Grid>
+            </Container>
         </section>
     );
 };

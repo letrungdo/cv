@@ -1,4 +1,4 @@
-import { createStyles, makeStyles, Typography } from "@material-ui/core";
+import { createStyles, Grid, makeStyles, Typography } from "@material-ui/core";
 import { useRef, useState } from "react";
 import { useCountUp } from "react-countup";
 import { Waypoint } from "react-waypoint";
@@ -44,7 +44,7 @@ const FactItem = ({ icon, name, count }: Props) => {
     };
 
     return (
-        <div className="col-md-3 col-sm-6">
+        <Grid item xs={12} sm={6} md={3}>
             <div className={classes.root}>
                 <span className={`icon ${icon}`}></span>
                 <div className={classes.details}>
@@ -56,7 +56,7 @@ const FactItem = ({ icon, name, count }: Props) => {
                     <p className="mb-0">{name}</p>
                 </div>
             </div>
-        </div>
+        </Grid>
     );
 };
 

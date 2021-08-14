@@ -16,7 +16,7 @@ import { cvConfig } from "config/cv";
 import config from "config/site";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 const useStyles = makeStyles<Theme, { drawerWidth: number }>((theme) =>
     createStyles({
@@ -82,23 +82,28 @@ const CV = () => {
     const onMenuClick = (open: boolean) => () => {
         setOpenMenu(open);
     };
-    const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
-        if (
-            event &&
-            event.type === "keydown" &&
-            ((event as React.KeyboardEvent).key === "Tab" || (event as React.KeyboardEvent).key === "Shift")
-        ) {
-            return;
-        }
-        onMenuClick(open)();
-    };
-    const onItemClick = (ev: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-        if (!isPc) {
-            toggleDrawer(false)(ev);
-        }
-        const href = (ev.target as any).href;
-        setCurrentPath(`#${href.split("#")[1]}`);
-    };
+    const toggleDrawer = useCallback(
+        (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+            if (
+                event &&
+                event.type === "keydown" &&
+                ((event as React.KeyboardEvent).key === "Tab" || (event as React.KeyboardEvent).key === "Shift")
+            ) {
+                return;
+            }
+            onMenuClick(open)();
+        },
+        [],
+    );
+    const onItemClick = useCallback(
+        (href: string) => (ev: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+            if (!isPc) {
+                toggleDrawer(false)(ev);
+            }
+            setCurrentPath(href);
+        },
+        [isPc, toggleDrawer],
+    );
 
     useEffect(() => {
         setOpenMenu(isPc);
@@ -147,7 +152,7 @@ const CV = () => {
                     {cvConfig.menu.map((item) => (
                         <ListItem button key={item.href}>
                             <a
-                                onClick={onItemClick}
+                                onClick={onItemClick(item.href)}
                                 className={`link width-full ${currentPath === item.href ? "active" : ""}`}
                                 href={item.href}
                             >
@@ -176,8 +181,6 @@ const CV = () => {
                 <SectionServices />
                 <SectionExperience />
                 <SectionWorks />
-                {/* <SectionPrices /> */}
-                {/* <SectionTestimonials /> */}
                 <SectionBlog />
                 <SectioContact />
             </main>

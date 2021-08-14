@@ -1,4 +1,4 @@
-import { createStyles, makeStyles, Typography } from "@material-ui/core";
+import { Container, createStyles, Grid, makeStyles, Typography } from "@material-ui/core";
 import { cvConfig } from "config/cv";
 
 const useStyles = makeStyles(() =>
@@ -96,29 +96,29 @@ export const SectionExperience = () => {
 
     return (
         <section id="experience">
-            <div className="container">
+            <Container>
                 <Typography variant="h2" className="section-title wow fadeInUp">
                     Experience
                 </Typography>
-                <div className="row">
-                    <div className="col-md-6 mb-4">
+                <Grid container spacing={3}>
+                    <Grid item xs={12} md={6}>
                         <div className={`${classes.timeline} bg-white rounded shadow-dark p-6 overflow-hidden`}>
                             {cvConfig.experience.education.map((t) => (
                                 <Timeline className="edu" key={t.time} {...t} />
                             ))}
                             <span className="line" />
                         </div>
-                    </div>
-                    <div className="col-md-6">
+                    </Grid>
+                    <Grid item xs={12} md={6}>
                         <div className={`${classes.timeline} bg-white rounded shadow-dark p-6 overflow-hidden`}>
                             {cvConfig.experience.work.map((t) => (
                                 <Timeline className="exp" key={t.time} {...t} />
                             ))}
                             <span className="line" />
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </Grid>
+                </Grid>
+            </Container>
         </section>
     );
 };
