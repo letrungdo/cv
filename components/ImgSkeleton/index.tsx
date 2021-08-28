@@ -12,22 +12,37 @@ interface Props {
     className?: string;
 }
 
-const useStyles = makeStyles<Theme, { loading: boolean }>(() => ({
+const useStyles = makeStyles<Theme, { width: number; height: number }>(() => ({
     root: {
+        position: "relative",
+        width: ({ width }) => width,
+        height: ({ height }) => height,
         "& .MuiSkeleton-root": {
             margin: "0 auto",
+            zIndex: 1,
         },
         "& img": {
-            display: ({ loading }) => (loading ? "none" : "block"),
             margin: "0 auto",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+        },
+    },
+    s: {
+        background: "var(--avatar-bg)",
+        "&:after": {
+            background: "linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.2), transparent)",
         },
     },
 }));
 
 const ImgSkeleton = (props: Props) => {
+    const { width, height } = props;
     const imgRef = useRef<HTMLImageElement>(null);
     const [loading, setLoading] = useState(true);
-    const classes = useStyles({ loading });
+    const classes = useStyles({ width, height });
 
     const onImgLoad = useCallback(() => {
         setLoading(false);
@@ -39,8 +54,16 @@ const ImgSkeleton = (props: Props) => {
 
     return (
         <div className={classes.root}>
-            {loading && <Skeleton variant="circle" animation="wave" width={props.width} height={props.height} />}
             <img ref={imgRef} {...props} onLoad={onImgLoad} />
+            {loading && (
+                <Skeleton
+                    classes={{ root: classes.s }}
+                    variant="circle"
+                    animation="wave"
+                    width={width}
+                    height={height}
+                />
+            )}
         </div>
     );
 };
