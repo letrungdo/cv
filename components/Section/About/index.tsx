@@ -18,7 +18,7 @@ const SectionAbout = () => {
                     About Me
                 </Typography>
                 <Grid container spacing={3}>
-                    <Grid item xs={12} md={3} className="text-center">
+                    <Grid item xs={12} md={3} className="flex justify-content-center">
                         <FbContext.Consumer>
                             {({ profileUrl }) => (
                                 <ImgSkeleton
