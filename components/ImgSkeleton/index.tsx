@@ -14,6 +14,9 @@ interface Props {
 
 const useStyles = makeStyles<Theme, { loading: boolean }>(() => ({
     root: {
+        "& .MuiSkeleton-root": {
+            margin: "0 auto",
+        },
         "& img": {
             display: ({ loading }) => (loading ? "none" : "block"),
             margin: "0 auto",
