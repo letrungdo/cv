@@ -43,7 +43,7 @@ export const getServerSideProps = async () => {
 };
 interface Props extends InferGetServerSidePropsType<typeof getServerSideProps> {}
 
-export const FbContext = React.createContext({ profileUrl: "" });
+export const FbContext = React.createContext("");
 
 const CV = ({ profileUrl }: Props) => {
     const classes = useStyles();
@@ -76,7 +76,7 @@ const CV = ({ profileUrl }: Props) => {
             </Head>
             <SlideMenu />
             <main className={classes.content}>
-                <FbContext.Provider value={{ profileUrl }}>
+                <FbContext.Provider value={profileUrl}>
                     <SectionHome />
                     <SectionAbout />
                 </FbContext.Provider>

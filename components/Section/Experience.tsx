@@ -15,6 +15,7 @@ const useStyles = makeStyles({
         },
         "& p": {
             whiteSpace: "pre-wrap",
+            wordBreak: "break-word",
         },
     },
     timeline: {

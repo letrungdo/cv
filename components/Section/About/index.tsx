@@ -20,7 +20,7 @@ const SectionAbout = () => {
                 <Grid container spacing={3}>
                     <Grid item xs={12} md={3} className="flex justify-content-center">
                         <FbContext.Consumer>
-                            {({ profileUrl }) => (
+                            {(profileUrl) => (
                                 <ImgSkeleton
                                     src={profileUrl}
                                     className="circle"

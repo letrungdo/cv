@@ -150,7 +150,9 @@ export const cvConfig = {
             type: [WorkType.Web],
             title: "Fund Square | kabu.com Securities",
             term: "NextJs",
-            moreIcon: MoreType.Link,
+            description:
+                "FundSquare is the first project I've worked as a team leader for almost a year and got the maximum css score from client.",
+            moreIcon: MoreType.Options,
             thumbnail: "/images/works/fund-square.webp",
             href: "https://fund.square.kabu.co.jp",
         },

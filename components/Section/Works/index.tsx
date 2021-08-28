@@ -2,6 +2,7 @@ import { Grid, Hidden, makeStyles, Select, Typography } from "@material-ui/core"
 import clsx from "clsx";
 import { cvConfig, WorkType } from "config/cv";
 import React, { useCallback, useState } from "react";
+import WorkModal, { WorkModalData } from "./Modal";
 import WorkItem from "./WorkItem";
 
 const useStyles = makeStyles({
@@ -34,6 +35,11 @@ const SectionWorks = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const isotope = React.useRef<any>();
     const [type, setType] = useState(WorkType.Everything);
+    const [modal, setModal] = React.useState<WorkModalData>({ open: false });
+
+    const handleClose = () => {
+        setModal((state) => ({ ...state, open: false }));
+    };
 
     const onChangeType = useCallback(
         (type: string) => async () => {
@@ -91,10 +97,11 @@ const SectionWorks = () => {
                 </Hidden>
                 <Grid container spacing={0} id="work-container">
                     {cvConfig.works.map((w) => (
-                        <WorkItem key={w.href} {...w} />
+                        <WorkItem key={w.href} {...w} setModal={setModal} />
                     ))}
                 </Grid>
             </div>
+            <WorkModal onClose={handleClose} data={modal} />
         </section>
     );
 };

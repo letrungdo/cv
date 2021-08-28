@@ -1,6 +1,7 @@
 import { Grid, makeStyles, Typography } from "@material-ui/core";
 import Image from "next/image";
-import React from "react";
+import React, { useCallback } from "react";
+import { WorkModalData } from "./Modal";
 
 const useStyles = makeStyles({
     item: {
@@ -9,6 +10,7 @@ const useStyles = makeStyles({
     portfolioItem: {
         position: "relative",
         overflow: "hidden",
+        cursor: "pointer",
         margin: 10,
         boxShadow: "0px 5px 20px 0px rgba(69, 67, 96, 0.1)",
         borderRadius: 20,
@@ -104,37 +106,54 @@ type Props = {
     thumbnail: string;
     href: string;
     type: string[];
+    description?: string;
+    setModal: React.Dispatch<React.SetStateAction<WorkModalData>>;
 };
 
-const WorkItem = ({ title, term, moreIcon, thumbnail, href, type }: Props) => {
+const WorkItem = ({ title, term, moreIcon, thumbnail, href, type, description, setModal }: Props) => {
     const classes = useStyles();
+    const onClick = useCallback(() => {
+        switch (moreIcon) {
+            case MoreType.Link:
+                window.open(href);
+                break;
+            case MoreType.Options:
+                setModal({
+                    open: true,
+                    title,
+                    description,
+                    href,
+                    thumbnail,
+                });
+                break;
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [setModal]);
 
     return (
         <Grid item xs={12} sm={6} md={4} className={`${classes.item} work-item ${type.join(" ")}`}>
-            <a href={href} target="_blank" rel="noreferrer">
-                <div className={`${classes.portfolioItem} sanim`}>
-                    <div className={classes.details}>
-                        <span className="term">{term}</span>
-                        <Typography variant="h3" className="title">
-                            {title}
-                        </Typography>
-                        <span className="more-button">
-                            <i className={moreIcon}></i>
-                        </span>
-                    </div>
-                    <div className={classes.thumb}>
-                        <Image
-                            src={thumbnail || ""}
-                            alt="work-thumbnail"
-                            layout="responsive"
-                            objectFit="cover"
-                            width={6}
-                            height={4}
-                        />
-                        <div className="mask" />
-                    </div>
+            <div className={`${classes.portfolioItem} sanim`} onClick={onClick}>
+                <div className={classes.details}>
+                    <span className="term">{term}</span>
+                    <Typography variant="h3" className="title">
+                        {title}
+                    </Typography>
+                    <span className="more-button">
+                        <i className={moreIcon} />
+                    </span>
                 </div>
-            </a>
+                <div className={classes.thumb}>
+                    <Image
+                        src={thumbnail || ""}
+                        alt="work-thumbnail"
+                        layout="responsive"
+                        objectFit="cover"
+                        width={6}
+                        height={4}
+                    />
+                    <div className="mask" />
+                </div>
+            </div>
         </Grid>
     );
 };

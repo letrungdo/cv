@@ -185,7 +185,7 @@ const SectionHome = () => {
         <section id="home" className={`${classes.root} home flex align-items-center`}>
             <div className={classes.intro}>
                 <FbContext.Consumer>
-                    {({ profileUrl }) => (
+                    {(profileUrl) => (
                         <ImgSkeleton alt="avatar" src={profileUrl} className="circle" width={108} height={108} />
                     )}
                 </FbContext.Consumer>
