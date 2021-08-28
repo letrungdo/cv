@@ -2,7 +2,6 @@
 import { makeStyles, Theme } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { logDev } from "utils/logs";
 
 /* eslint-disable @next/next/no-img-element */
 interface Props {
@@ -28,7 +27,6 @@ const ImgSkeleton = (props: Props) => {
     const classes = useStyles({ loading });
 
     const onImgLoad = useCallback(() => {
-        logDev("onImgLoad");
         setLoading(false);
     }, []);
 
@@ -38,7 +36,7 @@ const ImgSkeleton = (props: Props) => {
 
     return (
         <div className={classes.root}>
-            {loading && <Skeleton variant="circle" animation="wave" width={108} height={108} />}
+            {loading && <Skeleton variant="circle" animation="wave" width={props.width} height={props.height} />}
             <img ref={imgRef} {...props} onLoad={onImgLoad} />
         </div>
     );
