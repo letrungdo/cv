@@ -17,6 +17,7 @@ const useStyles = makeStyles<Theme, { loading: boolean }>(() => ({
     root: {
         "& img": {
             display: ({ loading }) => (loading ? "none" : "block"),
+            margin: "0 auto",
         },
     },
 }));
