@@ -2,6 +2,7 @@ html,
 body {
     overscroll-behavior-x: none;
     -webkit-tap-highlight-color: transparent; /* for removing the highlight on Android */
+    scroll-behavior: smooth;
 }
 html {
     font-size: 62.5%;
@@ -15,7 +16,6 @@ body {
     line-height: 1.4;
     background-color: var(--main-bg);
     color: var(--primary-text);
-    scroll-behavior: smooth;
     overflow-x: hidden;
 }
 #slide-menu {
