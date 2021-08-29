@@ -39,7 +39,7 @@ const useStyles = makeStyles<Theme, { width: number; height: number }>(() => ({
 }));
 
 const ImgSkeleton = (props: Props) => {
-    const { width, height } = props;
+    const { width, height, src } = props;
     const imgRef = useRef<HTMLImageElement>(null);
     const [loading, setLoading] = useState(true);
     const classes = useStyles({ width, height });
@@ -54,8 +54,8 @@ const ImgSkeleton = (props: Props) => {
 
     return (
         <div className={classes.root}>
-            <img ref={imgRef} {...props} onLoad={onImgLoad} />
-            {loading && (
+            {src && <img ref={imgRef} {...props} onLoad={onImgLoad} />}
+            {(!src || loading) && (
                 <Skeleton
                     classes={{ root: classes.s }}
                     variant="circle"

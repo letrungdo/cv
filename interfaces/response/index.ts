@@ -1,10 +1,12 @@
 export interface ServerError {
-    apiPath: string;
-    errorCode: number | string;
+    apiPath?: string;
+    errorCode?: number | string;
 }
 
 /** Common response */
 export interface BaseResponse extends ServerError {
     result: string;
-    message: string;
+    message?: string;
 }
+
+export * from "./fbProfile";

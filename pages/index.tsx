@@ -2,12 +2,12 @@ import { makeStyles } from "@material-ui/core";
 import SlideMenu, { drawerWidth } from "components/SlideMenu";
 import { cvConfig } from "config/cv";
 import config from "config/site";
-import { InferGetServerSidePropsType } from "next";
+import { FbProfileRes } from "interfaces/response";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import api from "services/api";
 import { EnvConfig } from "services/envConfig";
-import { getAccessToken } from "services/fbService";
 
 const SectionContact = dynamic(import("components/Section/Contact"));
 const SectionBlog = dynamic(import("components/Section/Blog"));
@@ -27,26 +27,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export const getServerSideProps = async () => {
-    const res = await fetch(
-        `https://graph.facebook.com/${
-            EnvConfig.fbUserID
-        }/picture?type=large&access_token=${getAccessToken()}&redirect=false`,
-    );
-    const result: { data: { url: string } } = await res?.json();
-
-    return {
-        props: {
-            profileUrl: result?.data?.url,
-        },
-    };
-};
-interface Props extends InferGetServerSidePropsType<typeof getServerSideProps> {}
-
 export const FbContext = React.createContext("");
 
-const CV = ({ profileUrl }: Props) => {
+const CV = () => {
     const classes = useStyles();
+    const [profileUrl, setProfileUrl] = useState("");
 
     useEffect(() => {
         import("scrollreveal").then((m) => {
@@ -58,6 +43,10 @@ const CV = ({ profileUrl }: Props) => {
                 duration: 1000,
                 interval: 50,
             });
+        });
+
+        api.get<FbProfileRes>("/api/fb/profile", { params: { userID: EnvConfig.fbUserID } }).then((res) => {
+            setProfileUrl(res.profileUrl || "");
         });
     }, []);
 

@@ -1,14 +1,12 @@
 import mail from "@sendgrid/mail";
+import { API_RESULT_CODE } from "constants/api";
+import { BaseResponse } from "interfaces/response";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { EnvConfig } from "services/envConfig";
 
 mail.setApiKey(EnvConfig.sendGridApiKey);
 
-type Data = {
-    status: string;
-};
-
-const contact = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+const contact = async (req: NextApiRequest, res: NextApiResponse<BaseResponse>) => {
     const body = req.body;
     const message = `
         Name: ${body.name}\r\n
@@ -24,7 +22,9 @@ const contact = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     };
     await mail.send(data);
 
-    res.status(200).json({ status: "OK" });
+    res.status(200).json({
+        result: API_RESULT_CODE.OK,
+    });
 };
 
 export default contact;
