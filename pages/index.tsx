@@ -6,7 +6,6 @@ import { FbProfileRes } from "interfaces/response";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import api from "services/api";
 import { EnvConfig } from "services/envConfig";
 
 const SectionContact = dynamic(import("components/Section/Contact"));
@@ -44,9 +43,10 @@ const CV = () => {
                 interval: 50,
             });
         });
-
-        api.get<FbProfileRes>("/api/fb/profile", { params: { userID: EnvConfig.fbUserID } }).then((res) => {
-            setProfileUrl(res.profileUrl || "");
+        import("services/api").then((api) => {
+            api.default.get<FbProfileRes>("/api/fb/profile", { params: { userID: EnvConfig.fbUserID } }).then((res) => {
+                setProfileUrl(res.profileUrl || "");
+            });
         });
     }, []);
 
