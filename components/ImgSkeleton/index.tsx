@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { makeStyles, Theme } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useState } from "react";
 
 /* eslint-disable @next/next/no-img-element */
 interface Props {
@@ -40,7 +40,6 @@ const useStyles = makeStyles<Theme, { width: number; height: number }>(() => ({
 
 const ImgSkeleton = (props: Props) => {
     const { width, height, src } = props;
-    const imgRef = useRef<HTMLImageElement>(null);
     const [loading, setLoading] = useState(true);
     const classes = useStyles({ width, height });
 
@@ -48,13 +47,9 @@ const ImgSkeleton = (props: Props) => {
         setLoading(false);
     }, []);
 
-    useEffect(() => {
-        if (imgRef.current?.complete) setLoading(false);
-    }, []);
-
     return (
         <div className={classes.root}>
-            {src && <img ref={imgRef} {...props} onLoad={onImgLoad} />}
+            {src && <img {...props} onLoad={onImgLoad} />}
             {(!src || loading) && (
                 <Skeleton
                     classes={{ root: classes.s }}
