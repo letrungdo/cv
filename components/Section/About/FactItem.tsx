@@ -1,7 +1,7 @@
 import { Grid, makeStyles, Typography } from "@material-ui/core";
-import { useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useCountUp } from "react-countup";
-import { Waypoint } from "react-waypoint";
+import { logDev } from "utils/logs";
 
 const useStyles = makeStyles({
     root: {
@@ -26,20 +26,30 @@ type Props = {
 };
 const FactItem = ({ icon, name, count }: Props) => {
     const classes = useStyles();
+    const countUpRef = useRef<HTMLElement>(null);
 
-    const countUpRef = useRef(null);
-    const [run, setRun] = useState(false);
     const { start } = useCountUp({
         ref: countUpRef,
         start: 0,
         end: count,
         duration: 1,
     });
-    const onEnter = () => {
-        if (run) return;
-        setRun(true);
-        start();
-    };
+
+    useEffect(() => {
+        const countUp = countUpRef.current;
+        if (!countUp) return;
+        const callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    observer.unobserve(countUp);
+                    logDev("run CountUp");
+                    start();
+                }
+            });
+        };
+        const observer = new IntersectionObserver(callback);
+        observer.observe(countUp);
+    }, [start]);
 
     return (
         <Grid item xs={12} sm={6} md={3}>
@@ -47,9 +57,7 @@ const FactItem = ({ icon, name, count }: Props) => {
                 <span className={`icon ${icon}`}></span>
                 <div className={classes.details}>
                     <Typography variant="h3" className="mb-0 mt-0 number">
-                        <Waypoint onEnter={onEnter} bottomOffset={50}>
-                            <em ref={countUpRef} className="count" />
-                        </Waypoint>
+                        <em ref={countUpRef} className="count" />
                     </Typography>
                     <p className="mb-0">{name}</p>
                 </div>

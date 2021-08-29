@@ -1,6 +1,6 @@
 import { makeStyles, Theme } from "@material-ui/core";
-import React, { useState } from "react";
-import { Waypoint } from "react-waypoint";
+import React, { useEffect, useRef, useState } from "react";
+import { logDev } from "utils/logs";
 
 type Props = {
     name: string;
@@ -47,11 +47,23 @@ const useStyles = makeStyles<Theme, { bgColor: string; width: string | number }>
 const SkillItem = ({ name, value, bgColor }: Props) => {
     const [width, setWidth] = useState<number | string>(0);
     const classes = useStyles({ bgColor, width });
+    const progressRef = useRef<HTMLDivElement>(null);
 
-    const onEnter = () => {
-        if (width) return;
-        setWidth(`${value}%`);
-    };
+    useEffect(() => {
+        const progress = progressRef.current;
+        if (!progress) return;
+        const callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    observer.unobserve(progress);
+                    logDev("load progress");
+                    setWidth(`${value}%`);
+                }
+            });
+        };
+        const observer = new IntersectionObserver(callback);
+        observer.observe(progress);
+    }, [value]);
 
     return (
         <div className={`${classes.root}`}>
@@ -59,17 +71,15 @@ const SkillItem = ({ name, value, bgColor }: Props) => {
                 <b className="float-left mt-0">{name}</b>
                 <span className="float-right">{value}%</span>
             </div>
-            <div className={classes.progress}>
-                <Waypoint onEnter={onEnter} bottomOffset={50}>
-                    <div
-                        className={classes.progressBar}
-                        role="progressbar"
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                        aria-valuenow={value}
-                        aria-label={`Progress ${name}`}
-                    />
-                </Waypoint>
+            <div ref={progressRef} className={classes.progress}>
+                <div
+                    className={classes.progressBar}
+                    role="progressbar"
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                    aria-valuenow={value}
+                    aria-label={`Progress ${name}`}
+                />
             </div>
         </div>
     );

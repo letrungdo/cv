@@ -1,7 +1,6 @@
 import { CircularProgress, Grid, Typography } from "@material-ui/core";
 import { DOMAIN_URL } from "constants/app";
-import React, { useCallback, useState } from "react";
-import { Waypoint } from "react-waypoint";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { logDev } from "utils/logs";
 import BlogItem from "./BlogItem";
 
@@ -29,7 +28,7 @@ interface Item {
 const SectionBlog = () => {
     const [rssItems, setRssItems] = useState<Item[]>([]);
     const [loading, setLoading] = useState(true);
-
+    const blogRef = useRef<HTMLElement>(null);
     const getPost = useCallback(async () => {
         logDev("getPost ...");
         const Parser = (await import("rss-parser")).default;
@@ -45,17 +44,28 @@ const SectionBlog = () => {
         setLoading(false);
     }, []);
 
+    useEffect(() => {
+        const blog = blogRef.current;
+        if (!blog) return;
+        const callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    observer.unobserve(blog);
+                    getPost();
+                }
+            });
+        };
+        const observer = new IntersectionObserver(callback);
+        observer.observe(blog);
+    }, [getPost]);
+
     return (
-        <section id="blog">
+        <section ref={blogRef} id="blog">
             <div className="container">
                 <Typography variant="h2" className="section-title sanim">
                     Latest Posts
                 </Typography>
-                {loading && (
-                    <Waypoint onEnter={getPost}>
-                        <CircularProgress color="secondary" />
-                    </Waypoint>
-                )}
+                {loading && <CircularProgress color="secondary" />}
                 <Grid container spacing={3}>
                     {rssItems.map((i) => {
                         const cover = i.cover?.split("/") ?? [];

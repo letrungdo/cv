@@ -2,20 +2,22 @@ import { Button, Grid, makeStyles, Snackbar, Typography } from "@material-ui/cor
 import MuiAlert, { Color } from "@material-ui/lab/Alert";
 import clsx from "clsx";
 import { BaseResponse } from "interfaces/response";
-import React, { FormEvent, useCallback, useState } from "react";
+import React, { FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import api from "services/api";
 import { EnvConfig } from "services/envConfig";
 import { logDev } from "utils/logs";
 
 const useStyles = makeStyles({
     info: {
-        backgroundImage: `url(images/map.webp)`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "contain",
         minHeight: 200,
         "& h3": {
             fontSize: "2.3rem",
             margin: "0 0 10px",
+        },
+        "&.visible": {
+            backgroundImage: `url(images/map.webp)`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "contain",
         },
     },
     input: {
@@ -25,10 +27,8 @@ const useStyles = makeStyles({
         height: "5rem",
         padding: "1rem 2.5rem",
         fontSize: "1.6rem",
-        fontWeight: 400,
         color: "var(--primary-text)",
         backgroundColor: "var(--primary-bg)",
-        backgroundImage: "none",
         border: 0,
         boxShadow: "0px 5px 20px 0px rgba(69, 67, 96, 0.1)",
         boxSizing: "border-box",
@@ -74,6 +74,7 @@ const SectionContact = () => {
     const [subject, setSubject] = useState("");
     const [message, setMessage] = useState("");
     const [running, setRunning] = useState(false);
+    const infoRef = useRef<HTMLDivElement>(null);
 
     const [toast, setToast] = useState<{ show: boolean; message: string; severity: Color }>({
         show: false,
@@ -126,6 +127,22 @@ const SectionContact = () => {
         [email, message, name, running, subject],
     );
 
+    useEffect(() => {
+        const contactInfo = infoRef.current;
+        if (!contactInfo) return;
+        const callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    logDev("load backgroundImage");
+                    entry.target.classList.add("visible");
+                    observer.unobserve(contactInfo);
+                }
+            });
+        };
+        const observer = new IntersectionObserver(callback);
+        observer.observe(contactInfo);
+    }, []);
+
     return (
         <section id="contact">
             <div className="container">
@@ -133,7 +150,7 @@ const SectionContact = () => {
                     Get In Touch
                 </Typography>
                 <Grid container spacing={3}>
-                    <Grid item xs={12} md={4} className={classes.info}>
+                    <Grid item xs={12} md={4} ref={infoRef} className={classes.info}>
                         <Typography variant="h3" className="sanim">
                             {"Let's talk about everything!"}
                         </Typography>
