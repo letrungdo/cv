@@ -42,7 +42,7 @@ const FactItem = ({ icon, name, count }: Props) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     observer.unobserve(countUp);
-                    logDev("run CountUp");
+                    observer.disconnect();
                     start();
                 }
             });

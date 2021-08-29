@@ -133,9 +133,9 @@ const SectionContact = () => {
         const callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    logDev("load backgroundImage");
-                    entry.target.classList.add("visible");
                     observer.unobserve(contactInfo);
+                    observer.disconnect();
+                    entry.target.classList.add("visible");
                 }
             });
         };

@@ -56,7 +56,7 @@ const SkillItem = ({ name, value, bgColor }: Props) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     observer.unobserve(progress);
-                    logDev("load progress");
+                    observer.disconnect();
                     setWidth(`${value}%`);
                 }
             });

@@ -51,6 +51,7 @@ const SectionBlog = () => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     observer.unobserve(blog);
+                    observer.disconnect();
                     getPost();
                 }
             });
