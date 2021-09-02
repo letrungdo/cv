@@ -1,7 +1,6 @@
 import { Grid, makeStyles, Typography } from "@material-ui/core";
 import { useEffect, useRef } from "react";
 import { useCountUp } from "react-countup";
-import { logDev } from "utils/logs";
 
 const useStyles = makeStyles({
     root: {

@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { isInteralLink } from "utils";
+import { isInteralLink } from "utils/navigation";
 
 type Props = {
     className?: string;
