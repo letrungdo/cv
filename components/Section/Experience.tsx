@@ -36,7 +36,7 @@ const useStyles = makeStyles({
         },
         "&.edu:after": {
             content: `""`,
-            background: "var(--primary-bg)",
+            background: "var(--main-bg)",
             fontFamily: "simple-line-icons",
             fontSize: 24,
             color: "var(--main-color)",
@@ -47,7 +47,7 @@ const useStyles = makeStyles({
         },
         "&.exp:after": {
             content: `""`,
-            background: "var(--primary-bg)",
+            background: "var(--main-bg)",
             fontFamily: "simple-line-icons",
             fontSize: 24,
             color: "var(--main-color)",

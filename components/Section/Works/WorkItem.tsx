@@ -15,7 +15,7 @@ const useStyles = makeStyles({
         boxShadow: "0px 5px 20px 0px rgba(69, 67, 96, 0.1)",
         borderRadius: 20,
         "& .more-button": {
-            color: "var(--secondary-text)",
+            color: "var(--primary-text)",
             fontSize: 20,
             display: "block",
             background: "#FFD15C",
@@ -44,13 +44,13 @@ const useStyles = makeStyles({
         },
     },
     details: {
-        color: "var(--secondary-text)",
+        color: "var(--primary-text)",
         position: "absolute",
         height: "100%",
         width: "100%",
         zIndex: 1,
         "& h3": {
-            color: "var(--secondary-text)",
+            color: "var(--primary-text)",
             fontSize: 20,
             margin: "0 0 10px",
             padding: "0 20px",
@@ -61,7 +61,7 @@ const useStyles = makeStyles({
             top: 60,
         },
         "& .term": {
-            color: "var(--secondary-text)",
+            color: "var(--primary-text)",
             background: "var(--main-color)",
             borderBottomLeftRadius: 15,
             borderBottomRightRadius: 15,

@@ -26,17 +26,17 @@ const useStyles = makeStyles({
         zIndex: 1,
         width: "100%",
         "& h1": {
-            color: "var(--secondary-text)",
+            color: "var(--primary-text)",
             fontSize: 36,
         },
         "& span": {
-            color: "var(--secondary-text)",
+            color: "var(--primary-text)",
             fontSize: 16,
         },
     },
     socialIcons: {
         "& a": {
-            color: "var(--secondary-text)",
+            color: "var(--primary-text)",
             fontSize: 21,
             "&:hover": {
                 color: "var(--active-text)",
@@ -122,17 +122,17 @@ const useStyles = makeStyles({
         },
     },
     mouseWrapper: {
-        color: "var(--secondary-text)",
+        color: "var(--primary-text)",
         fontSize: 14,
         display: "block",
         maxWidth: 100,
         margin: "auto",
         textAlign: "center",
         "&:hover": {
-            color: "var(--secondary-text)",
+            color: "var(--primary-text)",
         },
         "& .mouse": {
-            border: "solid 2px var(--primary-bg)",
+            border: "solid 2px var(--primary-border)",
             borderRadius: 16,
             boxSizing: "border-box",
             display: "block",
@@ -142,7 +142,7 @@ const useStyles = makeStyles({
             position: "relative",
             width: 20,
             "& .wheel": {
-                background: "var(--primary-bg)",
+                background: "var(--primary-border)",
                 borderRadius: "100%",
                 display: "block",
                 position: "absolute",
@@ -295,14 +295,7 @@ const SectionHome = () => {
                         fillRule="evenodd"
                     ></rect>
                 </svg>
-                <svg
-                    width="30"
-                    height="25"
-                    data-depth="0.3"
-                    data-depth-y="-1.30"
-                    className="layer p9"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
+                <svg width="30" height="25" data-depth="0.3" className="layer p9" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M29.8564 16.0718c-2.85854 4.95114-8.1405 8.00057-13.85654 8.00024-5.71605-.00032-10.9981-3.04992-13.85641-8-2.8583-4.95007-2.8584-11.0491.00014-16.00024l2.77128 1.6c-2.28651 3.96036-2.28631 8.84002-.00011 12.8002 2.2862 3.96017 6.5124 6.40017 11.08513 6.4 4.57271-.00018 8.79872-2.43984 11.08524-6.4002l2.77128 1.6z"
                         fill="#6C6CE5"

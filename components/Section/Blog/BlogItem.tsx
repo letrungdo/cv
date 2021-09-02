@@ -26,7 +26,7 @@ const useStyles = makeStyles({
             background: "var(--main-color)",
             borderBottomLeftRadius: 15,
             borderBottomRightRadius: 15,
-            color: "var(--secondary-text)",
+            color: "var(--primary-text)",
             fontSize: "1.4rem",
             padding: "2px 8px",
             position: "absolute",

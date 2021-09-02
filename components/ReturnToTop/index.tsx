@@ -15,7 +15,7 @@ const useStyles = makeStyles({
         zIndex: 4,
         transition: "all 0.3s ease-in-out",
         "& svg": {
-            color: "var(--secondary-text)",
+            color: "var(--primary-text)",
             margin: 0,
             position: "relative",
             left: 13,

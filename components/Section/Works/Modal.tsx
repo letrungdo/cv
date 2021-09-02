@@ -14,7 +14,7 @@ const useStyles = makeStyles(() =>
         paper: {
             position: "relative",
             width: "80%",
-            background: "var(--primary-bg)",
+            background: "var(--main-bg)",
             borderRadius: 25,
             padding: 30,
             textAlign: "left",

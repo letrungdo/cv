@@ -1,11 +1,16 @@
-import { Button, debounce, Hidden, makeStyles, SwipeableDrawer, Theme } from "@material-ui/core";
+import { Button, debounce, Hidden, IconButton, makeStyles, SwipeableDrawer, Theme } from "@material-ui/core";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import IcDarkMode from "@material-ui/icons/Brightness4";
+import IcLightMode from "@material-ui/icons/Brightness7";
 import Logo from "assets/images/logo192.webp";
 import clsx from "clsx";
 import HambugerMenu from "components/HambugerMenu";
 import { cvConfig } from "config/cv";
+import { THEME_MODE_STORAGE_KEY } from "constants/app";
 import Image from "next/image";
 import React, { useCallback, useEffect, useState } from "react";
+import { logDev } from "utils/logs";
+import { getLocalStorage } from "utils/storage";
 
 export const drawerWidth = "32rem";
 
@@ -18,10 +23,10 @@ const useStyles = makeStyles((theme) => ({
             marginTop: "4rem",
         },
         marginLeft: "2.2rem",
-        "& span": {
+        "& .title": {
             fontWeight: 700,
             fontSize: "2rem",
-            color: "var(--secondary-text)",
+            color: "var(--primary-text)",
             marginLeft: "1rem",
         },
     },
@@ -34,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
             width: "100%",
             padding: "1.5rem 1rem 1.5rem 3rem",
             fontWeight: 700,
-            color: "var(--secondary-text)",
+            color: "var(--primary-text)",
             "& i": {
                 color: "var(--active-text)",
                 marginRight: "2rem",
@@ -50,10 +55,18 @@ const useStyles = makeStyles((theme) => ({
         top: "1rem",
     },
     footer: {
-        margin: "auto 0 2rem 3rem",
+        position: "absolute",
+        bottom: "2rem",
+        left: "3rem",
         "& .copyright": {
             color: "var(--light-gray-text)",
         },
+    },
+    themeMode: {
+        position: "absolute",
+        bottom: "1rem",
+        right: "1rem",
+        color: "var(--primary-text)",
     },
     drawer: {
         width: drawerWidth,
@@ -68,8 +81,26 @@ const onClickLogo = () => {
     window.open("https://xn--t-lia.vn");
 };
 
+enum ThemeMode {
+    Light = "light",
+    Dark = "dark",
+}
+
+const setTheme = (mode: ThemeMode) => {
+    switch (mode) {
+        case ThemeMode.Light:
+            document.body.classList.remove(ThemeMode.Dark);
+            break;
+        case ThemeMode.Dark:
+            document.body.classList.add(ThemeMode.Dark);
+            break;
+    }
+};
+
 const SlideMenu = () => {
     const [isOpenMenu, setOpenMenu] = useState(false);
+    const [themeMode, setThemeMode] = useState<ThemeMode>();
+    const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
     const isPc = useMediaQuery<Theme>((theme) => theme.breakpoints.up("md"));
     const classes = useStyles();
     const [currentPath, setCurrentPath] = useState("");
@@ -143,6 +174,27 @@ const SlideMenu = () => {
         };
     }, []);
 
+    useEffect(() => {
+        let theme = getLocalStorage(THEME_MODE_STORAGE_KEY) as ThemeMode;
+        if (!theme) {
+            // Use OS System Preferences
+            theme = prefersDarkMode ? ThemeMode.Dark : ThemeMode.Light;
+        }
+        logDev("prefersDarkMode", theme);
+        setTheme(theme);
+        setThemeMode(theme);
+    }, [prefersDarkMode]);
+
+    const onChangeTheme = useCallback(() => {
+        setThemeMode((s) => {
+            const newTheme = s === ThemeMode.Light ? ThemeMode.Dark : ThemeMode.Light;
+            setTheme(newTheme);
+            localStorage.setItem(THEME_MODE_STORAGE_KEY, newTheme);
+
+            return newTheme;
+        });
+    }, []);
+
     return (
         <>
             <Hidden mdUp>
@@ -171,7 +223,7 @@ const SlideMenu = () => {
                         alt="TĐ.VN"
                         onClick={onClickLogo}
                     />
-                    <span>DOLT CV</span>
+                    <span className="title">DOLT CV</span>
                 </div>
                 <div className={classes.menu} onKeyDown={toggleDrawer(false)}>
                     {cvConfig.menu.map((item) => (
@@ -193,6 +245,9 @@ const SlideMenu = () => {
                         </a>
                     </span>
                 </div>
+                <IconButton className={classes.themeMode} onClick={onChangeTheme}>
+                    {themeMode === ThemeMode.Light ? <IcLightMode /> : <IcDarkMode />}
+                </IconButton>
             </SwipeableDrawer>
         </>
     );

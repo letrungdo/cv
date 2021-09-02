@@ -10,14 +10,14 @@ const useStyles = makeStyles((theme) =>
         root: {
             ...mainPaddingStyle(theme),
             backgroundColor: "var(--main-bg)",
-            color: "var(--secondary-text)",
+            color: "var(--primary-text)",
             textAlign: "center",
             flexShrink: 0,
         },
         link: {
             display: "inline-block",
             margin: "0 1rem",
-            color: "var(--secondary-text)",
+            color: "var(--primary-text)",
         },
         copyright: {
             color: "var(--gray-text)",
@@ -51,7 +51,7 @@ const Footer = ({ socials, links, copyright }: Props) => {
                             <FontAwesomeIcon
                                 icon={social.iconClassName.split(" ") as IconProp}
                                 transform="grow-2"
-                                style={{ color: "var(--secondary-text)" }}
+                                style={{ color: "var(--primary-text)" }}
                             />
                         </AutoLink>
                     );

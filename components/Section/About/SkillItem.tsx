@@ -1,6 +1,5 @@
 import { makeStyles, Theme } from "@material-ui/core";
 import React, { useEffect, useRef, useState } from "react";
-import { logDev } from "utils/logs";
 
 type Props = {
     name: string;
@@ -36,7 +35,7 @@ const useStyles = makeStyles<Theme, { bgColor: string; width: string | number }>
         height: "100%",
         fontSize: "1.2rem",
         lineHeight: 7,
-        color: "var(--secondary-text)",
+        color: "var(--primary-text)",
         textAlign: "center",
         backgroundColor: ({ bgColor }) => bgColor,
         boxShadow: "none",

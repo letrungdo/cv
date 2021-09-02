@@ -23,6 +23,7 @@
         "@fortawesome/free-solid-svg-icons": "^5.15.3",
         "@fortawesome/react-fontawesome": "^0.1.14",
         "@material-ui/core": "^4.12.2",
+        "@material-ui/icons": "^4.11.2",
         "@material-ui/lab": "^4.0.0-alpha.60",
         "@sendgrid/mail": "^7.4.6",
         "axios": "^0.21.1",
