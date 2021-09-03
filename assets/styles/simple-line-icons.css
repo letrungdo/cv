@@ -1,10 +1,7 @@
 @font-face {
     font-family: "simple-line-icons";
-    src: url("../fonts/Simple-Line-Icons.eot");
-    src: url("../fonts/Simple-Line-Icons.eot") format("embedded-opentype"),
-        url("../fonts/Simple-Line-Icons.woff2") format("woff2"),
-        url("../fonts/Simple-Line-Icons.ttf") format("truetype"), url("../fonts/Simple-Line-Icons.woff") format("woff"),
-        url("../fonts/Simple-Line-Icons.svg") format("svg");
+    src: url("../fonts/Simple-Line-Icons.woff2") format("woff2"),
+        url("../fonts/Simple-Line-Icons.ttf") format("truetype"), url("../fonts/Simple-Line-Icons.woff") format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -203,7 +200,6 @@
 .icon-social-vkontakte,
 .icon-social-steam {
     font-family: "simple-line-icons";
-    speak: none;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;

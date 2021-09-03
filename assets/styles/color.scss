@@ -44,4 +44,7 @@ body.dark {
     // Border color
     --primary-border: #b8b8b8;
     --shadow-border: rgba(0, 0, 0, 0.1);
+
+    // svg filter
+    --dot-bg: invert(99%) sepia(5%) saturate(293%) hue-rotate(285deg) brightness(113%) contrast(89%);
 }
