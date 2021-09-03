@@ -44,7 +44,7 @@ const useStyles = makeStyles({
         },
     },
     details: {
-        color: "var(--primary-text)",
+        color: "var(--light-text)",
         position: "absolute",
         height: "100%",
         width: "100%",
@@ -60,7 +60,7 @@ const useStyles = makeStyles({
             top: 60,
         },
         "& .term": {
-            color: "var(--primary-text)",
+            color: "var(--light-text)",
             background: "var(--main-color)",
             borderBottomLeftRadius: 15,
             borderBottomRightRadius: 15,
