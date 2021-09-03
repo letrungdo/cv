@@ -1,4 +1,4 @@
-import { Button, Grid, Typography } from "@material-ui/core";
+import { Button, Grid, makeStyles, Typography } from "@material-ui/core";
 import ImgSkeleton from "components/ImgSkeleton";
 import { cvConfig } from "config/cv";
 import { FbContext } from "pages";
@@ -10,7 +10,34 @@ const onDownloadCV = () => {
     window.open(cvConfig.cvDownloadLink);
 };
 
+const useStyles = makeStyles((theme) => ({
+    content: {
+        position: "relative",
+        "&:before": {
+            content: '""',
+            width: 0,
+            height: 0,
+            position: "absolute",
+            borderLeft: "10px solid transparent",
+            borderRight: "10px solid transparent",
+            borderBottom: "10px solid var(--primary-bg)",
+            left: "50%",
+            top: 2,
+            transform: "translateX(-7.5px)",
+            [theme.breakpoints.up("md")]: {
+                borderTop: "10px solid transparent",
+                borderBottom: "10px solid transparent",
+                borderRight: "15px solid var(--primary-bg)",
+                left: -4,
+                top: "20%",
+            },
+        },
+    },
+}));
+
 const SectionAbout = () => {
+    const classes = useStyles();
+
     return (
         <section id="about">
             <div className="container">
@@ -31,7 +58,7 @@ const SectionAbout = () => {
                             )}
                         </FbContext.Consumer>
                     </Grid>
-                    <Grid container item xs={12} md={9}>
+                    <Grid container item xs={12} md={9} className={classes.content}>
                         <Grid container item spacing={4} className="rounded bg-primary p-4 m-0">
                             <Grid item xs={12} sm={6}>
                                 <p>{cvConfig.about}</p>

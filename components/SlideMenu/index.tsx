@@ -1,4 +1,4 @@
-import { Button, debounce, Hidden, IconButton, makeStyles, SwipeableDrawer, Theme } from "@material-ui/core";
+import { Button, debounce, Hidden, IconButton, makeStyles, SwipeableDrawer, Theme, Tooltip } from "@material-ui/core";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import IcDarkMode from "@material-ui/icons/Brightness4";
 import IcLightMode from "@material-ui/icons/Brightness7";
@@ -245,9 +245,11 @@ const SlideMenu = () => {
                         </a>
                     </span>
                 </div>
-                <IconButton className={classes.themeMode} onClick={onChangeTheme}>
-                    {themeMode === ThemeMode.Light ? <IcLightMode /> : <IcDarkMode />}
-                </IconButton>
+                <Tooltip title="Toggle light/dark theme" arrow>
+                    <IconButton className={classes.themeMode} onClick={onChangeTheme}>
+                        {themeMode === ThemeMode.Light ? <IcLightMode /> : <IcDarkMode />}
+                    </IconButton>
+                </Tooltip>
             </SwipeableDrawer>
         </>
     );
