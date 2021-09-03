@@ -1,4 +1,4 @@
-import { CircularProgress, Grid, Typography } from "@material-ui/core";
+import { CircularProgress, createStyles, Grid, makeStyles, Typography } from "@material-ui/core";
 import { DOMAIN_URL } from "constants/app";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { logDev } from "utils/logs";
@@ -25,7 +25,16 @@ interface Item {
     cover?: string;
 }
 
+const useStyles = makeStyles(() =>
+    createStyles({
+        progress: {
+            color: "var(--secondary-text)",
+        },
+    }),
+);
+
 const SectionBlog = () => {
+    const classes = useStyles();
     const [rssItems, setRssItems] = useState<Item[]>([]);
     const [loading, setLoading] = useState(true);
     const blogRef = useRef<HTMLElement>(null);
@@ -66,7 +75,7 @@ const SectionBlog = () => {
                 <Typography variant="h2" className="section-title sanim">
                     Latest Posts
                 </Typography>
-                {loading && <CircularProgress color="secondary" />}
+                {loading && <CircularProgress className={classes.progress} />}
                 <Grid container spacing={3}>
                     {rssItems.map((i) => {
                         const cover = i.cover?.split("/") ?? [];
