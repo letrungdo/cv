@@ -8,7 +8,7 @@ import WorkItem from "./WorkItem";
 const useStyles = makeStyles({
     menuPc: {
         "& li": {
-            color: "#5E5C7F",
+            color: "var(--primary-text)",
             cursor: "pointer",
             fontSize: "1.6rem",
             fontWeight: 700,

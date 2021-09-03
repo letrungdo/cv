@@ -26,7 +26,6 @@ const useStyles = makeStyles({
             background: "var(--main-color)",
             borderBottomLeftRadius: 15,
             borderBottomRightRadius: 15,
-            color: "var(--primary-text)",
             fontSize: "1.4rem",
             padding: "2px 8px",
             position: "absolute",
@@ -87,9 +86,9 @@ const BlogItem = ({ thumbnail, category, title, pubDate, creator, link }: Props)
 
     return (
         <Grid item xs={12} sm={6} md={4}>
-            <div className={`${classes.root} rounded bg-white shadow-dark sanim-post`}>
+            <div className={`${classes.root} rounded bg-primary sanim-post`}>
                 <div className={classes.thumb}>
-                    {category && <span className="category">{category}</span>}
+                    {category && <span className="category text-light">{category}</span>}
                     <a href={link} target="_blank" rel="noreferrer">
                         <Image
                             src={thumbnail || ""}

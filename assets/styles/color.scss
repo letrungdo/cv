@@ -1,9 +1,15 @@
+:root { // Ststic color
+    // Text color
+    --light-text: #f1f1f1;
+    --dark-text: #2c2b3b;
+}
 body {
     --main-color: #418663;
     --primary-color: #2b2a2a;
 
     // Background color
-    --main-bg: #fafafa;
+    --main-bg: #f1efef;
+    --primary-bg: #f1f1f3;
     --progress-bg: #f1f1f1;
     --avatar-bg: rgb(121, 121, 121);
 
@@ -11,11 +17,12 @@ body {
     --primary-text: #2c2b3b;
     --secondary-text: #4b4a4a;
     --gray-text: #9e9e9e;
-    --light-gray-text: #a6a4c2;
+    --light-gray-text: #7b7a91;
     --active-text: #a73359;
 
     // Border color
     --primary-border: #726b6b;
+    --shadow-border: rgba(0, 0, 0, 0.1);
 }
 body.dark {
     --main-color: #418663;
@@ -23,6 +30,7 @@ body.dark {
 
     // Background color
     --main-bg: #2b2c2c;
+    --primary-bg: #353535;
     --progress-bg: #f1f1f1;
     --avatar-bg: rgb(121, 121, 121);
 
@@ -30,9 +38,10 @@ body.dark {
     --primary-text: #f1f1f1;
     --secondary-text: #f1f1f1;
     --gray-text: #9e9e9e;
-    --light-gray-text: #a6a4c2;
+    --light-gray-text: #acabbb;
     --active-text: #ffd15c;
 
     // Border color
     --primary-border: #b8b8b8;
+    --shadow-border: rgba(0, 0, 0, 0.1);
 }

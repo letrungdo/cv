@@ -36,7 +36,6 @@ const useStyles = makeStyles({
         },
         "&.edu:after": {
             content: `""`,
-            background: "var(--main-bg)",
             fontFamily: "simple-line-icons",
             fontSize: 24,
             color: "var(--main-color)",
@@ -47,7 +46,6 @@ const useStyles = makeStyles({
         },
         "&.exp:after": {
             content: `""`,
-            background: "var(--main-bg)",
             fontFamily: "simple-line-icons",
             fontSize: 24,
             color: "var(--main-color)",
@@ -102,14 +100,14 @@ const SectionExperience = () => {
                 </Typography>
                 <Grid container spacing={3}>
                     <Grid item xs={12} md={6}>
-                        <div className={`${classes.timeline} bg-white rounded shadow-dark p-6 overflow-hidden`}>
+                        <div className={`${classes.timeline} bg-primary rounded p-6 overflow-hidden`}>
                             {cvConfig.experience.education.map((t) => (
                                 <Timeline className="edu" key={t.time} {...t} />
                             ))}
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <div className={`${classes.timeline} bg-white rounded shadow-dark p-6 overflow-hidden`}>
+                        <div className={`${classes.timeline} bg-primary rounded p-6 overflow-hidden`}>
                             {cvConfig.experience.work.map((t) => (
                                 <Timeline className="exp" key={t.time} {...t} />
                             ))}

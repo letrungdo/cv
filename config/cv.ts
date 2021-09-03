@@ -93,7 +93,7 @@ export const cvConfig = {
     ],
     services: [
         {
-            className: "shadow-blue text-light",
+            className: "text-light",
             imgSrc: "/images/service-1.svg",
             bgColor: "#6C6CE5",
             name: "Mobile Development",
@@ -101,7 +101,7 @@ export const cvConfig = {
                 "With two years of experience in mobile programming using Xamarin Forms. The apps I make have high performance and beautiful effects.",
         },
         {
-            className: "shadow-yellow",
+            className: "text-dark",
             imgSrc: "/images/service-2.svg",
             bgColor: "#F9D74C",
             name: "Web Development",
@@ -109,7 +109,7 @@ export const cvConfig = {
                 "I’m currently the ReactJs team leader at an outsource company. NextJs is my favorite framework.",
         },
         {
-            className: "shadow-pink text-light",
+            className: "text-light",
             imgSrc: "/images/service-3.svg",
             bgColor: "#F97B8B",
             name: "Blogger & SEOer",

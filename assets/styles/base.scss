@@ -49,9 +49,6 @@ b {
     &.btn-radius {
         border-radius: 30px !important;
     }
-    &.btn-radius:hover {
-        color: var(--primary-text);
-    }
 }
 img {
     max-width: 100%;
@@ -88,27 +85,15 @@ section {
 .rounded {
     border-radius: 20px !important;
 }
-.bg-white {
-    background: var(--main-bg);
-    filter: brightness(1.05);
-}
-.shadow-dark {
-    box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
-}
-.shadow-light {
-    box-shadow: 0px 5px 20px 0px rgba(255, 255, 255, 0.01);
-}
-.shadow-blue {
-    box-shadow: 0px 5px 20px 0px rgba(108, 108, 229, 0.5);
-}
-.shadow-pink {
-    box-shadow: 0px 5px 20px 0px rgba(249, 123, 139, 0.5);
-}
-.shadow-yellow {
-    box-shadow: 0px 5px 20px 0px rgba(249, 215, 76, 0.5);
+.bg-primary {
+    background: var(--primary-bg);
+    box-shadow: 0px 5px 20px 0px var(--shadow-border);
 }
 .text-light {
-    color: var(--primary-text);
+    color: var(--light-text);
+}
+.text-dark {
+    color: var(--dark-text);
 }
 .container {
     width: 100%;

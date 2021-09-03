@@ -26,12 +26,7 @@ const useStyles = makeStyles({
         zIndex: 1,
         width: "100%",
         "& h1": {
-            color: "var(--primary-text)",
             fontSize: 36,
-        },
-        "& span": {
-            color: "var(--primary-text)",
-            fontSize: 16,
         },
     },
     socialIcons: {

@@ -50,7 +50,6 @@ const useStyles = makeStyles({
         width: "100%",
         zIndex: 1,
         "& h3": {
-            color: "var(--primary-text)",
             fontSize: 20,
             margin: "0 0 10px",
             padding: "0 20px",

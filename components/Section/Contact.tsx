@@ -28,9 +28,9 @@ const useStyles = makeStyles({
         padding: "1rem 2.5rem",
         fontSize: "1.6rem",
         color: "var(--primary-text)",
-        backgroundColor: "var(--main-bg)",
+        backgroundColor: "var(--primary-bg)",
         border: 0,
-        boxShadow: "0px 5px 20px 0px rgba(69, 67, 96, 0.1)",
+        boxShadow: "0px 5px 20px 0px var(--shadow-border)",
         boxSizing: "border-box",
         "&:focus": {
             outline: 0,

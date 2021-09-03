@@ -15,6 +15,7 @@ const useStyles = makeStyles<Theme, { bgColor: string }>({
             transform: "translateY(-10px)",
         },
         backgroundColor: ({ bgColor }) => bgColor,
+        boxShadow: ({ bgColor }) => `0px 5px 20px 0px ${bgColor}80`,
     },
 });
 type ServiceBoxProps = {

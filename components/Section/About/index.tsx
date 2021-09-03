@@ -32,7 +32,7 @@ const SectionAbout = () => {
                         </FbContext.Consumer>
                     </Grid>
                     <Grid container item xs={12} md={9}>
-                        <Grid container item spacing={4} className="rounded bg-white shadow-dark p-4 m-0">
+                        <Grid container item spacing={4} className="rounded bg-primary p-4 m-0">
                             <Grid item xs={12} sm={6}>
                                 <p>{cvConfig.about}</p>
                                 <Button
