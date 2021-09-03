@@ -8,15 +8,15 @@ import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import { EnvConfig } from "services/envConfig";
 
-const SectionContact = dynamic(import("components/Section/Contact"));
-const SectionBlog = dynamic(import("components/Section/Blog"));
-const SectionAbout = dynamic(import("components/Section/About"));
-const SectionExperience = dynamic(import("components/Section/Experience"));
-const SectionServices = dynamic(import("components/Section/Services"));
-const SectionWorks = dynamic(import("components/Section/Works"));
-const SectionHome = dynamic(import("components/Section/Home"));
-const ReturnToTop = dynamic(import("components/ReturnToTop"), { ssr: false });
 const SlideMenu = dynamic(import("components/SlideMenu"));
+const SectionHome = dynamic(import("components/Section/Home"));
+const SectionAbout = dynamic(import("components/Section/About"));
+const SectionServices = dynamic(import("components/Section/Services"));
+const SectionExperience = dynamic(import("components/Section/Experience"));
+const SectionWorks = dynamic(import("components/Section/Works"));
+const SectionBlog = dynamic(import("components/Section/Blog"));
+const SectionContact = dynamic(import("components/Section/Contact"));
+const ReturnToTop = dynamic(import("components/ReturnToTop"), { ssr: false });
 
 const useStyles = makeStyles((theme) => ({
     content: {
