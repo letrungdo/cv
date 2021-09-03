@@ -1,5 +1,3 @@
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { createStyles, makeStyles } from "@material-ui/core";
 import AutoLink from "components/AutoLink";
 import { mainPaddingStyle } from "components/Layout";
@@ -48,11 +46,7 @@ const Footer = ({ socials, links, copyright }: Props) => {
                 {socials.map((social) => {
                     return (
                         <AutoLink className="ml-2 mr-2" href={social.url} key={social.label}>
-                            <FontAwesomeIcon
-                                icon={social.iconClassName.split(" ") as IconProp}
-                                transform="grow-2"
-                                style={{ color: "var(--primary-text)" }}
-                            />
+                            <i className={social.iconClassName} style={{ color: "var(--primary-text)" }} />
                         </AutoLink>
                     );
                 })}

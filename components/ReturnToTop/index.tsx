@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { debounce, makeStyles } from "@material-ui/core";
 import { useEffect, useRef } from "react";
 
@@ -10,22 +9,23 @@ const useStyles = makeStyles({
         background: "rgba(0, 0, 0, 0.2)",
         width: 40,
         height: 40,
-        textDecoration: "none",
         borderRadius: "100%",
         zIndex: 4,
         transition: "all 0.3s ease-in-out",
-        "& svg": {
+        cursor: "pointer",
+        "& i": {
             color: "var(--primary-text)",
             margin: 0,
             position: "relative",
-            left: 13,
+            left: 12.5,
             top: 9,
-            fontSize: 16,
+            fontSize: 15,
+            fontWeight: "bold",
             transform: "translateY(0px)",
             transition: "all 0.1s ease-in-out",
         },
-        "&:hover": {
-            background: "var(--main-color)",
+        "&:active": {
+            opacity: "50%",
         },
     },
 });
@@ -62,7 +62,7 @@ const ReturnToTop = () => {
 
     return (
         <div className={classes.root} ref={rootRef} onClick={handleClick}>
-            <FontAwesomeIcon icon={["fas", "arrow-up"]} />
+            <i className="icon-arrow-up" />
         </div>
     );
 };

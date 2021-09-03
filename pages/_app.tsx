@@ -1,7 +1,5 @@
-import "@fortawesome/fontawesome-svg-core/styles.css";
 import { ThemeProvider } from "@material-ui/core/styles";
 import "assets/styles/index.scss";
-import "components/Icons/FontAwesome";
 import theme from "config/theme";
 import type { AppProps } from "next/app";
 import { useEffect } from "react";

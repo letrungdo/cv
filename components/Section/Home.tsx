@@ -1,5 +1,3 @@
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, makeStyles, Typography } from "@material-ui/core";
 import ImgSkeleton from "components/ImgSkeleton";
 import { cvConfig } from "config/cv";
@@ -32,7 +30,7 @@ const useStyles = makeStyles({
     socialIcons: {
         "& a": {
             color: "var(--primary-text)",
-            fontSize: 21,
+            fontSize: 23,
             "&:hover": {
                 color: "var(--active-text)",
             },
@@ -201,7 +199,7 @@ const SectionHome = () => {
                     {config.socialLinks.map((i) => (
                         <li key={i.label} className="list-inline-item">
                             <a href={i.url} target="_blank" rel="noreferrer">
-                                <FontAwesomeIcon icon={i.iconClassName.split(" ") as IconProp} transform="grow-2" />
+                                <i className={i.iconClassName} />
                             </a>
                         </li>
                     ))}

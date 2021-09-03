@@ -12,27 +12,27 @@ const config = {
         {
             label: "GitHub",
             url: "https://github.com/letrungdo",
-            iconClassName: "fab github",
+            iconClassName: "icon-social-github",
         },
         {
             label: "Facebook",
             url: "https://www.facebook.com/DoMemory",
-            iconClassName: "fab facebook-f",
+            iconClassName: "icon-social-facebook",
         },
         {
             label: "Linkedin",
             url: "https://www.linkedin.com/in/letrungdo",
-            iconClassName: "fab linkedin-in",
+            iconClassName: "icon-social-linkedin",
         },
         {
             label: "Twitter",
             url: "https://twitter.com/letrungdo",
-            iconClassName: "fab twitter",
+            iconClassName: "icon-social-twitter",
         },
         {
             label: "RSS",
             url: "https://xn--t-lia.vn/rss.xml",
-            iconClassName: "fas rss",
+            iconClassName: "icon-feed",
         },
     ],
     footerLinks: [
