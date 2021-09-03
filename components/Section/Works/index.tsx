@@ -27,6 +27,7 @@ const useStyles = makeStyles({
     },
     dropdown: {
         width: "100%",
+        color: "var(--primary-text)",
     },
 });
 

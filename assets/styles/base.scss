@@ -74,6 +74,7 @@ section {
 }
 .section-title:before {
     content: "";
+    color: var(--primary-text);
     background-image: url(../images/dots-bg.svg);
     display: block;
     height: 37px;
