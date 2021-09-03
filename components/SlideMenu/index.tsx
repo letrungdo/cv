@@ -6,13 +6,11 @@ import Logo from "assets/images/logo192.webp";
 import clsx from "clsx";
 import HambugerMenu from "components/HambugerMenu";
 import { cvConfig } from "config/cv";
-import { THEME_MODE_STORAGE_KEY } from "constants/app";
+import { drawerWidth, THEME_MODE_STORAGE_KEY } from "constants/app";
 import Image from "next/image";
 import React, { useCallback, useEffect, useState } from "react";
 import { logDev } from "utils/logs";
 import { getLocalStorage } from "utils/storage";
-
-export const drawerWidth = "32rem";
 
 const useStyles = makeStyles((theme) => ({
     logo: {

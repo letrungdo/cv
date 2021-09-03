@@ -6,7 +6,7 @@ export const ENV = Object.freeze({
     PRD: env === "production",
     TEST: env === "test",
 });
-
+export const drawerWidth = "32rem";
 export const DEFAULT_EMPTY = "-";
 
 export const APP_VERSION = process.env.NEXT_PUBLIC_APP_VERSION || "1.0.0";

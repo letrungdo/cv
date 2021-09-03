@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core";
-import SlideMenu, { drawerWidth } from "components/SlideMenu";
 import { cvConfig } from "config/cv";
 import config from "config/site";
+import { drawerWidth } from "constants/app";
 import { FbProfileRes } from "interfaces/response";
 import dynamic from "next/dynamic";
 import Head from "next/head";
@@ -16,6 +16,7 @@ const SectionServices = dynamic(import("components/Section/Services"));
 const SectionWorks = dynamic(import("components/Section/Works"));
 const SectionHome = dynamic(import("components/Section/Home"));
 const ReturnToTop = dynamic(import("components/ReturnToTop"), { ssr: false });
+const SlideMenu = dynamic(import("components/SlideMenu"));
 
 const useStyles = makeStyles((theme) => ({
     content: {
