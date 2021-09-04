@@ -18,7 +18,6 @@
     },
     "dependencies": {
         "@material-ui/core": "^4.12.2",
-        "@material-ui/icons": "^4.11.2",
         "@material-ui/lab": "^4.0.0-alpha.60",
         "@sendgrid/mail": "^7.4.6",
         "axios": "^0.21.1",
@@ -29,6 +28,7 @@
         "react": "^17.0.2",
         "react-countup": "^5.2.0",
         "react-dom": "^17.0.2",
+        "react-spring": "^9.2.4",
         "react-typing-effect": "^2.0.5",
         "recaptcha-v3": "^1.10.0",
         "rss-parser": "^3.12.0",

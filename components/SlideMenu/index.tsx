@@ -1,9 +1,8 @@
-import { Button, debounce, Hidden, IconButton, makeStyles, SwipeableDrawer, Theme, Tooltip } from "@material-ui/core";
+import { Button, debounce, Hidden, makeStyles, SwipeableDrawer, Theme, Tooltip } from "@material-ui/core";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import IcDarkMode from "@material-ui/icons/Brightness4";
-import IcLightMode from "@material-ui/icons/Brightness7";
 import Logo from "assets/images/logo192.webp";
 import clsx from "clsx";
+import { DarkModeSwitch } from "components/DarkModeSwitch";
 import GrowingCircleAnimation from "components/GrowingCircleAnimation";
 import HambugerMenu from "components/HambugerMenu";
 import { cvConfig } from "config/cv";
@@ -68,8 +67,8 @@ const useStyles = makeStyles((theme) => ({
     },
     themeMode: {
         position: "absolute",
-        bottom: "1rem",
-        right: "1rem",
+        bottom: "2rem",
+        right: "2rem",
         color: "var(--primary-text)",
         transition: "color 1s",
     },
@@ -199,14 +198,16 @@ const SlideMenu = () => {
         setThemeMode(theme);
     }, [prefersDarkMode]);
 
-    const onChangeTheme = useCallback((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const onChangeTheme = useCallback((_checked: boolean, event: any) => {
+        logDev("aa");
         setThemeMode((s) => {
             const newTheme = s === ThemeMode.Light ? ThemeMode.Dark : ThemeMode.Light;
             setTheme(newTheme);
             localStorage.setItem(THEME_MODE_STORAGE_KEY, newTheme);
 
             const bodyRect = document.body.getBoundingClientRect();
-            const elemRect = event.currentTarget.getBoundingClientRect();
+            const elemRect = event.target.getBoundingClientRect();
             const offsetTop = elemRect.top - bodyRect.top;
             const offsetLeft = elemRect.left - bodyRect.left;
 
@@ -280,9 +281,14 @@ const SlideMenu = () => {
                         </span>
                     </div>
                     <Tooltip title="Toggle light/dark theme" arrow>
-                        <IconButton className={classes.themeMode} onClick={onChangeTheme}>
-                            {themeMode === ThemeMode.Light ? <IcLightMode /> : <IcDarkMode />}
-                        </IconButton>
+                        <DarkModeSwitch
+                            className={classes.themeMode}
+                            checked={themeMode === ThemeMode.Dark}
+                            onChange={onChangeTheme}
+                            sunColor="#fa6437"
+                            moonColor="#fadd37"
+                            size={30}
+                        />
                     </Tooltip>
                 </div>
             </SwipeableDrawer>
