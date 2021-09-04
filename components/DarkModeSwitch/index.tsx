@@ -2,10 +2,11 @@
 import React from "react";
 import { animated, useSpring } from "react-spring";
 
-export const defaultProperties = {
+const defaultProperties = {
     dark: {
         circle: {
             r: 9,
+            strokeWidth: 2,
         },
         mask: {
             cx: "50%",
@@ -20,7 +21,8 @@ export const defaultProperties = {
     },
     light: {
         circle: {
-            r: 5,
+            r: 6,
+            strokeWidth: 0,
         },
         mask: {
             cx: "100%",
@@ -49,7 +51,7 @@ interface Props extends SVGProps {
     sunColor?: string;
 }
 
-export const DarkModeSwitch = React.forwardRef<SVGSVGElement, Props>(
+const DarkModeSwitch = React.forwardRef<SVGSVGElement, Props>(
     (
         {
             onChange,
@@ -154,3 +156,5 @@ export const DarkModeSwitch = React.forwardRef<SVGSVGElement, Props>(
         );
     },
 );
+
+export default DarkModeSwitch;

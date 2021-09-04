@@ -2,7 +2,7 @@ import { Button, debounce, Hidden, makeStyles, SwipeableDrawer, Theme, Tooltip }
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Logo from "assets/images/logo192.webp";
 import clsx from "clsx";
-import { DarkModeSwitch } from "components/DarkModeSwitch";
+import DarkModeSwitch from "components/DarkModeSwitch";
 import GrowingCircleAnimation from "components/GrowingCircleAnimation";
 import HambugerMenu from "components/HambugerMenu";
 import { cvConfig } from "config/cv";
