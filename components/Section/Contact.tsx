@@ -29,6 +29,7 @@ const useStyles = makeStyles({
         fontSize: "1.6rem",
         color: "var(--primary-text)",
         backgroundColor: "var(--primary-bg)",
+        transition: "background-color 0.5s",
         border: 0,
         boxShadow: "0px 5px 20px 0px var(--shadow-border)",
         boxSizing: "border-box",

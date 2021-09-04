@@ -17,13 +17,7 @@ body {
     background-color: var(--main-bg);
     color: var(--primary-text);
     overflow-x: hidden;
-}
-#slide-menu {
-    .MuiDrawer-paper {
-        width: 80%;
-        max-width: 32rem;
-        background-color: var(--main-bg);
-    }
+    transition: color 0.5s, background-color 0.5s;
 }
 .button {
     cursor: pointer;
@@ -64,13 +58,14 @@ textarea {
 section {
     padding: 2rem 0;
     position: relative;
-    background: var(--main-bg);
+    transition: color 0.5s;
 }
 .section-title {
     font-size: 36px;
     margin-left: 1.4rem !important;
     position: relative;
     color: var(--primary-text);
+    transition: color 0.5s;
 }
 .section-title:before {
     content: "";
@@ -87,8 +82,9 @@ section {
     border-radius: 20px !important;
 }
 .bg-primary {
-    background: var(--primary-bg);
+    background-color: var(--primary-bg);
     box-shadow: 0px 5px 20px 0px var(--shadow-border);
+    transition: background-color 0.5s;
 }
 .text-light {
     color: var(--light-text);

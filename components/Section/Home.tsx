@@ -10,7 +10,6 @@ const ReactTypingEffect = dynamic(import("react-typing-effect"));
 
 const useStyles = makeStyles({
     root: {
-        background: "var(--main-bg)",
         padding: 0,
         height: "100vh",
         minHeight: "100vh",
@@ -99,6 +98,9 @@ const useStyles = makeStyles({
         left: 0,
         width: "100%",
         zIndex: 1,
+        "@media only screen and (max-height: 500px)": {
+            display: "none",
+        },
     },
     "@keyframes aniMouse": {
         "0%": {
@@ -212,7 +214,7 @@ const SectionHome = () => {
                 <a href="#about" className={classes.mouseWrapper}>
                     <span>Scroll Down</span>
                     <span className="mouse">
-                        <span className="wheel"></span>
+                        <span className="wheel" />
                     </span>
                 </a>
             </div>

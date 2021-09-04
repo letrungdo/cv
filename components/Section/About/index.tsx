@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
             left: "50%",
             top: 2,
             transform: "translateX(-7.5px)",
+            transition: "all 0.5s",
             [theme.breakpoints.up("md")]: {
                 borderTop: "10px solid transparent",
                 borderBottom: "10px solid transparent",

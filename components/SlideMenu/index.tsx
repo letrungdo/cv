@@ -4,6 +4,7 @@ import IcDarkMode from "@material-ui/icons/Brightness4";
 import IcLightMode from "@material-ui/icons/Brightness7";
 import Logo from "assets/images/logo192.webp";
 import clsx from "clsx";
+import GrowingCircleAnimation from "components/GrowingCircleAnimation";
 import HambugerMenu from "components/HambugerMenu";
 import { cvConfig } from "config/cv";
 import { drawerWidth, THEME_MODE_STORAGE_KEY } from "constants/app";
@@ -26,12 +27,16 @@ const useStyles = makeStyles((theme) => ({
             fontSize: "2rem",
             color: "var(--primary-text)",
             marginLeft: "1rem",
+            transition: "color 0.5s",
         },
     },
     menu: {
+        overflowY: "auto",
+        height: "calc(100vh - 15rem)",
         marginTop: "3rem",
         "& .MuiButtonBase-root": {
             justifyContent: "flex-start",
+            transition: "color 0.5s",
         },
         "& .link": {
             width: "100%",
@@ -41,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
             "& i": {
                 color: "var(--active-text)",
                 marginRight: "2rem",
+                transition: "color 0.5s",
             },
         },
         "& .link.active": {
@@ -65,13 +71,23 @@ const useStyles = makeStyles((theme) => ({
         bottom: "1rem",
         right: "1rem",
         color: "var(--primary-text)",
+        transition: "color 1s",
     },
     drawer: {
         width: drawerWidth,
         flexShrink: 0,
     },
     drawerPaper: {
-        width: drawerWidth,
+        width: "80%",
+        maxWidth: drawerWidth,
+    },
+    wrapper: {
+        height: "100%",
+        overflow: "hidden",
+        [theme.breakpoints.down("sm")]: {
+            backgroundColor: "var(--main-bg)",
+            transition: "background-color 0.5s",
+        },
     },
 }));
 
@@ -183,11 +199,30 @@ const SlideMenu = () => {
         setThemeMode(theme);
     }, [prefersDarkMode]);
 
-    const onChangeTheme = useCallback(() => {
+    const onChangeTheme = useCallback((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         setThemeMode((s) => {
             const newTheme = s === ThemeMode.Light ? ThemeMode.Dark : ThemeMode.Light;
             setTheme(newTheme);
             localStorage.setItem(THEME_MODE_STORAGE_KEY, newTheme);
+
+            const bodyRect = document.body.getBoundingClientRect();
+            const elemRect = event.currentTarget.getBoundingClientRect();
+            const offsetTop = elemRect.top - bodyRect.top;
+            const offsetLeft = elemRect.left - bodyRect.left;
+
+            // this tells us how much the user has zoomed in using the pinch gesture
+            const deviceZoomRatio = document.documentElement.clientWidth / window.innerWidth;
+
+            const customEventState = {
+                x: offsetLeft + elemRect.width / 2,
+                // if the user is pinch zoomed in, then use the pinch zoom coordinate detection logic,
+                // otherwise, use the distance of the icon from the top of the page. For some reason
+                // offsetTop doesn't work when the user scrolls down and the zoom ratio == 1 (iOS14)
+                y: (deviceZoomRatio > 1 ? offsetTop : elemRect.top) + elemRect.height / 2,
+            };
+
+            const darkModeToggleEvent = new CustomEvent("darkModeToggle", { detail: customEventState });
+            dispatchEvent(darkModeToggleEvent);
 
             return newTheme;
         });
@@ -212,43 +247,46 @@ const SlideMenu = () => {
                     paper: classes.drawerPaper,
                 }}
             >
-                <div className={classes.logo}>
-                    <Image
-                        className="button border-radius"
-                        width={32}
-                        height={32}
-                        src={Logo}
-                        alt="TĐ.VN"
-                        onClick={onClickLogo}
-                    />
-                    <span className="title">DOLT CV</span>
+                <div className={classes.wrapper}>
+                    <div className={classes.logo}>
+                        <Image
+                            className="button border-radius"
+                            width={32}
+                            height={32}
+                            src={Logo}
+                            alt="TĐ.VN"
+                            onClick={onClickLogo}
+                        />
+                        <span className="title">DOLT CV</span>
+                    </div>
+                    <div className={classes.menu} onKeyDown={toggleDrawer(false)}>
+                        {cvConfig.menu.map((item) => (
+                            <Button
+                                key={item.href}
+                                className={clsx("link", currentPath === item.href ? "active" : "")}
+                                onClick={onItemClick(item.href)}
+                            >
+                                <i className={item.className} />
+                                {item.label}
+                            </Button>
+                        ))}
+                    </div>
+                    <div className={classes.footer}>
+                        <span className="copyright">
+                            © 2021{" "}
+                            <a href="https://xn--t-lia.vn" target="_blank" rel="noreferrer">
+                                TĐ.VN
+                            </a>
+                        </span>
+                    </div>
+                    <Tooltip title="Toggle light/dark theme" arrow>
+                        <IconButton className={classes.themeMode} onClick={onChangeTheme}>
+                            {themeMode === ThemeMode.Light ? <IcLightMode /> : <IcDarkMode />}
+                        </IconButton>
+                    </Tooltip>
                 </div>
-                <div className={classes.menu} onKeyDown={toggleDrawer(false)}>
-                    {cvConfig.menu.map((item) => (
-                        <Button
-                            key={item.href}
-                            className={clsx("link", currentPath === item.href ? "active" : "")}
-                            onClick={onItemClick(item.href)}
-                        >
-                            <i className={item.className} />
-                            {item.label}
-                        </Button>
-                    ))}
-                </div>
-                <div className={classes.footer}>
-                    <span className="copyright">
-                        © 2021{" "}
-                        <a href="https://xn--t-lia.vn" target="_blank" rel="noreferrer">
-                            TĐ.VN
-                        </a>
-                    </span>
-                </div>
-                <Tooltip title="Toggle light/dark theme" arrow>
-                    <IconButton className={classes.themeMode} onClick={onChangeTheme}>
-                        {themeMode === ThemeMode.Light ? <IcLightMode /> : <IcDarkMode />}
-                    </IconButton>
-                </Tooltip>
             </SwipeableDrawer>
+            {isPc && <GrowingCircleAnimation isDark={themeMode === ThemeMode.Dark} />}
         </>
     );
 };

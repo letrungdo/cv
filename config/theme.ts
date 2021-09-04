@@ -30,6 +30,11 @@ const theme = createTheme({
         MuiAppBar: {
             colorDefault: { backgroundColor: "#f5f0e7" },
         },
+        MuiPaper: {
+            root: {
+                backgroundColor: "unset",
+            },
+        },
         MuiMenuItem: {
             root: {
                 minHeight: "auto",
