@@ -77,7 +77,11 @@ const SectionContact = () => {
     const [running, setRunning] = useState(false);
     const infoRef = useRef<HTMLDivElement>(null);
 
-    const [toast, setToast] = useState<{ show: boolean; message: string; severity: Color }>({
+    const [toast, setToast] = useState<{
+        show: boolean;
+        message: string;
+        severity: Color;
+    }>({
         show: false,
         message: "",
         severity: "success",
@@ -125,7 +129,7 @@ const SectionContact = () => {
             }
             setRunning(false);
         },
-        [email, message, name, running, subject],
+        [email, message, name, running, subject]
     );
 
     useEffect(() => {

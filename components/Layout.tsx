@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) =>
             ...mainPaddingStyle(theme),
             flex: "1 0 auto",
         },
-    }),
+    })
 );
 
 export type PageMeta = {

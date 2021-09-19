@@ -30,7 +30,7 @@ const useStyles = makeStyles(() =>
         progress: {
             color: "var(--secondary-text)",
         },
-    }),
+    })
 );
 
 const SectionBlog = () => {

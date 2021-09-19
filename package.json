@@ -12,6 +12,7 @@
         "dev": "next dev -p 8080",
         "postinstall": "patch-package",
         "build": "next build",
+        "postbuild": "next-sitemap",
         "start": "next start",
         "lint": "tsc --project tsconfig.json --noEmit && eslint '**/*.{ts,tsx}' --quiet --fix",
         "format": "prettier --write '**/*.{scss,json}'"
@@ -46,6 +47,7 @@
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-prettier": "^3.4.0",
         "eslint-plugin-react": "^7.24.0",
+        "next-sitemap": "^1.6.168",
         "patch-package": "^6.4.7",
         "postinstall-postinstall": "^2.1.0",
         "prettier": "^2.3.2",

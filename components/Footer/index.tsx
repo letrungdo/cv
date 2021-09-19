@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) =>
             color: "var(--gray-text)",
             fontSize: "80%",
         },
-    }),
+    })
 );
 
 type Props = {

@@ -45,9 +45,13 @@ const CV = () => {
             });
         });
         import("services/api").then((api) => {
-            api.default.get<FbProfileRes>("/api/fb/profile", { params: { userID: EnvConfig.fbUserID } }).then((res) => {
-                setProfileUrl(res.profileUrl || "");
-            });
+            api.default
+                .get<FbProfileRes>("/api/fb/profile", {
+                    params: { userID: EnvConfig.fbUserID },
+                })
+                .then((res) => {
+                    setProfileUrl(res.profileUrl || "");
+                });
         });
     }, []);
 

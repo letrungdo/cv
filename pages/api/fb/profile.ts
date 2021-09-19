@@ -14,7 +14,7 @@ const fbProfile = async (req: NextApiRequest, res: NextApiResponse<FbProfileRes>
         return;
     }
     const response = await fetch(
-        `https://graph.facebook.com/${userID}/picture?type=large&access_token=${getAccessToken()}&redirect=false`,
+        `https://graph.facebook.com/${userID}/picture?type=large&access_token=${getAccessToken()}&redirect=false`
     );
     const result: { data: { url: string } } = await response?.json();
 

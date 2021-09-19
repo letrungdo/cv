@@ -121,7 +121,7 @@ const SlideMenu = () => {
         (open: boolean) => () => {
             setOpenMenu(open);
         },
-        [],
+        []
     );
     const toggleDrawer = useCallback(
         (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -134,7 +134,7 @@ const SlideMenu = () => {
             }
             onMenuClick(open)();
         },
-        [onMenuClick],
+        [onMenuClick]
     );
     const onItemClick = useCallback(
         (href: string) => (ev: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -146,7 +146,7 @@ const SlideMenu = () => {
                 behavior: "smooth",
             });
         },
-        [isPc, toggleDrawer],
+        [isPc, toggleDrawer]
     );
 
     useEffect(() => {
@@ -222,7 +222,9 @@ const SlideMenu = () => {
                 y: (deviceZoomRatio > 1 ? offsetTop : elemRect.top) + elemRect.height / 2,
             };
 
-            const darkModeToggleEvent = new CustomEvent("darkModeToggle", { detail: customEventState });
+            const darkModeToggleEvent = new CustomEvent("darkModeToggle", {
+                detail: customEventState,
+            });
             dispatchEvent(darkModeToggleEvent);
 
             return newTheme;

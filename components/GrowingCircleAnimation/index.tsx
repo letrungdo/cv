@@ -101,7 +101,7 @@ const m = {
             circleCenterCoordinates.y,
             m.radiusMultiplier ** GROWTH_FUNCTION_EXPONENTIAL,
             0,
-            2 * Math.PI,
+            2 * Math.PI
         );
         m.ctx?.fill();
 

@@ -61,14 +61,14 @@ const SectionWorks = () => {
                 isotope.current.arrange({ filter: `.${type}` });
             }
         },
-        [],
+        []
     );
 
     const handleChange = useCallback(
         (event: React.ChangeEvent<{ name?: string; value: unknown }>) => {
             onChangeType(event.target.value as string)();
         },
-        [onChangeType],
+        [onChangeType]
     );
 
     return (

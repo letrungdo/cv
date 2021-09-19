@@ -63,7 +63,7 @@ const DarkModeSwitch = React.forwardRef<SVGSVGElement, Props>(
             style,
             ...rest
         },
-        ref,
+        ref
     ) => {
         const [id, setId] = React.useState(0);
 
@@ -154,7 +154,7 @@ const DarkModeSwitch = React.forwardRef<SVGSVGElement, Props>(
                 </animated.g>
             </animated.svg>
         );
-    },
+    }
 );
 
 export default DarkModeSwitch;

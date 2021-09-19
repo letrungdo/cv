@@ -24,7 +24,7 @@ const useStyles = makeStyles(() =>
         thumbnail: {
             borderRadius: 10,
         },
-    }),
+    })
 );
 
 export interface WorkModalData {
