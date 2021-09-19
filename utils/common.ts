@@ -2,7 +2,7 @@ export const sleep = (ms: number) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
 };
 
-export const isNullOrEmpty = (value?: number | string | null) => {
+export const isNullOrEmpty = (value?: number | string | null): value is null | undefined => {
     return (value ?? "") === "";
 };
 
