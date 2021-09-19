@@ -148,6 +148,16 @@ export const cvConfig = {
     works: [
         {
             type: [WorkType.Web],
+            title: "先OPナビ (Derivative Simulator)",
+            term: "ReactJs",
+            description:
+                "Risk management tool that provides stress test function and 3D chart.\nTechnology: ReactJs Typescript, Redux, Mterial-UI, Highcharts",
+            moreIcon: MoreType.Options,
+            thumbnail: "/images/works/derivative-simulator.webp",
+            href: "https://aukabucom.ds.guide.inc",
+        },
+        {
+            type: [WorkType.Web],
             title: "Fund Square | kabu.com Securities",
             term: "NextJs",
             description:

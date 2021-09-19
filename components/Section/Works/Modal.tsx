@@ -24,6 +24,10 @@ const useStyles = makeStyles(() =>
         thumbnail: {
             borderRadius: 10,
         },
+        description: {
+            wordBreak: "break-word",
+            whiteSpace: "pre-wrap",
+        },
     })
 );
 
@@ -61,7 +65,7 @@ function WorkModal({ onClose, data: { open, title, description, thumbnail, href 
                     <a href={href || "#"} target="_blank" rel="noreferrer">
                         <Typography variant="h3">{title}</Typography>
                     </a>
-                    <p>{description}</p>
+                    <p className={classes.description}>{description}</p>
                 </div>
             </Fade>
         </Modal>
