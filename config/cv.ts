@@ -10,9 +10,9 @@ export const WorkType: { [key: string]: string } = {
 export const cvConfig = {
     title: "Le Trung Do CV",
     description:
-        "DOLT CV is a NextJs and Mterial-UI based personal portfolio/CV/Resume website template. This has been built with NextJs, ES6+ etc. This is created especially for those who want to build up his portfolio site.",
+        "DOLT CV is a personal portfolio/CV/resume website template built with NextJs and Mterial-UI. This was created especially for those who want to build up their portfolio sites.",
     name: "Le Trung Do",
-    about: `I am Le Trung Do, Fullstack developer from Ho Chi Minh, Viet Nam. I have rich experience in Web app & mobile app, also I am good at ReactJs, NextJs, Xamarin Forms.`,
+    about: `I am Le Trung Do, a fullstack developer from Ho Chi Minh City, Viet Nam. I have rich experience in web apps & mobile apps. I am also good at ReactJs, NextJs, and Xamarin Forms.`,
     mainJob: ["ReactJs developer", "Xamarin Forms developer"],
     cvDownloadLink: "https://i.topcv.vn/letrungdo?ref=1893460",
     skills: [
@@ -134,14 +134,14 @@ export const cvConfig = {
             {
                 time: "1/2020 - Present",
                 title: "ReactJs Developer",
-                description: `From a mobile developer, I switched to making web apps with limited front end knowledge. FundSquare is the first project I've worked as a team leader for almost a year and got the maximum css score from client.
+                description: `From a mobile developer, I switched to making web apps with limited front end knowledge. FundSquare is the first project I've worked as a team leader for almost a year and got the maximum CSS score from client.
                     \n7/2021: I have officially been promoted to team leader.`,
             },
             {
                 time: "12/2017 - 1/2020",
                 title: "Xamarin Forms Developer",
-                description: `Sys-FX: Securities application makes customers Japanese is the first project when I was a trainee.
-                    \n12/2018 - 8/2019: This time I have a part-time job at home for a philippine company with australian clients.`,
+                description: `Sys-FX: Securities application makes customers Japanese was the first project I worked on as a trainee.
+                    \n12/2018 - 8/2019: This time I have a part-time job at home for a Philippine company with Australian clients.`,
             },
         ],
     },
@@ -161,7 +161,7 @@ export const cvConfig = {
             title: "Fund Square | kabu.com Securities",
             term: "NextJs",
             description:
-                "FundSquare is the first project I've worked as a team leader for almost a year and got the maximum css score from client.",
+                "FundSquare is the first project I've worked as a team leader for almost a year and got the maximum CSS score from client.",
             moreIcon: MoreType.Options,
             thumbnail: "/images/works/fund-square.webp",
             href: "https://fund.square.kabu.co.jp",
