@@ -1,5 +1,5 @@
 const config = {
-    siteTitle: "TĐ.VN",
+    siteTitle: "Le Trung Do CV",
     siteDescription: "Le Trung Do CV",
     siteRss: "/rss.xml",
     siteLang: "en",
@@ -41,7 +41,7 @@ const config = {
         { label: "Contact", url: "/contact" },
         { label: "Terms of Use", url: "/terms" },
         { label: "Privacy Policy", url: "/privacy" },
-        { label: "Sitemap", url: "https://xn--t-lia.vn/sitemap.xml" },
+        { label: "Sitemap", url: "https://cv.letrungdo.com/sitemap.xml" },
     ],
     copyright: "Copyright © 2021 Le Trung Do. Unless otherwise noted, all code MIT license.",
 };
