@@ -64,8 +64,10 @@ const CV = () => {
                 <meta property="og:title" content={`${cvConfig.title} - ${config.siteTitle}`} />
                 <meta property="og:description" content={cvConfig.description} />
                 <meta property="og:type" content="article" />
-                <meta property="og:image" content="/images/cv-thumbnail.jpg" />
-                <meta name="image" content="images/cv-thumbnail.jpg" />
+                <meta property="og:image" content={`${process.env.PUBLIC_URL}/images/cv-thumbnail.jpg`} />
+                <meta property="og:url" content={`${process.env.PUBLIC_URL}`} />
+                <meta property="fb:app_id" content={config.siteFBAppID} />
+                <meta name="image" content={`${process.env.PUBLIC_URL}/images/cv-thumbnail.jpg`} />
                 <meta name="author" content={cvConfig.name} />
             </Head>
             <SlideMenu />

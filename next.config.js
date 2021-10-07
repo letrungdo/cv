@@ -1,5 +1,10 @@
+const isProd = process.env.NODE_ENV === "production";
+
 module.exports = {
     poweredByHeader: false,
+    env: {
+        PUBLIC_URL: isProd ? "https://cv.letrungdo.com" : "",
+    },
     publicRuntimeConfig: {
         apiUrl: process.env.API_URL,
         apiTimeout: process.env.API_TIMEOUT,
