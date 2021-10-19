@@ -44,6 +44,7 @@ module.exports = {
         "no-console": "error",
         "@typescript-eslint/no-non-null-assertion": "off",
         "import/no-anonymous-default-export": "off",
+        "prefer-template": "error",
     },
     settings: {
         react: {
