@@ -34,7 +34,7 @@ const Layout = ({ children, meta: { title, description = "", image = "", type = 
             <Head>
                 <title>{`${title} - ${config.siteTitle}`}</title>
                 <meta charSet="utf-8" />
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width" />
                 <meta property="og:title" content={`${title} - ${config.siteTitle}`} />
                 <meta property="og:description" content={description} />
                 <meta name="image" content={image} />
