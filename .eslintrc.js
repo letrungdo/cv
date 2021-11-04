@@ -3,8 +3,6 @@ module.exports = {
     extends: [
         "next",
         "next/core-web-vitals",
-        // Uses the recommended rules from @eslint-plugin-react
-        "plugin:react/recommended",
         // Uses the recommended rules from the @typescript-eslint/eslint-plugin
         "plugin:@typescript-eslint/recommended",
         /* Enables eslint-plugin-prettier and eslint-config-prettier. 

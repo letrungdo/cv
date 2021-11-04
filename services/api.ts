@@ -40,7 +40,7 @@ const request = async <T = any>(url: string, config: AxiosRequestConfig): Promis
     try {
         logDev("\x1b[32m%s\x1b[0m", "INFO call api:", JSON.stringify(config));
         result = await (await baseAxios(config)).data;
-    } catch (error) {
+    } catch (error: any) {
         // CancelToken
         if (axios.isCancel(error)) {
             logDev("\x1b[32m%s\x1b[0m", "INFO request canceled", JSON.stringify(config), error.message);
