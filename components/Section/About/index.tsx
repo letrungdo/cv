@@ -1,4 +1,5 @@
-import { Button, Grid, makeStyles, Typography } from "@material-ui/core";
+import { Button, Grid, Typography } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import ImgSkeleton from "components/ImgSkeleton";
 import { cvConfig } from "config/cv";
 import { FbContext } from "pages";

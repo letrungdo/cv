@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { makeStyles, Theme } from "@material-ui/core";
-import { Skeleton } from "@material-ui/lab";
+import { Theme } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
+import { Skeleton } from "@mui/material";
 import { useCallback, useState } from "react";
 
 /* eslint-disable @next/next/no-img-element */
@@ -53,7 +54,7 @@ const ImgSkeleton = (props: Props) => {
             {(!src || loading) && (
                 <Skeleton
                     classes={{ root: classes.s }}
-                    variant="circle"
+                    variant="circular"
                     animation="wave"
                     width={width}
                     height={height}

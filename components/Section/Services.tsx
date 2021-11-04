@@ -1,4 +1,5 @@
-import { Grid, makeStyles, Theme, Typography } from "@material-ui/core";
+import { Grid, Theme, Typography } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import { cvConfig } from "config/cv";
 import Image from "next/image";
 import React from "react";

@@ -1,5 +1,6 @@
-import { Button, debounce, Hidden, makeStyles, SwipeableDrawer, Theme, Tooltip } from "@material-ui/core";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { Button, debounce, Hidden, SwipeableDrawer, Theme, Tooltip } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import Logo from "assets/images/logo192.webp";
 import clsx from "clsx";
 import DarkModeSwitch from "components/DarkModeSwitch";
@@ -83,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
     wrapper: {
         height: "100%",
         overflow: "hidden",
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("md")]: {
             backgroundColor: "var(--main-bg)",
             transition: "background-color 0.5s",
         },

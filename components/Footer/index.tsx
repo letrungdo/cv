@@ -1,4 +1,5 @@
-import { createStyles, makeStyles } from "@material-ui/core";
+import createStyles from "@mui/styles/createStyles";
+import makeStyles from "@mui/styles/makeStyles";
 import AutoLink from "components/AutoLink";
 import { mainPaddingStyle } from "components/Layout";
 import React from "react";

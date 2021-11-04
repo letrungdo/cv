@@ -1,5 +1,5 @@
-import { red } from "@material-ui/core/colors";
-import { createTheme } from "@material-ui/core/styles";
+import { red } from "@mui/material/colors";
+import { createTheme } from "@mui/material/styles";
 
 const hxStyle = {
     fontFamily: "Rubik, sans-serif",
@@ -26,31 +26,41 @@ const theme = createTheme({
             default: "#fafafa",
         },
     },
-    overrides: {
+    components: {
         MuiAppBar: {
-            colorDefault: { backgroundColor: "#f5f0e7" },
+            styleOverrides: {
+                colorDefault: { backgroundColor: "#f5f0e7" },
+            },
         },
         MuiPaper: {
-            root: {
-                backgroundColor: "unset",
-            },
-        },
-        MuiMenuItem: {
-            root: {
-                minHeight: "auto",
-            },
-        },
-        MuiSelect: {
-            select: {
-                "&:focus": {
+            styleOverrides: {
+                root: {
                     backgroundColor: "unset",
                 },
             },
         },
+        MuiMenuItem: {
+            styleOverrides: {
+                root: {
+                    minHeight: "auto",
+                },
+            },
+        },
+        MuiSelect: {
+            styleOverrides: {
+                select: {
+                    "&:focus": {
+                        backgroundColor: "unset",
+                    },
+                },
+            },
+        },
         MuiListItem: {
-            root: {
-                "&.Mui-focusVisible": {
-                    backgroundColor: "unset",
+            styleOverrides: {
+                root: {
+                    "&.Mui-focusVisible": {
+                        backgroundColor: "unset",
+                    },
                 },
             },
         },

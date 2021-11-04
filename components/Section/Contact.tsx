@@ -1,5 +1,6 @@
-import { Button, Grid, makeStyles, Snackbar, Typography } from "@material-ui/core";
-import MuiAlert, { Color } from "@material-ui/lab/Alert";
+import { Button, Grid, Snackbar, Typography } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
+import MuiAlert, { AlertColor } from "@mui/material/Alert";
 import clsx from "clsx";
 import { BaseResponse } from "interfaces/response";
 import React, { FormEvent, useCallback, useEffect, useRef, useState } from "react";
@@ -80,7 +81,7 @@ const SectionContact = () => {
     const [toast, setToast] = useState<{
         show: boolean;
         message: string;
-        severity: Color;
+        severity: AlertColor;
     }>({
         show: false,
         message: "",

@@ -1,4 +1,6 @@
-import { CircularProgress, createStyles, Grid, makeStyles, Typography } from "@material-ui/core";
+import { CircularProgress, Grid, Typography } from "@mui/material";
+import createStyles from "@mui/styles/createStyles";
+import makeStyles from "@mui/styles/makeStyles";
 import { DOMAIN_URL } from "constants/app";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { logDev } from "utils/logs";

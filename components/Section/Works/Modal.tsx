@@ -1,6 +1,7 @@
-import { Modal, Typography } from "@material-ui/core";
-import Fade from "@material-ui/core/Fade";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { Modal, Typography } from "@mui/material";
+import Fade from "@mui/material/Fade";
+import createStyles from "@mui/styles/createStyles";
+import makeStyles from "@mui/styles/makeStyles";
 import Image from "next/image";
 import React from "react";
 

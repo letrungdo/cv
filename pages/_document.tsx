@@ -1,4 +1,4 @@
-import { ServerStyleSheets } from "@material-ui/core";
+import ServerStyleSheets from "@mui/styles/ServerStyleSheets";
 import config from "config/site";
 import theme from "config/theme";
 import Document, { DocumentContext, Head, Html, Main, NextScript } from "next/document";

@@ -1,8 +1,13 @@
-import { ThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider, Theme, StyledEngineProvider } from "@mui/material/styles";
 import "assets/styles/index.scss";
 import theme from "config/theme";
 import type { AppProps } from "next/app";
 import { useEffect } from "react";
+
+declare module "@mui/styles/defaultTheme" {
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    interface DefaultTheme extends Theme {}
+}
 
 declare global {
     interface Window {
@@ -20,9 +25,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     }, []);
 
     return (
-        <ThemeProvider theme={theme}>
-            <Component {...pageProps} />
-        </ThemeProvider>
+        <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={theme}>
+                <Component {...pageProps} />
+            </ThemeProvider>
+        </StyledEngineProvider>
     );
 }
 

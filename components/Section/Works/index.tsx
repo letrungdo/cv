@@ -1,4 +1,5 @@
-import { Grid, Hidden, makeStyles, Select, Typography } from "@material-ui/core";
+import { Grid, Hidden, Select, SelectChangeEvent, Typography } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import clsx from "clsx";
 import { cvConfig, WorkType } from "config/cv";
 import React, { useCallback, useState } from "react";
@@ -65,7 +66,7 @@ const SectionWorks = () => {
     );
 
     const handleChange = useCallback(
-        (event: React.ChangeEvent<{ name?: string; value: unknown }>) => {
+        (event: SelectChangeEvent<string>) => {
             onChangeType(event.target.value as string)();
         },
         [onChangeType]

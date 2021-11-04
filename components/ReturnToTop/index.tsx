@@ -1,4 +1,5 @@
-import { debounce, makeStyles } from "@material-ui/core";
+import { debounce } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import { useEffect, useRef } from "react";
 
 const useStyles = makeStyles({

@@ -1,4 +1,5 @@
-import { Button, makeStyles, Typography } from "@material-ui/core";
+import { Button, Typography } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import ImgSkeleton from "components/ImgSkeleton";
 import { cvConfig } from "config/cv";
 import config from "config/site";
