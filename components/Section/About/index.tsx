@@ -12,6 +12,14 @@ const onDownloadCV = () => {
 };
 
 const useStyles = makeStyles((theme) => ({
+    wrapper: {
+        "& .MuiGrid-item": {
+            padding: 12,
+        },
+        "& img": {
+            height: "auto",
+        },
+    },
     content: {
         position: "relative",
         "&:before": {
@@ -34,6 +42,9 @@ const useStyles = makeStyles((theme) => ({
                 top: "20%",
             },
         },
+        "& .MuiGrid-item": {
+            padding: 16,
+        },
     },
 }));
 
@@ -46,7 +57,7 @@ const SectionAbout = () => {
                 <Typography variant="h2" className="section-title sanim">
                     About Me
                 </Typography>
-                <Grid container spacing={3}>
+                <Grid container className={classes.wrapper}>
                     <Grid item xs={12} md={3} className="flex justify-content-center">
                         <FbContext.Consumer>
                             {(profileUrl) => (
@@ -61,7 +72,7 @@ const SectionAbout = () => {
                         </FbContext.Consumer>
                     </Grid>
                     <Grid container item xs={12} md={9} className={classes.content}>
-                        <Grid container item spacing={4} className="rounded bg-primary p-4 m-0">
+                        <Grid container item className="rounded bg-primary p-4 m-0">
                             <Grid item xs={12} sm={6}>
                                 <p>{cvConfig.about}</p>
                                 <Button
