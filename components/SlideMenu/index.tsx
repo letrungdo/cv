@@ -143,9 +143,8 @@ const SlideMenu = () => {
                 toggleDrawer(false)(ev);
             }
             setCurrentPath(href);
-            document.getElementById(href)?.scrollIntoView({
-                behavior: "smooth",
-            });
+            const targetScroll = document.getElementById(href);
+            window.scrollTo(0, targetScroll?.offsetTop ?? 0);
         },
         [isPc, toggleDrawer]
     );
