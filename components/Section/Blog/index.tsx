@@ -81,7 +81,7 @@ const SectionBlog = () => {
                 <Grid container spacing={3}>
                     {rssItems.map((i) => {
                         const cover = i.cover?.split("/") ?? [];
-                        cover.splice(3, 0, "2194e");
+                        cover.splice(3, 0, "105fa");
 
                         return (
                             <BlogItem
