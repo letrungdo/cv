@@ -157,4 +157,6 @@ const DarkModeSwitch = React.forwardRef<SVGSVGElement, Props>(
     }
 );
 
+DarkModeSwitch.displayName = "DarkModeSwitch";
+
 export default DarkModeSwitch;
