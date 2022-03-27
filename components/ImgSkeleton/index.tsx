@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { Skeleton, Theme } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
-import Image from "next/image";
 import { useCallback, useState } from "react";
 
 /* eslint-disable @next/next/no-img-element */
@@ -29,6 +28,7 @@ const useStyles = makeStyles<Theme, { width: number; height: number }>(() => ({
             left: 0,
             width: "100%",
             height: "100%",
+            objectFit: "cover",
         },
     },
     s: {
@@ -52,7 +52,7 @@ const ImgSkeleton = (props: Props) => {
 
     return (
         <div className={classes.root}>
-            {src && <Image {...props} layout="responsive" objectFit="cover" onLoad={onImgLoad} />}
+            {src && <img {...props} onLoad={onImgLoad} />}
             {(!src || loading) && (
                 <Skeleton
                     classes={{ root: classes.s }}

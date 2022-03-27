@@ -16,6 +16,6 @@ module.exports = {
         fbAppSecret: process.env.FB_APP_SECRET,
     },
     images: {
-        domains: ["xn--t-lia.vn", "static.xx.fbcdn.net"],
+        domains: ["xn--t-lia.vn"],
     },
 };
