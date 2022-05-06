@@ -80,16 +80,13 @@ const SectionBlog = () => {
                 {loading && <CircularProgress className={classes.progress} />}
                 <Grid container spacing={3}>
                     {rssItems.map((i) => {
-                        const cover = i.cover?.split("/") ?? [];
-                        cover.splice(3, 0, "105fa");
-
                         return (
                             <BlogItem
                                 key={i.guid}
                                 category={i.categories?.[0]}
                                 title={i.title}
                                 link={i.link}
-                                thumbnail={`${DOMAIN_URL}${cover.join("/")}`}
+                                thumbnail={`${DOMAIN_URL}${i.cover}`}
                                 pubDate={i.pubDate}
                                 creator={i.creator}
                             />
