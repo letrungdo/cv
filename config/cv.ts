@@ -14,7 +14,7 @@ export const cvConfig = {
     name: "Le Trung Do",
     about: `I am Le Trung Do, a fullstack developer from Ho Chi Minh City, Viet Nam. I have rich experience in web apps & mobile apps. I am also good at ReactJs, NextJs, and Xamarin Forms.`,
     mainJob: ["ReactJs developer", "Xamarin Forms developer"],
-    cvDownloadLink: "https://i.topcv.vn/letrungdo?ref=1893460",
+    cvDownloadLink: "https://www.topcv.vn/xem-cv/XFdRWFUEDgYEUwdWAgdVVVYHBAkKAQpRXVtUAwb4da",
     skills: [
         {
             name: "Flutter",
