@@ -17,6 +17,11 @@ export const cvConfig = {
     cvDownloadLink: "https://i.topcv.vn/letrungdo?ref=1893460",
     skills: [
         {
+            name: "Flutter",
+            value: 80,
+            bgColor: "#29b6f6",
+        },
+        {
             name: "ReactJs",
             value: 95,
             bgColor: "#FFD15C",
@@ -36,12 +41,12 @@ export const cvConfig = {
         {
             icon: "icon-fire",
             name: "Projects completed",
-            count: 24,
+            count: 34,
         },
         {
             icon: "icon-cup",
             name: "Cup of coffee",
-            count: 15,
+            count: 45,
         },
         {
             icon: "icon-people",
@@ -51,7 +56,7 @@ export const cvConfig = {
         {
             icon: "icon-badge",
             name: "Nominees winner",
-            count: 6,
+            count: 9,
         },
     ],
     menu: [
@@ -119,8 +124,8 @@ export const cvConfig = {
     experience: {
         education: [
             {
-                time: "7/2021 - Present",
-                title: "Full Stack open 2021",
+                time: "7/2022 - Present",
+                title: "Full Stack open 2022",
                 description: `https://fullstackopen.com\nLearn React, Redux, Node.js, MongoDB, GraphQL and TypeScript in one go! This course will introduce you to modern JavaScript-based web development. 
                     \nThe main focus is on building single page applications with ReactJS that use REST APIs built with Node.js.`,
             },
