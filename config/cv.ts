@@ -153,6 +153,15 @@ export const cvConfig = {
     works: [
         {
             type: [WorkType.Web],
+            title: "FGS Production",
+            term: "NextJs",
+            description: "FGS Production",
+            moreIcon: MoreType.Link,
+            thumbnail: "/images/works/fgs-production.webp",
+            href: "https://fgsproduction.vn",
+        },
+        {
+            type: [WorkType.Web],
             title: "先OPナビ (Derivative Simulator)",
             term: "ReactJs",
             description:
@@ -195,13 +204,13 @@ export const cvConfig = {
             thumbnail: "/images/works/my-blog.webp",
             href: "https://xn--t-lia.vn",
         },
-        {
-            type: [WorkType.Own, WorkType.Web],
-            title: "React UI component lib Template",
-            term: "npm",
-            moreIcon: MoreType.Link,
-            thumbnail: "/images/works/react-ui-component-lib.webp",
-            href: "https://github.com/letrungdo/react-ui-component-lib",
-        },
+        // {
+        //     type: [WorkType.Own, WorkType.Web],
+        //     title: "React UI component lib Template",
+        //     term: "npm",
+        //     moreIcon: MoreType.Link,
+        //     thumbnail: "/images/works/react-ui-component-lib.webp",
+        //     href: "https://github.com/letrungdo/react-ui-component-lib",
+        // },
     ],
 };
