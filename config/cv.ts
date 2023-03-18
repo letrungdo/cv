@@ -12,13 +12,13 @@ export const cvConfig = {
     description:
         "DOLT CV is a personal portfolio/CV/resume website template built with NextJs and Mterial-UI. This was created especially for those who want to build up their portfolio sites.",
     name: "Le Trung Do",
-    about: `I am Le Trung Do, a fullstack developer from Ho Chi Minh City, Viet Nam. I have rich experience in web apps & mobile apps. I am also good at ReactJs, NextJs, and Xamarin Forms.`,
-    mainJob: ["ReactJs developer", "Xamarin Forms developer"],
+    about: `I am Le Trung Do, a fullstack developer from Ho Chi Minh City, Viet Nam. I have rich experience in web apps & mobile apps. I am also good at ReactJs, NextJs, Flutter and Xamarin Forms.`,
+    mainJob: ["Flutter developer", "ReactJs developer", "Xamarin Forms developer"],
     cvDownloadLink: "https://www.topcv.vn/xem-cv/XFdRWFUEDgYEUwdWAgdVVVYHBAkKAQpRXVtUAwb4da",
     skills: [
         {
             name: "Flutter",
-            value: 80,
+            value: 90,
             bgColor: "#29b6f6",
         },
         {
@@ -30,6 +30,11 @@ export const cvConfig = {
             name: "Xamarin Forms",
             value: 85,
             bgColor: "#FF4C60",
+        },
+        {
+            name: "Azure DevOps Pipelines",
+            value: 90,
+            bgColor: "#0078D4",
         },
         {
             name: "NodeJs",
@@ -103,7 +108,7 @@ export const cvConfig = {
             bgColor: "#6C6CE5",
             name: "Mobile Development",
             description:
-                "With two years of experience in mobile programming using Xamarin Forms. The apps I make have high performance and beautiful effects.",
+                "I'm currently working with Flutter. Before that I had two years of experience using Xamarin Forms. The apps I make have high performance and beautiful effects.",
         },
         {
             className: "text-dark",
@@ -111,7 +116,7 @@ export const cvConfig = {
             bgColor: "#F9D74C",
             name: "Web Development",
             description:
-                "I’m currently the ReactJs team leader at an outsource company. NextJs is my favorite framework.",
+                "Currently I still 50% on ReactJS projects. I have experience as a team leader for several large projects. NextJs is my favorite framework.",
         },
         {
             className: "text-light",
@@ -124,7 +129,7 @@ export const cvConfig = {
     experience: {
         education: [
             {
-                time: "7/2022 - Present",
+                time: "7/2022 - 1/2023",
                 title: "Full Stack open 2022",
                 description: `https://fullstackopen.com\nLearn React, Redux, Node.js, MongoDB, GraphQL and TypeScript in one go! This course will introduce you to modern JavaScript-based web development. 
                     \nThe main focus is on building single page applications with ReactJS that use REST APIs built with Node.js.`,
@@ -137,7 +142,12 @@ export const cvConfig = {
         ],
         work: [
             {
-                time: "1/2020 - Present",
+                time: "5/2022 - Present",
+                title: "Flutter, ReactJs Developer",
+                description: `I switched to mobile developer with Flutter, and still 50% on ReactJS projects`,
+            },
+            {
+                time: "1/2020 - 5/2022",
                 title: "ReactJs Developer",
                 description: `From a mobile developer, I switched to making web apps with limited front end knowledge. FundSquare is the first project I've worked as a team leader for almost a year and got the maximum CSS score from client.
                     \n7/2021: I have officially been promoted to team leader.`,

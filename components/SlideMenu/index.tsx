@@ -1,6 +1,6 @@
 import { Button, debounce, Hidden, SwipeableDrawer, Theme, Tooltip } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import makeStyles from "@mui/styles/makeStyles";
 import Logo from "assets/images/logo192.webp";
 import clsx from "clsx";
 import DarkModeSwitch from "components/DarkModeSwitch";
@@ -276,7 +276,7 @@ const SlideMenu = () => {
                     </div>
                     <div className={classes.footer}>
                         <span className="copyright">
-                            © 2021{" "}
+                            © 2023{" "}
                             <a href="https://xn--t-lia.vn" target="_blank" rel="noreferrer">
                                 TĐ.VN
                             </a>
