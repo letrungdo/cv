@@ -3,7 +3,7 @@
 ## Request
 
 -   IDE: [VSCode](https://code.visualstudio.com/download)
--   NodeJs: 12.x or newer (https://nodejs.org/en/download)
+-   NodeJs: 14.6 or newer (https://nodejs.org/en/download)
 -   VsCode Extensions:
     1. Eslint
     2. Prettier - Code formatter

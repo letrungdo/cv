@@ -94,10 +94,14 @@ const BlogItem = ({ thumbnail, category, title, pubDate, creator, link }: Props)
                         <Image
                             src={thumbnail || ""}
                             alt="post-thumbnail"
-                            layout="responsive"
-                            objectFit="cover"
                             width={7}
                             height={4}
+                            sizes="100vw"
+                            style={{
+                                width: "100%",
+                                height: "auto",
+                                objectFit: "cover",
+                            }}
                         />
                     </a>
                 </div>

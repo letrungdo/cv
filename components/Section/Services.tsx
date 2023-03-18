@@ -32,7 +32,16 @@ const ServiceBox = ({ className = "", name, description, imgSrc, bgColor }: Serv
     return (
         <Grid item xs={12} sm={6} md={4} className="sanim">
             <div className={`${classes.serviceBox} p-6 text-center ${className}`}>
-                <Image src={imgSrc} alt={description} width={80} height={80} />
+                <Image
+                    src={imgSrc}
+                    alt={description}
+                    width={80}
+                    height={80}
+                    style={{
+                        maxWidth: "100%",
+                        height: "auto",
+                    }}
+                />
                 <Typography variant="h3" className="mb-3">
                     {name}
                 </Typography>

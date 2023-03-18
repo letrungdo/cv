@@ -56,11 +56,15 @@ function WorkModal({ onClose, data: { open, title, description, thumbnail, href 
                         <Image
                             src={thumbnail}
                             alt="work-thumbnail"
-                            layout="responsive"
-                            objectFit="cover"
                             width={6}
                             height={4}
                             className={classes.thumbnail}
+                            sizes="100vw"
+                            style={{
+                                width: "100%",
+                                height: "auto",
+                                objectFit: "cover",
+                            }}
                         />
                     )}
                     <a href={href || "#"} target="_blank" rel="noreferrer">

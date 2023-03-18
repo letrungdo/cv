@@ -146,10 +146,14 @@ const WorkItem = ({ title, term, moreIcon, thumbnail, href, type, description, s
                     <Image
                         src={thumbnail || ""}
                         alt="work-thumbnail"
-                        layout="responsive"
-                        objectFit="cover"
                         width={6}
                         height={4}
+                        sizes="100vw"
+                        style={{
+                            width: "100%",
+                            height: "auto",
+                            objectFit: "cover",
+                        }}
                     />
                     <div className="mask" />
                 </div>
