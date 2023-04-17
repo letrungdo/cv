@@ -162,6 +162,15 @@ export const cvConfig = {
     },
     works: [
         {
+            type: [WorkType.Mobile, WorkType.Web],
+            title: "auカブコム証券 アプリ",
+            term: "Flutter, Nextjs",
+            description: "",
+            moreIcon: MoreType.Link,
+            thumbnail: "/images/works/kcmsr.jpg",
+            href: "https://kabu.com/company/lp/app/index.html",
+        },
+        {
             type: [WorkType.Web],
             title: "FGS Production",
             term: "NextJs",
