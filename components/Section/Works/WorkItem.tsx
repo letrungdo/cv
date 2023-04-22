@@ -153,6 +153,7 @@ const WorkItem = ({ title, term, moreIcon, thumbnail, href, type, description, s
                             width: "100%",
                             height: "auto",
                             objectFit: "cover",
+                            display: "flex",
                         }}
                     />
                     <div className="mask" />
