@@ -1,0 +1,12 @@
+[
+    {
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.kabu.kcmfa.dev.guide",
+            "sha256_cert_fingerprints": [
+                "4C:11:A1:C6:57:0E:0D:82:01:2A:ED:AC:1E:FA:CC:13:12:24:52:FD:9D:73:BA:36:EF:32:7F:07:8E:5D:CB:40"
+            ]
+        }
+    }
+]
