@@ -35,15 +35,7 @@ const config = {
             iconClassName: "icon-feed",
         },
     ],
-    footerLinks: [
-        { label: "Home", url: "/" },
-        { label: "About", url: "/about" },
-        { label: "Contact", url: "/contact" },
-        { label: "Terms of Use", url: "/terms" },
-        { label: "Privacy Policy", url: "/privacy" },
-        { label: "Sitemap", url: "https://cv.letrungdo.com/sitemap.xml" },
-    ],
-    copyright: "Copyright © 2022 Le Trung Do. Unless otherwise noted, all code MIT license.",
+    copyright: "Copyright © 2023 Le Trung Do. Unless otherwise noted, all code MIT license.",
 };
 
 export default config;
