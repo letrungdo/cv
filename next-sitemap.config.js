@@ -1,5 +1,5 @@
 module.exports = {
-    siteUrl: process.env.SITE_URL || "https://cv.letrungdo.com",
+    siteUrl: process.env.PUBLIC_URL,
     generateRobotsTxt: true,
     sitemapSize: 1000,
     changefreq: "daily",
