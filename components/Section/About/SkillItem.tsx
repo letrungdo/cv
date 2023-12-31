@@ -1,6 +1,5 @@
-import { Theme } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
-import React, { useEffect, useRef, useState } from "react";
+import { styled } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
 
 type Props = {
     name: string;
@@ -8,11 +7,24 @@ type Props = {
     bgColor: string;
 };
 
-const useStyles = makeStyles<Theme, { bgColor: string; width: string | number }>({
-    root: {
+const PREFIX = "SkillItem";
+const classes = {
+    root: `${PREFIX}-root`,
+    skillInfo: `${PREFIX}-skillInfo`,
+    progress: `${PREFIX}-progress`,
+    progressBar: `${PREFIX}-progressBar`,
+};
+
+type StyleProps = {
+    width: string | number;
+    bgColor: string;
+};
+
+const Root = styled("div")<StyleProps>((props) => ({
+    [`&.${classes.root}`]: {
         marginBottom: "2rem",
     },
-    skillInfo: {
+    [`& .${classes.skillInfo}`]: {
         "& h4": {
             fontSize: "1.6rem",
             fontWeight: 500,
@@ -21,7 +33,7 @@ const useStyles = makeStyles<Theme, { bgColor: string; width: string | number }>
             fontSize: "1.4rem",
         },
     },
-    progress: {
+    [`& .${classes.progress}`]: {
         height: 7,
         marginBottom: 0,
         overflow: "hidden",
@@ -29,24 +41,24 @@ const useStyles = makeStyles<Theme, { bgColor: string; width: string | number }>
         borderRadius: 15,
         boxShadow: "none",
     },
-    progressBar: {
+    [`& .${classes.progressBar}`]: {
         borderRadius: 15,
         float: "left",
-        width: ({ width }) => width,
+        width: props.width,
         height: "100%",
         fontSize: "1.2rem",
         lineHeight: 7,
         color: "var(--primary-text)",
         textAlign: "center",
-        backgroundColor: ({ bgColor }) => bgColor,
+        backgroundColor: props.bgColor,
         boxShadow: "none",
         transition: "width 0.6s ease",
     },
-});
+}));
 
 const SkillItem = ({ name, value, bgColor }: Props) => {
     const [width, setWidth] = useState<number | string>(0);
-    const classes = useStyles({ bgColor, width });
+
     const progressRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -66,7 +78,7 @@ const SkillItem = ({ name, value, bgColor }: Props) => {
     }, [value]);
 
     return (
-        <div className={`${classes.root}`}>
+        <Root width={width} bgColor={bgColor} className={`${classes.root}`}>
             <div className={`${classes.skillInfo} clearfix`}>
                 <b className="float-left mt-0">{name}</b>
                 <span className="float-right">{value}%</span>
@@ -81,7 +93,7 @@ const SkillItem = ({ name, value, bgColor }: Props) => {
                     aria-label={`Progress ${name}`}
                 />
             </div>
-        </div>
+        </Root>
     );
 };
 

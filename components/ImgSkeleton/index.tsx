@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { Skeleton, Theme } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
+import { Skeleton, styled } from "@mui/material";
 import { useCallback, useState } from "react";
 
 /* eslint-disable @next/next/no-img-element */
@@ -12,11 +11,20 @@ interface Props {
     className?: string;
 }
 
-const useStyles = makeStyles<Theme, { width: number; height: number }>(() => ({
-    root: {
+const PREFIX = "ImgSkeleton";
+const classes = {
+    root: `${PREFIX}-root`,
+    s: `${PREFIX}-s`,
+};
+type StyleProps = {
+    width: number;
+    height: number;
+};
+const Root = styled("div")<StyleProps>((props) => ({
+    [`&.${classes.root}`]: {
         position: "relative",
-        width: ({ width }) => width,
-        height: ({ height }) => height,
+        width: props.width,
+        height: props.height,
         "& .MuiSkeleton-root": {
             margin: "0 auto",
             zIndex: 1,
@@ -31,7 +39,7 @@ const useStyles = makeStyles<Theme, { width: number; height: number }>(() => ({
             objectFit: "cover",
         },
     },
-    s: {
+    [`& .${classes.s}`]: {
         position: "absolute",
         top: 0,
         background: "var(--avatar-bg)",
@@ -44,14 +52,13 @@ const useStyles = makeStyles<Theme, { width: number; height: number }>(() => ({
 const ImgSkeleton = (props: Props) => {
     const { width, height, src } = props;
     const [loading, setLoading] = useState(true);
-    const classes = useStyles({ width, height });
 
     const onImgLoad = useCallback(() => {
         setLoading(false);
     }, []);
 
     return (
-        <div className={classes.root}>
+        <Root width={width} height={height} className={classes.root}>
             {src && <img {...props} onLoad={onImgLoad} />}
             {(!src || loading) && (
                 <Skeleton
@@ -62,7 +69,7 @@ const ImgSkeleton = (props: Props) => {
                     height={height}
                 />
             )}
-        </div>
+        </Root>
     );
 };
 

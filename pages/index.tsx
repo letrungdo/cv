@@ -1,4 +1,4 @@
-import makeStyles from "@mui/styles/makeStyles";
+import { styled } from "@mui/material";
 import { cvConfig } from "config/cv";
 import config from "config/site";
 import { drawerWidth } from "constants/app";
@@ -8,18 +8,22 @@ import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import { EnvConfig } from "services/envConfig";
 
-const SlideMenu = dynamic(import("components/SlideMenu"));
-const SectionHome = dynamic(import("components/Section/Home"));
-const SectionAbout = dynamic(import("components/Section/About"));
-const SectionServices = dynamic(import("components/Section/Services"));
-const SectionExperience = dynamic(import("components/Section/Experience"));
-const SectionWorks = dynamic(import("components/Section/Works"));
-const SectionBlog = dynamic(import("components/Section/Blog"));
-const SectionContact = dynamic(import("components/Section/Contact"));
-const ReturnToTop = dynamic(import("components/ReturnToTop"), { ssr: false });
+const SlideMenu = dynamic(() => import("components/SlideMenu"));
+const SectionHome = dynamic(() => import("components/Section/Home"));
+const SectionAbout = dynamic(() => import("components/Section/About"));
+const SectionServices = dynamic(() => import("components/Section/Services"));
+const SectionExperience = dynamic(() => import("components/Section/Experience"));
+const SectionWorks = dynamic(() => import("components/Section/Works"));
+const SectionBlog = dynamic(() => import("components/Section/Blog"));
+const SectionContact = dynamic(() => import("components/Section/Contact"));
+const ReturnToTop = dynamic(() => import("components/ReturnToTop"), { ssr: false });
 
-const useStyles = makeStyles((theme) => ({
-    content: {
+const PREFIX = "CV";
+const classes = {
+    content: `${PREFIX}-content`,
+};
+const Root = styled("main")(({ theme }) => ({
+    [`&.${classes.content}`]: {
         flexGrow: 1,
         [theme.breakpoints.up("md")]: {
             marginLeft: drawerWidth,
@@ -30,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
 export const FbContext = React.createContext("");
 
 const CV = () => {
-    const classes = useStyles();
     const [profileUrl, setProfileUrl] = useState("");
 
     useEffect(() => {
@@ -71,7 +74,7 @@ const CV = () => {
                 <meta name="author" content={cvConfig.name} />
             </Head>
             <SlideMenu />
-            <main className={classes.content}>
+            <Root className={classes.content}>
                 <FbContext.Provider value={profileUrl}>
                     <SectionHome />
                     <SectionAbout />
@@ -81,7 +84,7 @@ const CV = () => {
                 <SectionWorks />
                 <SectionBlog />
                 <SectionContact />
-            </main>
+            </Root>
             <ReturnToTop />
         </>
     );

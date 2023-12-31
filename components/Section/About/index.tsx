@@ -1,5 +1,4 @@
-import { Button, Grid, Typography } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
+import { Button, Grid, Typography, styled } from "@mui/material";
 import ImgSkeleton from "components/ImgSkeleton";
 import { cvConfig } from "config/cv";
 import { FbContext } from "pages";
@@ -11,8 +10,13 @@ const onDownloadCV = () => {
     window.open(cvConfig.cvDownloadLink);
 };
 
-const useStyles = makeStyles((theme) => ({
-    wrapper: {
+const PREFIX = "SectionAbout";
+const classes = {
+    wrapper: `${PREFIX}-wrapper`,
+    content: `${PREFIX}-content`,
+};
+const Root = styled("div")(({ theme }) => ({
+    [`& .${classes.wrapper}`]: {
         "& .MuiGrid-item": {
             padding: 12,
         },
@@ -20,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
             height: "auto",
         },
     },
-    content: {
+    [`& .${classes.content}`]: {
         position: "relative",
         "&:before": {
             content: '""',
@@ -49,11 +53,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SectionAbout = () => {
-    const classes = useStyles();
-
     return (
         <section id="about">
-            <div className="container">
+            <Root className="container">
                 <Typography variant="h2" className="section-title sanim">
                     About Me
                 </Typography>
@@ -97,7 +99,7 @@ const SectionAbout = () => {
                         <FactItem key={item.name} {...item} />
                     ))}
                 </Grid>
-            </div>
+            </Root>
         </section>
     );
 };

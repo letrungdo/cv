@@ -1,16 +1,21 @@
 module.exports = {
     poweredByHeader: false,
-    publicRuntimeConfig: {
-        apiUrl: process.env.API_URL,
-        apiTimeout: process.env.API_TIMEOUT,
-        debugLog: process.env.DEBUG_LOG,
-        sendGridApiKey: process.env.SENDGRID_API_KEY,
-        recaptchaKey: process.env.RECAPTCHA_KEY,
-        fbUserID: process.env.FB_USER_ID,
-        fbAppID: process.env.FB_APP_ID,
-        fbAppSecret: process.env.FB_APP_SECRET,
-    },
     images: {
-        domains: ["xn--t-lia.vn"],
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "xn--t-lia.vn",
+            },
+        ],
+    },
+    env: {
+        API_URL: process.env.API_URL,
+        API_TIMEOUT: process.env.API_TIMEOUT,
+        DEBUG_LOG: process.env.DEBUG_LOG,
+        SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
+        RECAPTCHA_KEY: process.env.RECAPTCHA_KEY,
+        FB_USER_ID: process.env.FB_USER_ID,
+        FB_APP_ID: process.env.FB_APP_ID,
+        FB_APP_SECRET: process.env.FB_APP_SECRET,
     },
 };

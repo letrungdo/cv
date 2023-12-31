@@ -1,10 +1,15 @@
-import { Grid, Typography } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
+import { Grid, Typography, styled } from "@mui/material";
 import { cvConfig } from "config/cv";
 import React from "react";
 
-const useStyles = makeStyles({
-    content: {
+const PREFIX = "SectionExperience";
+const classes = {
+    content: `${PREFIX}-content`,
+    timeline: `${PREFIX}-timeline`,
+    timelineItem: `${PREFIX}-timelineItem`,
+};
+const Root = styled("div")(() => ({
+    [`& .${classes.content}`]: {
         position: "relative",
         "& .time": {
             color: "var(--light-gray-text)",
@@ -19,10 +24,10 @@ const useStyles = makeStyles({
             wordBreak: "break-word",
         },
     },
-    timeline: {
+    [`& .${classes.timeline}`]: {
         position: "relative",
     },
-    timelineItem: {
+    [`& .${classes.timelineItem}`]: {
         paddingLeft: "5rem",
         marginBottom: "5rem",
         position: "relative",
@@ -64,7 +69,7 @@ const useStyles = makeStyles({
             left: "0.4rem",
         },
     },
-});
+}));
 
 type TimelineProps = {
     time: string;
@@ -74,8 +79,6 @@ type TimelineProps = {
     className: string;
 };
 const Timeline = ({ time, title, description, className }: TimelineProps) => {
-    const classes = useStyles();
-
     return (
         <div className={`${classes.timelineItem} sanim ${className}`}>
             <div className={classes.content}>
@@ -91,11 +94,9 @@ const Timeline = ({ time, title, description, className }: TimelineProps) => {
 };
 
 const SectionExperience = () => {
-    const classes = useStyles();
-
     return (
         <section id="experience">
-            <div className="container">
+            <Root className="container">
                 <Typography variant="h2" className="section-title sanim">
                     Experience
                 </Typography>
@@ -115,7 +116,7 @@ const SectionExperience = () => {
                         </div>
                     </Grid>
                 </Grid>
-            </div>
+            </Root>
         </section>
     );
 };

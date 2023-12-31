@@ -1,13 +1,17 @@
-import { Grid, Hidden, Select, SelectChangeEvent, Typography } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
+import { Grid, Hidden, Select, SelectChangeEvent, Typography, styled } from "@mui/material";
 import clsx from "clsx";
-import { cvConfig, WorkType } from "config/cv";
+import { WorkType, cvConfig } from "config/cv";
 import React, { useCallback, useState } from "react";
 import WorkModal, { WorkModalData } from "./Modal";
 import WorkItem from "./WorkItem";
 
-const useStyles = makeStyles({
-    menuPc: {
+const PREFIX = "SectionWorks";
+const classes = {
+    menuPc: `${PREFIX}-menuPc`,
+    dropdown: `${PREFIX}-dropdown`,
+};
+const Root = styled("div")(() => ({
+    [`& .${classes.menuPc}`]: {
         "& li": {
             color: "var(--primary-text)",
             cursor: "pointer",
@@ -26,17 +30,16 @@ const useStyles = makeStyles({
             color: "var(--main-color)",
         },
     },
-    dropdown: {
+    [`& .${classes.dropdown}`]: {
         width: "100%",
         color: "var(--primary-text)",
         "& .MuiSelect-icon": {
             color: "unset",
         },
     },
-});
+}));
 
 const SectionWorks = () => {
-    const classes = useStyles();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const isotope = React.useRef<any>();
     const [type, setType] = useState(WorkType.Everything);
@@ -74,7 +77,7 @@ const SectionWorks = () => {
 
     return (
         <section id="works">
-            <div className="container">
+            <Root className="container">
                 <Typography variant="h2" className="section-title sanim">
                     Recent works
                 </Typography>
@@ -105,7 +108,7 @@ const SectionWorks = () => {
                         <WorkItem key={w.href} {...w} setModal={setModal} />
                     ))}
                 </Grid>
-            </div>
+            </Root>
             <WorkModal onClose={handleClose} data={modal} />
         </section>
     );

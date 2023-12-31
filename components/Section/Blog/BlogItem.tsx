@@ -1,9 +1,15 @@
-import { Grid, Typography } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
+import { Grid, Typography, styled } from "@mui/material";
 import Image from "next/image";
 
-const useStyles = makeStyles({
-    root: {
+const PREFIX = "BlogItem";
+const classes = {
+    root: `${PREFIX}-root`,
+    thumb: `${PREFIX}-thumb`,
+    details: `${PREFIX}-details`,
+    meta: `${PREFIX}-meta`,
+};
+const Root = styled("div")(() => ({
+    [`&.${classes.root}`]: {
         overflow: "hidden",
         transform: "translateY(0)",
         transition: "all 0.3s ease-in-out",
@@ -11,7 +17,7 @@ const useStyles = makeStyles({
             transform: "translateY(-10px)",
         },
     },
-    thumb: {
+    [`& .${classes.thumb}`]: {
         position: "relative",
         overflow: "hidden",
         "& img": {
@@ -35,7 +41,7 @@ const useStyles = makeStyles({
             zIndex: 1,
         },
     },
-    details: {
+    [`& .${classes.details}`]: {
         padding: "1rem 2rem",
         "& h3": {
             fontSize: "2rem",
@@ -52,7 +58,7 @@ const useStyles = makeStyles({
             },
         },
     },
-    meta: {
+    [`& .${classes.meta}`]: {
         fontSize: "1.4rem",
         color: "var(--light-gray-text)",
         "& li": {
@@ -72,7 +78,7 @@ const useStyles = makeStyles({
             },
         },
     },
-});
+}));
 
 type Props = {
     thumbnail?: string;
@@ -83,11 +89,9 @@ type Props = {
     link?: string;
 };
 const BlogItem = ({ thumbnail, category, title, pubDate, creator, link }: Props) => {
-    const classes = useStyles();
-
     return (
         <Grid item xs={12} sm={6} md={4}>
-            <div className={`${classes.root} rounded bg-primary sanim-post`}>
+            <Root className={`${classes.root} rounded bg-primary sanim-post`}>
                 <div className={classes.thumb}>
                     {category && <span className="category text-light">{category}</span>}
                     <a href={link} target="_blank" rel="noreferrer">
@@ -116,7 +120,7 @@ const BlogItem = ({ thumbnail, category, title, pubDate, creator, link }: Props)
                         <li>{creator}</li>
                     </ul>
                 </div>
-            </div>
+            </Root>
         </Grid>
     );
 };

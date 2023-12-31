@@ -1,6 +1,5 @@
-import { Button, debounce, Hidden, SwipeableDrawer, Theme, Tooltip } from "@mui/material";
+import { Button, debounce, Hidden, styled, SwipeableDrawer, Theme, Tooltip } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import makeStyles from "@mui/styles/makeStyles";
 import Logo from "assets/images/logo192.webp";
 import clsx from "clsx";
 import DarkModeSwitch from "components/DarkModeSwitch";
@@ -13,8 +12,18 @@ import React, { useCallback, useEffect, useState } from "react";
 import { logDev } from "utils/logs";
 import { getLocalStorage } from "utils/storage";
 
-const useStyles = makeStyles((theme) => ({
-    logo: {
+const PREFIX = "SlideMenu";
+const classes = {
+    logo: `${PREFIX}-logo`,
+    menu: `${PREFIX}-menu`,
+    footer: `${PREFIX}-footer`,
+    themeMode: `${PREFIX}-themeMode`,
+    drawer: `${PREFIX}-drawer`,
+    drawerPaper: `${PREFIX}-drawerPaper`,
+    wrapper: `${PREFIX}-wrapper`,
+};
+const Root = styled(SwipeableDrawer)(({ theme }) => ({
+    [`& .${classes.logo}`]: {
         display: "flex",
         alignItems: "center",
         marginTop: "2rem",
@@ -30,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
             transition: "color 0.5s",
         },
     },
-    menu: {
+    [`& .${classes.menu}`]: {
         overflowY: "auto",
         height: "calc(100vh - 15rem)",
         marginTop: "3rem",
@@ -53,12 +62,7 @@ const useStyles = makeStyles((theme) => ({
             color: "var(--active-text)",
         },
     },
-    menuIc: {
-        position: "fixed",
-        right: "1rem",
-        top: "1rem",
-    },
-    footer: {
+    [`& .${classes.footer}`]: {
         position: "absolute",
         bottom: "2rem",
         left: "3rem",
@@ -66,22 +70,22 @@ const useStyles = makeStyles((theme) => ({
             color: "var(--light-gray-text)",
         },
     },
-    themeMode: {
+    [`& .${classes.themeMode}`]: {
         position: "absolute",
         bottom: "2rem",
         right: "2rem",
         color: "var(--primary-text)",
         transition: "color 1s",
     },
-    drawer: {
+    [`&.${classes.drawer}`]: {
         width: drawerWidth,
         flexShrink: 0,
     },
-    drawerPaper: {
+    [`& .${classes.drawerPaper}`]: {
         width: "80%",
         maxWidth: drawerWidth,
     },
-    wrapper: {
+    [`& .${classes.wrapper}`]: {
         height: "100%",
         overflow: "hidden",
         [theme.breakpoints.down("md")]: {
@@ -116,7 +120,7 @@ const SlideMenu = () => {
     const [themeMode, setThemeMode] = useState<ThemeMode>();
     const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
     const isPc = useMediaQuery<Theme>((theme) => theme.breakpoints.up("md"));
-    const classes = useStyles();
+
     const [currentPath, setCurrentPath] = useState("");
     const onMenuClick = useCallback(
         (open: boolean) => () => {
@@ -234,9 +238,9 @@ const SlideMenu = () => {
     return (
         <>
             <Hidden mdUp>
-                <HambugerMenu className={classes.menuIc} isOpen={isOpenMenu} onClick={onMenuClick(!isOpenMenu)} />
+                <HambugerMenu isOpen={isOpenMenu} onClick={onMenuClick(!isOpenMenu)} />
             </Hidden>
-            <SwipeableDrawer
+            <Root
                 id="slide-menu"
                 variant={isPc ? "persistent" : undefined}
                 anchor={isPc ? "left" : "right"}
@@ -297,7 +301,7 @@ const SlideMenu = () => {
                         />
                     </Tooltip>
                 </div>
-            </SwipeableDrawer>
+            </Root>
             {isPc && <GrowingCircleAnimation isDark={themeMode === ThemeMode.Dark} />}
         </>
     );

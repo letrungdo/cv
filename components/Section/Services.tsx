@@ -1,11 +1,15 @@
-import { Grid, Theme, Typography } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
+import { Grid, Typography, styled } from "@mui/material";
 import { cvConfig } from "config/cv";
 import Image from "next/image";
 import React from "react";
 
-const useStyles = makeStyles<Theme, { bgColor: string }>({
-    serviceBox: {
+type StyleProps = { bgColor: string };
+const PREFIX = "ServiceBox";
+const classes = {
+    serviceBox: `${PREFIX}-serviceBox`,
+};
+const Root = styled("div")<StyleProps>(({ bgColor }) => ({
+    [`&.${classes.serviceBox}`]: {
         transform: "translateY(0)",
         transition: "all 0.3s ease-in-out",
         borderRadius: 20,
@@ -15,10 +19,11 @@ const useStyles = makeStyles<Theme, { bgColor: string }>({
         "&:hover": {
             transform: "translateY(-10px)",
         },
-        backgroundColor: ({ bgColor }) => bgColor,
-        boxShadow: ({ bgColor }) => `0px 5px 20px 0px ${bgColor}80`,
+        backgroundColor: bgColor,
+        boxShadow: `0px 5px 20px 0px ${bgColor}80`,
     },
-});
+}));
+
 type ServiceBoxProps = {
     className: string;
     imgSrc: string;
@@ -27,11 +32,9 @@ type ServiceBoxProps = {
     bgColor: string;
 };
 const ServiceBox = ({ className = "", name, description, imgSrc, bgColor }: ServiceBoxProps) => {
-    const classes = useStyles({ bgColor });
-
     return (
         <Grid item xs={12} sm={6} md={4} className="sanim">
-            <div className={`${classes.serviceBox} p-6 text-center ${className}`}>
+            <Root bgColor={bgColor} className={`${classes.serviceBox} p-6 text-center ${className}`}>
                 <Image
                     src={imgSrc}
                     alt={description}
@@ -46,7 +49,7 @@ const ServiceBox = ({ className = "", name, description, imgSrc, bgColor }: Serv
                     {name}
                 </Typography>
                 <p className="mb-0">{description}</p>
-            </div>
+            </Root>
         </Grid>
     );
 };

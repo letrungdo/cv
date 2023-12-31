@@ -18,7 +18,7 @@ export const cvConfig = {
     skills: [
         {
             name: "Flutter",
-            value: 90,
+            value: 98,
             bgColor: "#29b6f6",
         },
         {

@@ -1,36 +1,38 @@
-import { Modal, Typography } from "@mui/material";
+import { Modal, Typography, styled } from "@mui/material";
 import Fade from "@mui/material/Fade";
-import createStyles from "@mui/styles/createStyles";
-import makeStyles from "@mui/styles/makeStyles";
 import Image from "next/image";
-import React from "react";
 
-const useStyles = makeStyles(() =>
-    createStyles({
-        modal: {
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-        },
-        paper: {
-            position: "relative",
-            width: "80%",
-            background: "var(--main-bg)",
-            borderRadius: 25,
-            padding: 30,
-            textAlign: "left",
-            maxWidth: 650,
-            margin: "40px auto",
-        },
-        thumbnail: {
-            borderRadius: 10,
-        },
-        description: {
-            wordBreak: "break-word",
-            whiteSpace: "pre-wrap",
-        },
-    })
-);
+const PREFIX = "WorkModal";
+const classes = {
+    modal: `${PREFIX}-modal`,
+    paper: `${PREFIX}-paper`,
+    thumbnail: `${PREFIX}-thumbnail`,
+    description: `${PREFIX}-description`,
+};
+const Root = styled(Modal)(() => ({
+    [`&.${classes.modal}`]: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    [`& .${classes.paper}`]: {
+        position: "relative",
+        width: "80%",
+        background: "var(--main-bg)",
+        borderRadius: 25,
+        padding: 30,
+        textAlign: "left",
+        maxWidth: 650,
+        margin: "40px auto",
+    },
+    [`& .${classes.thumbnail}`]: {
+        borderRadius: 10,
+    },
+    [`& .${classes.description}`]: {
+        wordBreak: "break-word",
+        whiteSpace: "pre-wrap",
+    },
+}));
 
 export interface WorkModalData {
     open: boolean;
@@ -46,10 +48,8 @@ interface Props {
 }
 
 function WorkModal({ onClose, data: { open, title, description, thumbnail, href } }: Props) {
-    const classes = useStyles();
-
     return (
-        <Modal open={open} onClose={onClose} className={classes.modal}>
+        <Root open={open} onClose={onClose} className={classes.modal}>
             <Fade in={open} timeout={300}>
                 <div className={classes.paper}>
                     {thumbnail && (
@@ -73,7 +73,7 @@ function WorkModal({ onClose, data: { open, title, description, thumbnail, href 
                     <p className={classes.description}>{description}</p>
                 </div>
             </Fade>
-        </Modal>
+        </Root>
     );
 }
 

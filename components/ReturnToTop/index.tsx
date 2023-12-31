@@ -1,9 +1,12 @@
-import { debounce } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
+import { debounce, styled } from "@mui/material";
 import { useEffect, useRef } from "react";
 
-const useStyles = makeStyles({
-    root: {
+const PREFIX = "ReturnToTop";
+const classes = {
+    root: `${PREFIX}-root`,
+};
+const Root = styled("div")(() => ({
+    [`&.${classes.root}`]: {
         position: "fixed",
         bottom: 25,
         right: 25,
@@ -29,14 +32,13 @@ const useStyles = makeStyles({
             opacity: "50%",
         },
     },
-});
+}));
 
 const handleClick = () => {
     window.scroll({ top: 0, left: 0, behavior: "smooth" });
 };
 const thresholdTop = 500;
 const ReturnToTop = () => {
-    const classes = useStyles();
     const rootRef = useRef<HTMLDivElement>(null);
 
     const showOrHideBackToTopButton = () => {
@@ -62,9 +64,9 @@ const ReturnToTop = () => {
     }, []);
 
     return (
-        <div className={classes.root} ref={rootRef} onClick={handleClick}>
+        <Root className={classes.root} ref={rootRef} onClick={handleClick}>
             <i className="icon-arrow-up" />
-        </div>
+        </Root>
     );
 };
 

@@ -1,14 +1,20 @@
-import { Grid, Typography } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
+import { Grid, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import React, { useCallback } from "react";
 import { WorkModalData } from "./Modal";
 
-const useStyles = makeStyles({
-    item: {
+const PREFIX = "WorkItem";
+const classes = {
+    item: `${PREFIX}-item`,
+    portfolioItem: `${PREFIX}-portfolioItem`,
+    details: `${PREFIX}-details`,
+    thumb: `${PREFIX}-thumb`,
+};
+const Root = styled(Grid)(() => ({
+    [`&.${classes.item}`]: {
         width: "100%",
     },
-    portfolioItem: {
+    [`& .${classes.portfolioItem}`]: {
         position: "relative",
         overflow: "hidden",
         cursor: "pointer",
@@ -44,7 +50,7 @@ const useStyles = makeStyles({
             },
         },
     },
-    details: {
+    [`& .${classes.details}`]: {
         color: "var(--light-text)",
         position: "absolute",
         height: "100%",
@@ -76,7 +82,7 @@ const useStyles = makeStyles({
             transition: "all cubic-bezier(0.075, 0.82, 0.165, 1) 1s",
         },
     },
-    thumb: {
+    [`& .${classes.thumb}`]: {
         overflow: "hidden",
         "& .mask": {
             background: "#6C6CE5",
@@ -89,7 +95,7 @@ const useStyles = makeStyles({
             transition: "all 0.3s ease-in-out",
         },
     },
-});
+}));
 
 export enum MoreType {
     MagnifierAdd = "icon-magnifier-add",
@@ -111,7 +117,6 @@ type Props = {
 };
 
 const WorkItem = ({ title, term, moreIcon, thumbnail, href, type, description, setModal }: Props) => {
-    const classes = useStyles();
     const onClick = useCallback(() => {
         switch (moreIcon) {
             case MoreType.Link:
@@ -131,7 +136,7 @@ const WorkItem = ({ title, term, moreIcon, thumbnail, href, type, description, s
     }, [setModal]);
 
     return (
-        <Grid item xs={12} sm={6} md={4} className={`${classes.item} work-item ${type.join(" ")}`}>
+        <Root item xs={12} sm={6} md={4} className={`${classes.item} work-item ${type.join(" ")}`}>
             <div className={`${classes.portfolioItem} sanim`} onClick={onClick}>
                 <div className={classes.details}>
                     <span className="term">{term}</span>
@@ -159,7 +164,7 @@ const WorkItem = ({ title, term, moreIcon, thumbnail, href, type, description, s
                     <div className="mask" />
                 </div>
             </div>
-        </Grid>
+        </Root>
     );
 };
 

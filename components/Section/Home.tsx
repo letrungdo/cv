@@ -1,5 +1,4 @@
-import { Button, Typography } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
+import { Button, Typography, keyframes, styled } from "@mui/material";
 import ImgSkeleton from "components/ImgSkeleton";
 import { cvConfig } from "config/cv";
 import config from "config/site";
@@ -7,15 +6,39 @@ import dynamic from "next/dynamic";
 import { FbContext } from "pages";
 import React, { useEffect, useRef } from "react";
 
-const ReactTypingEffect = dynamic(import("react-typing-effect"));
+const ReactTypingEffect = dynamic(() => import("react-typing-effect"));
 
-const useStyles = makeStyles({
-    root: {
+const PREFIX = "SectionHome";
+const classes = {
+    root: `${PREFIX}-root`,
+    intro: `${PREFIX}-intro`,
+    socialIcons: `${PREFIX}-socialIcons`,
+    parallax: `${PREFIX}-parallax`,
+    scrollDown: `${PREFIX}-scrollDown`,
+    mouseWrapper: `${PREFIX}-mouseWrapper`,
+};
+const aniMouse = keyframes`
+    0% {
+        top: 29%;
+    }
+    15% {
+        top: 50%;
+    }
+    50% {
+        top: 50%;
+    }
+    100% {
+        top: 29%;
+    }
+`;
+
+const Root = styled("section")(() => ({
+    [`&.${classes.root}`]: {
         padding: 0,
         height: "100vh",
         minHeight: "100vh",
     },
-    intro: {
+    [`& .${classes.intro}`]: {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -27,7 +50,7 @@ const useStyles = makeStyles({
             fontSize: 36,
         },
     },
-    socialIcons: {
+    [`& .${classes.socialIcons}`]: {
         "& a": {
             color: "var(--primary-text)",
             fontSize: 23,
@@ -39,7 +62,7 @@ const useStyles = makeStyles({
             marginRight: "2rem",
         },
     },
-    parallax: {
+    [`& .${classes.parallax}`]: {
         position: "absolute",
         left: 0,
         top: 0,
@@ -93,7 +116,7 @@ const useStyles = makeStyles({
             right: "10%",
         },
     },
-    scrollDown: {
+    [`& .${classes.scrollDown}`]: {
         position: "absolute",
         bottom: 40,
         left: 0,
@@ -103,21 +126,8 @@ const useStyles = makeStyles({
             display: "none",
         },
     },
-    "@keyframes aniMouse": {
-        "0%": {
-            top: "29%",
-        },
-        "15%": {
-            top: "50%",
-        },
-        "50%": {
-            top: "50%",
-        },
-        "100%": {
-            top: "29%",
-        },
-    },
-    mouseWrapper: {
+
+    [`& .${classes.mouseWrapper}`]: {
         color: "var(--primary-text)",
         fontSize: 14,
         display: "block",
@@ -147,11 +157,11 @@ const useStyles = makeStyles({
                 transform: "translateX(-50%)",
                 height: 4,
                 width: 4,
-                animation: "$aniMouse 2s linear infinite",
+                animation: `${aniMouse} 2s linear infinite`,
             },
         },
     },
-});
+}));
 
 const scrollToBottom = () => {
     window.scroll({
@@ -163,7 +173,6 @@ const scrollToBottom = () => {
 
 const SectionHome = () => {
     const parallaxRef = useRef(null);
-    const classes = useStyles();
 
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -182,7 +191,7 @@ const SectionHome = () => {
     }, []);
 
     return (
-        <section id="home" className={`${classes.root} home flex align-items-center`}>
+        <Root id="home" className={`${classes.root} home flex align-items-center`}>
             <div className={classes.intro}>
                 <FbContext.Consumer>
                     {(profileUrl) => (
@@ -316,7 +325,7 @@ const SectionHome = () => {
                     ></path>
                 </svg>
             </div>
-        </section>
+        </Root>
     );
 };
 

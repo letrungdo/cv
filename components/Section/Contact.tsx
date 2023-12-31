@@ -1,5 +1,4 @@
-import { Button, Grid, Snackbar, Typography } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
+import { Button, Grid, Snackbar, Typography, keyframes, styled } from "@mui/material";
 import MuiAlert, { AlertColor } from "@mui/material/Alert";
 import clsx from "clsx";
 import { BaseResponse } from "interfaces/response";
@@ -8,8 +7,23 @@ import api from "services/api";
 import { EnvConfig } from "services/envConfig";
 import { logDev } from "utils/logs";
 
-const useStyles = makeStyles({
-    info: {
+const PREFIX = "SectionContact";
+const classes = {
+    info: `${PREFIX}-info`,
+    input: `${PREFIX}-input`,
+    recaptcha: `${PREFIX}-recaptcha`,
+    btnSubmit: `${PREFIX}-btnSubmit`,
+};
+const progressIndefiniteAnim = keyframes`
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 0%;
+    }
+`;
+const Root = styled("div")(() => ({
+    [`& .${classes.info}`]: {
         minHeight: 200,
         "& h3": {
             fontSize: "2.3rem",
@@ -21,7 +35,7 @@ const useStyles = makeStyles({
             backgroundSize: "contain",
         },
     },
-    input: {
+    [`& .${classes.input}`]: {
         display: "block",
         borderRadius: "2.5rem",
         width: "100%",
@@ -41,19 +55,11 @@ const useStyles = makeStyles({
             color: "var(--gray-text)",
         },
     },
-    recaptcha: {
+    [`& .${classes.recaptcha}`]: {
         fontSize: "1.3rem",
         color: "var(--light-gray-text)",
     },
-    "@keyframes progress-indefinite-anim": {
-        "0%": {
-            backgroundPosition: "0% 0%",
-        },
-        "100%": {
-            backgroundPosition: "100% 0%",
-        },
-    },
-    btnSubmit: {
+    [`& .${classes.btnSubmit}`]: {
         "& .MuiButton-label": {
             zIndex: 2,
         },
@@ -64,13 +70,12 @@ const useStyles = makeStyles({
             width: "100%",
             height: "100%",
             background: `url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'50'%20height%3D'100'%20viewBox%3D'0%200%205%2010'%3E%0A%09%3Crect%20width%3D'110%25'%20x%3D'-5%25'%20y%3D'-5%25'%20height%3D'110%25'%20fill%3D'transparent'%2F%3E%0A%09%3Cline%20x1%3D'-2'%20y1%3D'1'%20x2%3D'7'%20y2%3D'10'%20stroke%3D'%23bdb9b9'%20stroke-width%3D'2'%2F%3E%0A%09%3Cline%20x1%3D'-2'%20y1%3D'6'%20x2%3D'7'%20y2%3D'15'%20stroke%3D'%23bdb9b9'%20stroke-width%3D'2'%2F%3E%0A%09%3Cline%20x1%3D'-2'%20y1%3D'-4'%20x2%3D'7'%20y2%3D'5'%20stroke%3D'%23bdb9b9'%20stroke-width%3D'2'%2F%3E%0A%3C%2Fsvg%3E")`,
-            animation: "$progress-indefinite-anim 1s infinite linear 0s",
+            animation: `${progressIndefiniteAnim} 1s infinite linear 0s`,
         },
     },
-});
+}));
 
 const SectionContact = () => {
-    const classes = useStyles();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [subject, setSubject] = useState("");
@@ -151,7 +156,7 @@ const SectionContact = () => {
 
     return (
         <section id="contact">
-            <div className="container">
+            <Root className="container">
                 <Typography variant="h2" className="section-title sanim">
                     Get In Touch
                 </Typography>
@@ -241,7 +246,7 @@ const SectionContact = () => {
                         </Snackbar>
                     </Grid>
                 </Grid>
-            </div>
+            </Root>
         </section>
     );
 };

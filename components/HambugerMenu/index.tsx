@@ -1,15 +1,20 @@
-import { Theme } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
+import { styled } from "@mui/material";
 import clsx from "clsx";
-import React from "react";
 
 interface Props {
     onClick?: () => void;
     isOpen: boolean;
     className?: string;
 }
-const useStyles = makeStyles<Theme, { isOpen: boolean }>({
-    root: {
+const PREFIX = "HambugerMenu";
+const classes = {
+    root: `${PREFIX}-root`,
+};
+const Root = styled("div")(() => ({
+    [`&.${classes.root}`]: {
+        position: "fixed",
+        right: "1rem",
+        top: "1rem",
         zIndex: 1301,
         padding: 4,
         display: "flex",
@@ -41,18 +46,17 @@ const useStyles = makeStyles<Theme, { isOpen: boolean }>({
             },
         },
     },
-});
-const HambugerMenu = ({ onClick, isOpen, className }: Props) => {
-    const classes = useStyles({ isOpen });
+}));
 
+const HambugerMenu = ({ onClick, isOpen, className }: Props) => {
     return (
-        <div aria-label="hambuger-menu" className={clsx(classes.root, "cursor-pointer", className)} onClick={onClick}>
+        <Root aria-label="hambuger-menu" className={clsx(classes.root, "cursor-pointer", className)} onClick={onClick}>
             <div className={clsx("hambuger-menu-icon", isOpen ? "change" : "")}>
                 <div className={`bar1`} />
                 <div className={`bar2`} />
                 <div className={`bar3`} />
             </div>
-        </div>
+        </Root>
     );
 };
 

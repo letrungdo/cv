@@ -1,10 +1,14 @@
-import { Grid, Typography } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
+import { Grid, Typography, styled } from "@mui/material";
 import { useEffect, useRef } from "react";
 import { useCountUp } from "react-countup";
 
-const useStyles = makeStyles({
-    root: {
+const PREFIX = "FactItem";
+const classes = {
+    root: `${PREFIX}-root`,
+    details: `${PREFIX}-details`,
+};
+const Root = styled("div")(() => ({
+    [`&.${classes.root}`]: {
         marginBottom: "3rem",
         "& .icon": {
             fontSize: "3.6rem",
@@ -12,20 +16,20 @@ const useStyles = makeStyles({
             float: "left",
         },
     },
-    details: {
+    [`& .${classes.details}`]: {
         marginLeft: "6rem",
         "& .number": {
             fontSize: "3rem",
         },
     },
-});
+}));
+
 type Props = {
     icon: string;
     name: string;
     count: number;
 };
 const FactItem = ({ icon, name, count }: Props) => {
-    const classes = useStyles();
     const countUpRef = useRef<HTMLElement>(null);
 
     const { start } = useCountUp({
@@ -53,7 +57,7 @@ const FactItem = ({ icon, name, count }: Props) => {
 
     return (
         <Grid item xs={12} sm={6} md={3}>
-            <div className={classes.root}>
+            <Root className={classes.root}>
                 <span className={`icon ${icon}`}></span>
                 <div className={classes.details}>
                     <Typography variant="h3" className="mb-0 mt-0 number">
@@ -61,7 +65,7 @@ const FactItem = ({ icon, name, count }: Props) => {
                     </Typography>
                     <p className="mb-0">{name}</p>
                 </div>
-            </div>
+            </Root>
         </Grid>
     );
 };
