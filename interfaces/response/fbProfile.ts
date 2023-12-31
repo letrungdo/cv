@@ -1,5 +1,10 @@
 import { BaseResponse } from "interfaces/response";
 
 export interface FbProfileRes extends BaseResponse {
-    profileUrl?: string;
+    data?: {
+        height: number;
+        is_silhouette: boolean;
+        url: string;
+        width: number;
+    };
 }

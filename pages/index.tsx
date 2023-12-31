@@ -50,7 +50,7 @@ const CV = () => {
                     params: { userID: EnvConfig.fbUserID },
                 })
                 .then((res) => {
-                    setProfileUrl(res.profileUrl || "");
+                    setProfileUrl(res.data?.url || "");
                 });
         });
     }, []);
