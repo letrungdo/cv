@@ -16,7 +16,7 @@ const config = {
         },
         {
             label: "Facebook",
-            url: "https://www.facebook.com/DoRenew",
+            url: "https://www.facebook.com/DoLT.fb",
             iconClassName: "icon-social-facebook",
         },
         {
