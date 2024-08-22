@@ -12,9 +12,9 @@ export const cvConfig = {
     description:
         "DOLT CV is a personal portfolio/CV/resume website template built with NextJs and Mterial-UI. This was created especially for those who want to build up their portfolio sites.",
     name: "Le Trung Do",
-    about: `I am Le Trung Do, a fullstack developer from Ho Chi Minh City, Viet Nam. I have rich experience in web apps & mobile apps. I am also good at ReactJs, NextJs, Flutter and Xamarin Forms.`,
+    about: `I am Le Trung Do, a fullstack developer from Ho Chi Minh City, Viet Nam. I have rich experience in web apps & mobile apps. I am also good at Flutter, ReactJs, NextJs and Xamarin Forms.`,
     mainJob: ["Flutter developer", "ReactJs developer", "Xamarin Forms developer"],
-    cvDownloadLink: "https://www.topcv.vn/xem-cv/XFdRWFUEDgYEUwdWAgdVVVYHBAkKAQpRXVtUAwb4da",
+    cvDownloadLink: "https://www.topcv.vn/xem-cv/BAgAAwlWBQJTVlQAU1MDAVAPUwNRAwQGB18FVA8e12",
     skills: [
         {
             name: "Flutter",
