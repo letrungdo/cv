@@ -15,7 +15,7 @@ const errorHandle = async (url: string, error: AxiosError) => {
         // TODO:
         return errorRes;
     } else {
-        const config: AxiosRequestConfig = error?.config;
+        const config = error?.config;
         if (config) {
             switch (error.code) {
                 case AXIOS_TIMEOUT_CODE:
