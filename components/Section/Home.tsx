@@ -175,7 +175,6 @@ const SectionHome = () => {
     const parallaxRef = useRef(null);
 
     useEffect(() => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let parallax: any | undefined;
         import("parallax-js").then((m) => {
             const Parallax = m.default;

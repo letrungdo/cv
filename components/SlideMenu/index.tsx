@@ -202,7 +202,6 @@ const SlideMenu = () => {
         setThemeMode(theme);
     }, [prefersDarkMode]);
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const onChangeTheme = useCallback((_checked: boolean, event: any) => {
         logDev("aa");
         setThemeMode((s) => {

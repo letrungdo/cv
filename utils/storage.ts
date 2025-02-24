@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 export const getSessionStorage = <T = any>(key: string, fallbackValue?: any): T => {
     if (typeof sessionStorage === "undefined") {
         return fallbackValue as T;

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { debounce } from "@mui/material";
 import React, { useEffect, useRef } from "react";
 import { throttle } from "utils/common";

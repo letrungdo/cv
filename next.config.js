@@ -18,4 +18,7 @@ module.exports = {
         FB_APP_ID: process.env.FB_APP_ID,
         FB_APP_SECRET: process.env.FB_APP_SECRET,
     },
+    eslint: {
+        dirs: ["pages", "components", "config", "constants", "interfaces", "services"],
+    },
 };

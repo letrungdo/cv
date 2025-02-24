@@ -40,7 +40,6 @@ const Root = styled("div")(() => ({
 }));
 
 const SectionWorks = () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const isotope = React.useRef<any>();
     const [type, setType] = useState(WorkType.Everything);
     const [modal, setModal] = React.useState<WorkModalData>({ open: false });
