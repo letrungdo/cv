@@ -162,12 +162,21 @@ export const cvConfig = {
     },
     works: [
         {
+            type: [WorkType.Mobile],
+            title: "三菱UFJ eスマート証券 認証アプリ",
+            term: "Flutter",
+            description: "",
+            moreIcon: MoreType.Link,
+            thumbnail: "/images/works/kcmfa.webp",
+            href: "https://kabu.com/mobile/smartphone/app/authentication.html",
+        },
+        {
             type: [WorkType.Mobile, WorkType.Web],
-            title: "auカブコム証券 アプリ",
+            title: "三菱UFJ eスマート証券 アプリ",
             term: "Flutter, Nextjs",
             description: "",
             moreIcon: MoreType.Link,
-            thumbnail: "/images/works/kcmsr.jpg",
+            thumbnail: "/images/works/kcmsr.webp",
             href: "https://kabu.com/company/lp/app/index.html",
         },
         {
