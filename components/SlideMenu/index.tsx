@@ -154,6 +154,9 @@ const SlideMenu = () => {
     );
 
     useEffect(() => {
+        // openMenu tracks the breakpoint but is also toggled by the user, so it cannot be derived
+        // during render.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setOpenMenu(isPc);
     }, [isPc]);
 
@@ -199,6 +202,9 @@ const SlideMenu = () => {
         }
         logDev("prefersDarkMode", theme);
         setTheme(theme);
+        // theme lives in localStorage / OS preferences, which can only be read on the client;
+        // reading it during render would break hydration.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setThemeMode(theme);
     }, [prefersDarkMode]);
 

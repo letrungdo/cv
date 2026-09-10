@@ -1,5 +1,5 @@
 import { Grid, Typography, styled } from "@mui/material";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type RefObject } from "react";
 import { useCountUp } from "react-countup";
 
 const PREFIX = "FactItem";
@@ -33,7 +33,9 @@ const FactItem = ({ icon, name, count }: Props) => {
     const countUpRef = useRef<HTMLElement>(null);
 
     const { start } = useCountUp({
-        ref: countUpRef,
+        // react-countup still types ref as the React 18 non-null RefObject<HTMLElement>;
+        // React 19's useRef(null) widens to RefObject<HTMLElement | null>.
+        ref: countUpRef as RefObject<HTMLElement>,
         start: 0,
         end: count,
         duration: 1,

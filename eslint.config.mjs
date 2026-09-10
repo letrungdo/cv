@@ -1,13 +1,12 @@
-import { FlatCompat } from "@eslint/eslintrc";
-
-const compat = new FlatCompat({
-    // import.meta.dirname is available after Node.js v20.11.0
-    baseDirectory: import.meta.dirname,
-});
+import next from "eslint-config-next";
+import prettier from "eslint-config-prettier";
 
 const eslintConfig = [
-    ...compat.config({
-        extends: ["next", "prettier"],
+    // eslint-config-next v16 ships a flat config array (next, next/typescript, ignores).
+    // It is no longer consumable through FlatCompat.
+    ...next,
+    prettier,
+    {
         rules: {
             // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
             "@typescript-eslint/no-empty-interface": "off",
@@ -37,7 +36,7 @@ const eslintConfig = [
             "prefer-template": "error",
             "@next/next/no-duplicate-head": "off",
         },
-    }),
+    },
     {
         // API routes are server code: console is the log sink there, and
         // gating it behind DEBUG_LOG hides real delivery failures.

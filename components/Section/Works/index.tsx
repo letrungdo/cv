@@ -40,7 +40,7 @@ const Root = styled("div")(() => ({
 }));
 
 const SectionWorks = () => {
-    const isotope = React.useRef<any>();
+    const isotope = React.useRef<any>(undefined);
     const [type, setType] = useState(WorkType.Everything);
     const [modal, setModal] = React.useState<WorkModalData>({ open: false });
 

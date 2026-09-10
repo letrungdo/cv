@@ -1,12 +1,10 @@
 import { Button, Typography, keyframes, styled } from "@mui/material";
 import ImgSkeleton from "components/ImgSkeleton";
+import TypingEffect from "components/TypingEffect";
 import { cvConfig } from "config/cv";
 import config from "config/site";
-import dynamic from "next/dynamic";
 import { FbContext } from "pages";
 import React, { useEffect, useRef } from "react";
-
-const ReactTypingEffect = dynamic(() => import("react-typing-effect"));
 
 const PREFIX = "SectionHome";
 const classes = {
@@ -202,7 +200,7 @@ const SectionHome = () => {
                 </Typography>
                 <span>
                     {"I'm a "}
-                    <ReactTypingEffect
+                    <TypingEffect
                         text={cvConfig.mainJob}
                         speed={100}
                         eraseSpeed={50}
