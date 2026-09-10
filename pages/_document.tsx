@@ -1,11 +1,11 @@
-import { DocumentHeadTags, DocumentHeadTagsProps, documentGetInitialProps } from "@mui/material-nextjs/v15-pagesRouter";
+import { DocumentHeadTags, DocumentHeadTagsProps, documentGetInitialProps } from "@mui/material-nextjs/v16-pagesRouter";
 import config from "config/site";
 import theme from "config/theme";
 import { Head, Html, Main, NextScript } from "next/document";
 
 export default function MyDocument(props: DocumentHeadTagsProps) {
     return (
-        <Html lang="en">
+        <Html lang="en" data-scroll-behavior="smooth">
             <Head>
                 {/* PWA primary color */}
                 <meta name="theme-color" content={theme.palette.primary.main} />

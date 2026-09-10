@@ -18,7 +18,4 @@ module.exports = {
         RECAPTCHA_KEY: process.env.RECAPTCHA_KEY,
         FB_USER_ID: process.env.FB_USER_ID,
     },
-    eslint: {
-        dirs: ["pages", "components", "config", "constants", "interfaces", "services"],
-    },
 };

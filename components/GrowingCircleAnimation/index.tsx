@@ -1,5 +1,5 @@
 import { debounce } from "@mui/material";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { throttle } from "utils/common";
 import styles from "./style.module.scss";
 
