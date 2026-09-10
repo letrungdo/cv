@@ -1,4 +1,4 @@
-import { AppCacheProvider } from "@mui/material-nextjs/v14-pagesRouter";
+import { AppCacheProvider } from "@mui/material-nextjs/v15-pagesRouter";
 import { StyledEngineProvider, ThemeProvider } from "@mui/material/styles";
 import "assets/styles/index.scss";
 import theme from "config/theme";
