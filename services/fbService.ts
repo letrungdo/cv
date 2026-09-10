@@ -1,3 +1,3 @@
-import { EnvConfig } from "./envConfig";
+import { ServerConfig } from "./serverConfig";
 
-export const getAccessToken = () => `${EnvConfig.fbAppID}|${EnvConfig.fbAppSecret}`;
+export const getAccessToken = () => `${ServerConfig.fbAppID}|${ServerConfig.fbAppSecret}`;

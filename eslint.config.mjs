@@ -38,6 +38,33 @@ const eslintConfig = [
             "@next/next/no-duplicate-head": "off",
         },
     }),
+    {
+        // API routes are server code: console is the log sink there, and
+        // gating it behind DEBUG_LOG hides real delivery failures.
+        files: ["pages/api/**/*.ts"],
+        rules: {
+            "no-console": "off",
+        },
+    },
+    {
+        // serverConfig holds secrets - importing it from client code would
+        // inline them into the browser bundle.
+        files: ["components/**/*.{ts,tsx}", "pages/**/*.tsx"],
+        rules: {
+            "no-restricted-imports": [
+                "error",
+                {
+                    patterns: ["../../*", "./../*"],
+                    paths: [
+                        {
+                            name: "services/serverConfig",
+                            message: "serverConfig contains secrets and must stay out of client code.",
+                        },
+                    ],
+                },
+            ],
+        },
+    },
 ];
 
 export default eslintConfig;

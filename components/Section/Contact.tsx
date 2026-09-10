@@ -117,6 +117,7 @@ const SectionContact = () => {
                 email,
                 subject,
                 message,
+                recaptchaToken: token,
             };
             logDev("onSubmit", data);
             const res = await api.post<BaseResponse>("/api/contact", data);

@@ -8,15 +8,15 @@ module.exports = {
             },
         ],
     },
+    // WARNING: everything listed here is inlined into the client bundle.
+    // Secrets (RESEND_API_KEY, RECAPTCHA_SECRET_KEY, FB_APP_SECRET, ...) must
+    // stay out of this block - read them server-side via services/serverConfig.
     env: {
         API_URL: process.env.API_URL,
         API_TIMEOUT: process.env.API_TIMEOUT,
         DEBUG_LOG: process.env.DEBUG_LOG,
-        SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
         RECAPTCHA_KEY: process.env.RECAPTCHA_KEY,
         FB_USER_ID: process.env.FB_USER_ID,
-        FB_APP_ID: process.env.FB_APP_ID,
-        FB_APP_SECRET: process.env.FB_APP_SECRET,
     },
     eslint: {
         dirs: ["pages", "components", "config", "constants", "interfaces", "services"],
