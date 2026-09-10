@@ -23,11 +23,11 @@
         "@emotion/server": "^11.11.0",
         "@emotion/styled": "^11.13.0",
         "@mui/material": "^5.16.7",
-        "@mui/material-nextjs": "^5.16.6",
-        "axios": "^1.7.5",
+        "@mui/material-nextjs": "^5.18.0",
+        "axios": "^1.18.0",
         "dayjs": "^1.11.13",
         "isotope-layout": "^3.0.6",
-        "next": "^14.2.6",
+        "next": "^15.5.25",
         "parallax-js": "^3.1.0",
         "react": "^18.3.1",
         "react-countup": "^6.3.0",
@@ -39,17 +39,19 @@
         "rss-parser": "^3.13.0",
         "sass": "^1.77.8",
         "scrollreveal": "^4.0.9",
-        "sharp": "^0.33.5"
+        "sharp": "^0.35.4"
     },
     "devDependencies": {
         "@commitlint/cli": "^19.4.0",
         "@commitlint/config-conventional": "^19.2.2",
         "@types/node": "^22.5.0",
+        "@types/react": "^18.3.31",
+        "@types/react-dom": "^18.3.7",
         "@types/react-typing-effect": "^2.0.7",
         "@types/scrollreveal": "^0.0.11",
         "@typescript-eslint/eslint-plugin": "^8.2.0",
         "eslint": "^9.9.1",
-        "eslint-config-next": "^14.2.6",
+        "eslint-config-next": "^15.5.25",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-prettier": "^5.2.1",
         "husky": "^9.1.5",
@@ -71,5 +73,10 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "resolutions": {
+        "postcss": "^8.5.28",
+        "@types/react": "^18.3.31",
+        "@types/react-dom": "^18.3.7"
     }
 }

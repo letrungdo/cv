@@ -1,4 +1,4 @@
-import { DocumentHeadTags, DocumentHeadTagsProps, documentGetInitialProps } from "@mui/material-nextjs/v14-pagesRouter";
+import { DocumentHeadTags, DocumentHeadTagsProps, documentGetInitialProps } from "@mui/material-nextjs/v15-pagesRouter";
 import config from "config/site";
 import theme from "config/theme";
 import { Head, Html, Main, NextScript } from "next/document";
